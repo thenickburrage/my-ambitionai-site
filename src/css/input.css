@@ -217,3 +217,8 @@
 .dark .prose strong {
     color: theme(colors.white);
 }
+
+/* Hero section - Creative X gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #f5d0fe 0%, #fce7f3 30%, #fff7ed 70%, #ffffff 100%);
+}
