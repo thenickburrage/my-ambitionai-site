@@ -1,0 +1,130 @@
+---
+import Base from '@/layouts/Base.astro';
+import Services from '@/components/sections/Services.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import Contact from '@/components/sections/Contact.astro';
+import { services, stats } from '@/data/site';
+---
+
+<Base title="Services" description="We offer a full range of creative services to help your business succeed.">
+  <!-- Page Header -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Our Services
+        </h1>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          We offer a comprehensive range of creative and digital services to help your business stand out,
+          connect with your audience, and achieve your goals.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-16 grid grid-cols-2 gap-8 border-t border-gray-200 pt-12 dark:border-gray-800 sm:grid-cols-4">
+        {stats.map((stat) => (
+          <div class="text-center">
+            <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">
+              {stat.value}
+            </div>
+            <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Services -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="space-y-24">
+        {services.map((service, index) => (
+          <div
+            class={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+          >
+            <!-- Content -->
+            <div class={index % 2 === 1 ? 'lg:order-2' : ''}>
+              <div class="mb-6 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-4 text-white shadow-lg shadow-primary-500/25">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <Fragment set:html={service.icon} />
+                </svg>
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+                {service.title}
+              </h2>
+              <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                {service.description}
+              </p>
+              {service.features && (
+                <ul class="mt-8 space-y-4">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-3">
+                      <svg class="mt-1 h-5 w-5 flex-shrink-0 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-gray-700 dark:text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <a
+                href="/contact"
+                class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary-500 hover:text-primary-600"
+              >
+                Get Started
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Visual -->
+            <div class={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30">
+                <div class="flex h-full items-center justify-center">
+                  <svg class="h-32 w-32 text-primary-300 dark:text-primary-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <Fragment set:html={service.icon} />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          Our Process
+        </h2>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          We follow a proven methodology to ensure every project is delivered on time and exceeds expectations.
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { step: '01', title: 'Discovery', description: 'We dive deep into your business, audience, and goals to understand what success looks like.' },
+          { step: '02', title: 'Strategy', description: 'We develop a comprehensive plan that aligns creative solutions with your business objectives.' },
+          { step: '03', title: 'Creation', description: 'Our team brings the strategy to life with stunning designs and flawless execution.' },
+          { step: '04', title: 'Launch', description: 'We deploy, test, and optimize to ensure a smooth launch and continued success.' },
+        ].map((phase) => (
+          <div class="relative rounded-2xl bg-white p-8 dark:bg-gray-800">
+            <span class="text-5xl font-bold text-gray-100 dark:text-gray-700">{phase.step}</span>
+            <h3 class="mt-4 text-xl font-bold text-gray-900 dark:text-white">{phase.title}</h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">{phase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <Contact />
+</Base>

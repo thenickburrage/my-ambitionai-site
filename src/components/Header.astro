@@ -1,0 +1,121 @@
+---
+import { site, nav, header, socialLinks } from '@/data/site';
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  data-header
+  class={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${transparent ? 'bg-transparent' : 'bg-white/95 shadow-sm backdrop-blur-sm dark:bg-gray-950/95'}`}
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+    <!-- Logo -->
+    <a href="/" class="relative z-10 flex items-center gap-2">
+      <img
+        src={site.logo.src}
+        alt={site.logo.alt}
+        class="h-8 w-auto dark:hidden"
+      />
+      <img
+        src={site.logo.srcLight}
+        alt={site.logo.alt}
+        class="hidden h-8 w-auto dark:block"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden items-center gap-8 lg:flex">
+      {nav.map((item) => (
+        <a
+          href={item.url}
+          class={`text-sm font-medium transition-colors hover:text-primary-500 ${
+            currentPath === item.url || currentPath.startsWith(item.url + '/')
+              ? 'text-primary-500'
+              : 'text-gray-700 dark:text-gray-300'
+          }`}
+        >
+          {item.text}
+        </a>
+      ))}
+    </div>
+
+    <!-- Right Side Actions -->
+    <div class="flex items-center gap-4">
+      <!-- Dark Mode Toggle -->
+      {header.darkMode && (
+        <button
+          type="button"
+          id="theme-toggle"
+          class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+          aria-label="Toggle dark mode"
+        >
+          <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </button>
+      )}
+
+      <!-- CTA Button (Desktop) -->
+      <a
+        href={header.cta.url}
+        class="hidden rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30 lg:inline-flex"
+      >
+        {header.cta.text}
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="rounded-lg p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 lg:hidden"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-200 bg-white px-4 py-6 dark:border-gray-800 dark:bg-gray-950 lg:hidden"
+  >
+    <div class="flex flex-col gap-4">
+      {nav.map((item) => (
+        <a
+          href={item.url}
+          class={`text-lg font-medium transition-colors hover:text-primary-500 ${
+            currentPath === item.url || currentPath.startsWith(item.url + '/')
+              ? 'text-primary-500'
+              : 'text-gray-900 dark:text-white'
+          }`}
+        >
+          {item.text}
+        </a>
+      ))}
+      <div class="mt-4 border-t border-gray-200 pt-4 dark:border-gray-800">
+        <a
+          href={header.cta.url}
+          class="inline-flex w-full justify-center rounded-full bg-primary-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          {header.cta.text}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class={transparent ? '' : 'h-[72px]'}></div>
