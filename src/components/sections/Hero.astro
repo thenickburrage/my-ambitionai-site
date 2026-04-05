@@ -14,17 +14,17 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-30 dark:opacity-20">
-    <div class="absolute -left-4 top-0 h-72 w-72 rounded-full bg-primary-500 blur-[128px]"></div>
-    <div class="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-accent-500 blur-[128px]"></div>
+<section class="relative overflow-hidden hero-gradient">
+  <!-- Radial glow overlays -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="absolute -left-20 top-0 h-96 w-96 rounded-full bg-primary-300 blur-[120px]"></div>
+    <div class="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-accent-200 blur-[120px]"></div>
   </div>
 
-  <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+  <div class="relative mx-auto max-w-7xl px-4 py-28 lg:px-8 lg:py-40">
     <div class="mx-auto max-w-4xl text-center">
       <!-- Badge -->
-      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-700 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-300 bg-white/70 px-4 py-1.5 text-sm font-medium text-primary-600 backdrop-blur-sm">
         <span class="relative flex h-2 w-2">
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
           <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
@@ -34,12 +34,12 @@ const {
 
       <!-- Title -->
       <h1
-        class="text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl"
+        class="text-5xl font-bold leading-tight tracking-tight text-gray-900 sm:text-6xl lg:text-7xl"
         set:html={title}
       />
 
       <!-- Subtitle -->
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400 lg:text-xl">
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 lg:text-xl">
         {subtitle}
       </p>
 
@@ -56,7 +56,7 @@ const {
         </a>
         <a
           href="/contact"
-          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700"
+          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white/80 px-8 py-4 text-base font-semibold text-gray-700 backdrop-blur-sm transition-all hover:border-gray-400 hover:bg-white"
         >
           Start a Project
         </a>
@@ -65,13 +65,13 @@ const {
 
     <!-- Stats -->
     {showStats && (
-      <div class="mt-20 grid grid-cols-2 gap-8 border-t border-gray-200 pt-12 dark:border-gray-800 sm:grid-cols-4">
+      <div class="mt-20 grid grid-cols-2 gap-8 border-t border-gray-200/60 pt-12 sm:grid-cols-4">
         {stats.map((stat) => (
           <div class="text-center">
-            <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">
+            <div class="text-3xl font-bold text-gray-900 lg:text-4xl">
               {stat.value}
             </div>
-            <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            <div class="mt-1 text-sm text-gray-600">
               {stat.label}
             </div>
           </div>
