@@ -1,1 +1,32 @@
-<h1>HELLO WORLD - THIS IS THE NEW SITE</h1>
+---
+import Base from '@/layouts/Base.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Services from '@/components/sections/Services.astro';
+import Portfolio from '@/components/sections/Portfolio.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import Contact from '@/components/sections/Contact.astro';
+import { awards } from '@/data/site';
+---
+
+<Base title="Home">
+  <Hero />
+
+  <!-- Clients/Awards Bar -->
+  <section class="border-y border-gray-200 bg-white py-8 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
+        {awards.map((award) => (
+          <div class="text-center">
+            <div class="text-sm font-semibold text-gray-900 dark:text-white">{award.name}</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400">{award.year}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Services />
+  <Portfolio />
+  <Testimonials />
+  <Contact />
+</Base>
