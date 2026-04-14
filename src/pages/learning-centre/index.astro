@@ -1,0 +1,196 @@
+---
+import { env } from 'cloudflare:workers';
+import Base from '@/layouts/Base.astro';
+import { categories } from '@/data/categories';
+
+const PAGE_SIZE = 12;
+const page = Math.max(0, parseInt(Astro.url.searchParams.get('page') ?? '0'));
+
+const db = env.DB as D1Database;
+
+// Get total count
+const countResult = await db
+  .prepare(`SELECT COUNT(*) as total FROM ec_posts WHERE status = 'published' AND deleted_at IS NULL`)
+  .first<{ total: number }>();
+const total = countResult?.total ?? 0;
+const totalPages = Math.ceil(total / PAGE_SIZE);
+const hasNext = page < totalPages - 1;
+const hasPrev = page > 0;
+
+// Get this page's posts
+type PostRow = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  featured_image: string | null;
+  post_date: string | null;
+  published_at: string | null;
+  created_at: string;
+};
+
+const { results: posts } = await db
+  .prepare(
+    `SELECT id, slug, title, excerpt, featured_image, post_date, published_at, created_at
+     FROM ec_posts
+     WHERE status = 'published' AND deleted_at IS NULL
+     ORDER BY COALESCE(post_date, published_at, created_at) DESC
+     LIMIT ? OFFSET ?`
+  )
+  .bind(PAGE_SIZE, page * PAGE_SIZE)
+  .all<PostRow>();
+
+function parseImage(raw: string | null): { src: string; alt: string } | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as { src?: string; alt?: string };
+    return parsed.src ? { src: parsed.src, alt: parsed.alt ?? '' } : null;
+  } catch {
+    return null;
+  }
+}
+
+function cleanExcerpt(raw: string | null): string | null {
+  if (!raw) return null;
+  // Discard WordPress shortcodes and HTML markup
+  if (raw.includes('[vc_') || raw.includes('[/vc') || raw.startsWith('[')) return null;
+  if (raw.includes('<') && raw.includes('>')) return null;
+  return raw.trim() || null;
+}
+
+function formatDate(val: string | null): string {
+  if (!val) return '';
+  return new Date(val).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+---
+
+<Base
+  title="Learning Centre"
+  description="Expert guides, strategies and insights to help service businesses grow faster with AI and proven marketing systems."
+>
+  <!-- Header -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl" style="font-family: var(--font-display)">
+          Learning Centre
+        </h1>
+        <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+          Expert guides, strategies and insights to help service businesses grow faster with AI and proven marketing systems.
+        </p>
+        {total > 0 && (
+          <p class="mt-2 text-sm text-gray-400 dark:text-gray-500">{total} articles</p>
+        )}
+      </div>
+
+      <!-- Category filter pills -->
+      <div class="mt-10 -mx-4 overflow-x-auto px-4 lg:mx-0 lg:px-0">
+        <div class="flex min-w-max items-center justify-center gap-2 pb-2">
+          <span class="inline-flex items-center rounded-full border border-primary-500 bg-primary-500 px-4 py-2 text-sm font-medium text-white">
+            All
+          </span>
+          {categories.map((cat) => (
+            <a
+              href={`/category/${cat.slug}/`}
+              class="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 transition-all hover:border-primary-500 hover:text-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
+            >
+              {cat.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts grid -->
+  <section class="bg-white py-16 dark:bg-gray-950 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      {posts.length === 0 ? (
+        <p class="text-center text-gray-500 dark:text-gray-400">No articles yet — check back soon.</p>
+      ) : (
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => {
+            const image = parseImage(post.featured_image);
+            const date = formatDate(post.post_date ?? post.published_at);
+            return (
+              <article class="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+                {image && (
+                  <div class="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <img
+                      src={image.src}
+                      alt={image.alt || post.title}
+                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div class="flex flex-1 flex-col p-6">
+                  {date && (
+                    <time class="mb-3 block text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                      {date}
+                    </time>
+                  )}
+                  <h2 class="text-lg font-normal leading-snug text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400" style="font-family: var(--font-display)">
+                    <a href={`/${post.slug}/`} class="stretched-link">
+                      {post.title}
+                    </a>
+                  </h2>
+                  {cleanExcerpt(post.excerpt) && (
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400 line-clamp-3">
+                      {cleanExcerpt(post.excerpt)}
+                    </p>
+                  )}
+                  <span class="mt-4 text-sm font-semibold text-primary-500">Read more →</span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+
+      <!-- Pagination -->
+      {totalPages > 1 && (
+        <div class="mt-12 flex flex-col items-center gap-4">
+          <div class="flex items-center gap-3">
+            {hasPrev && (
+              <a
+                href={page === 1 ? '/learning-centre/' : `/learning-centre/?page=${page - 1}`}
+                class="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800"
+              >
+                ← Newer articles
+              </a>
+            )}
+            <span class="text-sm text-gray-400">
+              Page {page + 1} of {totalPages}
+            </span>
+            {hasNext && (
+              <a
+                href={`/learning-centre/?page=${page + 1}`}
+                class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+              >
+                More articles →
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">Want results, not just reading material?</h2>
+      <a
+        href="/contact/"
+        class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100"
+      >
+        Book your free Explore Call
+      </a>
+    </div>
+  </section>
+</Base>

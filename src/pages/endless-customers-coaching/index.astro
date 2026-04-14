@@ -1,0 +1,595 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO  = '2026-04-08';
+const updatedISO    = '2026-04-12';
+const publishedDate = new Date(publishedISO).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const updatedDate   = new Date(updatedISO).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/endless-customers-coaching/#webpage",
+      "url": "https://theambitionsagency.com/endless-customers-coaching/",
+      "name": "Endless Customers™ Coaching | Ambitions AI",
+      "description": "Get the full Endless Customers™ programme installed in your business. Transform how you sell and grow beyond what you thought was possible. Coached by Nick Burrage, one of 37 certified coaches worldwide.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Endless Customers™ Coaching", "item": "https://theambitionsagency.com/endless-customers-coaching/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/endless-customers-coaching/#service",
+      "name": "Endless Customers™ Coaching",
+      "description": "Get the full Endless Customers™ programme installed in your business. Transform how you sell, align your whole team, and grow beyond what you thought was possible. Coached by Nick Burrage, one of 37 certified Endless Customers™ coaches worldwide.",
+      "image": "https://theambitionsagency.com/images/ENDLESS.jpg",
+      "url": "https://theambitionsagency.com/endless-customers-coaching/",
+      "serviceType": "Business Coaching",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "1500",
+        "priceCurrency": "GBP",
+        "description": "Starting price per month",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "jobTitle": "Certified Endless Customers™ Coach",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" },
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "Certified Endless Customers™ Coach",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Impact",
+          "url": "https://www.impactplus.com"
+        }
+      },
+      "sameAs": ["https://www.linkedin.com/in/nicholas-burrage-digital-marketing"]
+    }
+  ]
+};
+---
+
+<Base
+  title="Endless Customers™ Coaching"
+  description="Get the full Endless Customers™ programme installed in your business. Transform how you sell and grow beyond what you thought was possible. Coached by Nick Burrage, one of 37 certified Endless Customers™ coaches worldwide."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-4 top-0 h-72 w-72 rounded-full bg-primary-500 blur-[128px]"></div>
+      <div class="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-accent-500 blur-[128px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-4xl px-4 py-24 text-center lg:px-8 lg:py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Endless Customers™ Coaching</p>
+      <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+        Endless Customers™ Coaching: Get the Full Programme Installed in Your Business,
+        <em class="mt-2 block text-3xl italic text-primary-500 sm:text-4xl lg:text-5xl">
+          Transform How You Sell, and Grow Beyond What You Thought Was Possible.
+        </em>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        12 April 2026
+      </span>
+    </div>
+  </div>
+
+
+  <!-- ======================================================
+       INTRO — framing / who this is for
+  ====================================================== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl text-gray-900 lg:text-4xl">
+        You Have Dreamed of Implementing Endless Customers™ in Your Business. But It Just Hasn't Happened.
+      </h2>
+
+      <div class="mt-8 space-y-5 text-lg leading-relaxed text-gray-600">
+        <p>
+          This page is for you if you are a business owner or leader who has already encountered the They Ask You Answer / Endless Customers™ methodology, knows it is the right thing to do, and has not yet been able to make it work.
+        </p>
+        <p>
+          It is also for you if your website generates no leads, your growth feels random, and you are tired of trying things that do not stick.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        <div class="rounded-2xl border border-primary-100 bg-primary-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Purpose</p>
+          <p class="mt-2 text-gray-700">
+            This page will help you decide whether Endless Customers™ coaching with me, Nick Burrage, is the right next step for your business.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Promise</p>
+          <p class="mt-2 text-gray-700">
+            By the time you finish reading, you will know exactly what the programme involves, what results my clients have achieved, and whether it is right for you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       PROBLEM — why businesses fail without a coach
+  ====================================================== -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        Why Do So Many Businesses Fail to Implement Endless Customers™ Without a Coach?
+      </h2>
+
+      <div class="mt-6 rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Quick answer</p>
+        <p class="mt-3 text-lg text-gray-700 dark:text-gray-300">
+          Endless Customers™ is a simple principle. That does not make it easy to do. Every business that has tried to implement it without a coach has hit the same invisible wall: not a lack of understanding, but a lack of sustained execution.
+        </p>
+      </div>
+
+      <p class="mt-8 text-lg text-gray-600 dark:text-gray-400">
+        I hear the same things again and again from business owners who come to me after trying it alone. See if any of these sound familiar.
+      </p>
+
+      <div class="mt-6 space-y-4">
+        {[
+          'We started publishing content and it went really well for a couple of months. Then it just petered out. Nobody had time and we never got back to it.',
+          'We love the whole idea of Endless Customers™. We just never had the time to do it properly alongside running the business.',
+          'We know we should be talking about our pricing online. We just do not know how to do it in a way that feels safe and comfortable. And yet somehow our main competitor manages it brilliantly.',
+        ].map((quote) => (
+          <blockquote class="relative rounded-2xl border-l-4 border-primary-500 bg-white py-5 pl-6 pr-6 shadow-sm dark:bg-gray-800">
+            <p class="text-lg italic text-gray-700 dark:text-gray-300 before:content-['\u2018'] after:content-['\u2019']">{quote}</p>
+          </blockquote>
+        ))}
+      </div>
+
+      <p class="mt-8 text-lg text-gray-600 dark:text-gray-400">
+        These are not failures of ambition. They are entirely predictable outcomes when a methodology that requires sustained organisational change is attempted without structure, accountability or an experienced guide.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       NICK BURRAGE — guide section
+  ====================================================== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 lg:px-8">
+      <div class="lg:grid lg:grid-cols-5 lg:gap-12 lg:items-start">
+
+        <!-- Photo column -->
+        <div class="mb-10 lg:col-span-2 lg:mb-0">
+          <div class="overflow-hidden rounded-2xl shadow-xl">
+            <img
+              src="/images/NICK_B.png"
+              alt="Nick Burrage, Certified Endless Customers™ Coach"
+              class="h-full w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        <!-- Text column -->
+        <div class="lg:col-span-3">
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Meet your coach</p>
+          <h2 class="mt-3 text-3xl text-gray-900 lg:text-4xl">
+            Nick Burrage: The Endless Customers™ Coach Who Transforms How Your Business Thinks, Sells and Grows.
+          </h2>
+
+          <p class="mt-6 text-lg leading-relaxed text-gray-600">
+            I am a certified Endless Customers™ coach and the founder of Ambitions AI, a full-service AI-powered marketing agency. The agency is there if you need it, and entirely optional if you do not. What you are investing in here is the coaching, and that stands completely on its own.
+          </p>
+
+          <!-- Sub-section: Samsung / Ford -->
+          <div class="mt-8">
+            <h3 class="text-xl text-gray-900">I Want to Give You the Kind of Power That Used to Belong Only to the Biggest Brands.</h3>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              Earlier in my career I was Creative Director for Samsung's UK marketing operation and part of the Ford Global Brand Leadership Team, sitting inside two of the most powerful brands on the planet.
+            </p>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              What genuinely excites me about Endless Customers™ is that a smaller business with the bravery to be honest, open and genuinely useful to its buyers can overtake a much bigger, more established competitor. I have seen it happen.
+            </p>
+          </div>
+
+          <!-- Pull-out quote -->
+          <figure class="my-8 border-l-4 border-primary-500 pl-6">
+            <blockquote>
+              <p class="font-display text-xl italic leading-snug text-gray-900 lg:text-2xl">
+                "A smaller business with the bravery to be honest can overtake a much bigger, more established competitor. I have seen it happen."
+              </p>
+            </blockquote>
+            <figcaption class="mt-3 text-sm font-semibold text-primary-500">Nick Burrage</figcaption>
+          </figure>
+
+          <!-- Sub-section: Marcus Sheridan -->
+          <div>
+            <h3 class="text-xl text-gray-900">Training With Marcus Sheridan Was Honestly Terrifying. It Was Also the Most Transformative Professional Experience of My Career.</h3>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              My certification came directly from Marcus and his team at Impact, on the same programme their own coaches go through. Face-to-face sessions with Marcus himself. Rigorous testing. The best part of a year.
+            </p>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Nothing in my career came close to it for depth, challenge and practical impact. It was designed with one purpose: to make sure every client gets exceptional results.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       THREE STEPS
+  ====================================================== -->
+  <section id="three-steps" class="bg-gradient-to-br from-primary-500 to-accent-500 py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 lg:px-8">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/70">How it works</p>
+        <h2 class="mt-3 text-3xl text-white lg:text-4xl">
+          Three Steps to Becoming the Most Trusted Business in Your Market.
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-3">
+        {[
+          {
+            step: '01',
+            title: 'Press the Start Now Button.',
+            body: 'That single action begins everything. It opens an honest conversation about where your business is now, where you want it to be, and whether Endless Customers™ coaching is the right way to get there. No pitch. No pressure. Just clarity.',
+          },
+          {
+            step: '02',
+            title: 'Watch Your Revenue Team Spring to Life.',
+            body: 'Your whole team — leadership, sales, content and video — comes together with a shared mission and a clear plan. From day one, every person in your business who holds knowledge becomes a sharer of it. An educator. A trust builder.',
+          },
+          {
+            step: '03',
+            title: 'Watch Trust Grow, Traffic Flow and Sales Explode.',
+            body: 'Month by month, your business becomes the most known and trusted voice in your market. Leads arrive warmer. Sales cycles shorten. And the results keep building long after the coaching ends.',
+          },
+        ].map(({ step, title, body }) => (
+          <div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+            <p class="font-display text-4xl font-normal text-white/30">{step}</p>
+            <h3 class="mt-3 text-lg text-white">{title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/80">{body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100"
+        >
+          Start Now
+        </a>
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white/50 hover:bg-white/10"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       OUTCOMES — imagine having the business you dreamed of
+  ====================================================== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 lg:px-8">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Where you end up</p>
+        <h2 class="mt-3 text-3xl text-gray-900 lg:text-4xl">
+          Finally, Imagine Having the Business You Always Dreamed Of.
+        </h2>
+        <p class="mt-4 text-lg text-gray-500">This is not a list of things we do together. It is a picture of where you end up.</p>
+      </div>
+
+      <div class="mt-12 space-y-6">
+        {[
+          {
+            title: 'Your Whole Team Is Aligned, Energised and Unstoppable.',
+            body: 'Leadership, sales, marketing and content creators all share one mission. Everyone understands their role. The revenue team is real, committed and capable. From day one, the culture of your business begins to shift in ways you will feel immediately.',
+            link: 'What Happens on Day One of Endless Customers™ Coaching?',
+          },
+          {
+            title: 'Your Sales Team Arrives at Every Conversation With Buyers Who Already Trust Them.',
+            body: 'Warm leads. Informed buyers. Shorter sales cycles. Your salespeople stop dreading cold conversations and start arriving at meetings where the buyer has already decided you are the right choice. They just needed to meet you.',
+            link: 'How Endless Customers™ Coaching Transforms Your Sales Process.',
+          },
+          {
+            title: 'Your Content Finally Becomes the Bravest, Most Trusted Voice in Your Market.',
+            body: 'You publish the honest comparison. You talk openly about price. You answer the questions buyers are asking at midnight before a big decision. And buyers find you, trust you and choose you because of it.',
+            link: 'What Brave Endless Customers™ Content Looks Like in Practice.',
+          },
+          {
+            title: 'Your Video Content Makes Buyers Feel Like They Already Know You.',
+            body: 'Buyers feel like they know you before they have ever spoken to you. Your team appears on camera with confidence, clarity and purpose. Your video output compounds in value month after month.',
+            link: 'The Seven Videos That Drive the Most Leads and Sales.',
+          },
+          {
+            title: 'Every Quarter: Direction, Momentum, Mastery.',
+            body: 'Four times a year the whole revenue team comes together to celebrate wins, solve problems and set the direction for the next chapter. The programme evolves as your business does.',
+            link: null,
+          },
+        ].map(({ title, body, link }) => (
+          <div class="group rounded-2xl border border-gray-100 bg-gray-50 p-6 transition-shadow hover:shadow-md">
+            <h3 class="text-xl text-gray-900">{title}</h3>
+            <p class="mt-3 leading-relaxed text-gray-600">{body}</p>
+            {link && (
+              <a href="/learning-centre/" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary-500 hover:text-primary-600">
+                Discover More: {link} →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       RESULTS — success stories
+  ====================================================== -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 lg:px-8">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Real results</p>
+        <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+          Behind Every Endless Customers™ Success Story Is a Transformed Life.
+        </h2>
+      </div>
+
+      <p class="mx-auto mt-6 max-w-3xl text-center text-lg text-gray-600 dark:text-gray-400">
+        I was at <a href="https://www.endlesscustomers.com/live/chicago/2026" target="_blank" rel="noopener" class="font-semibold text-primary-500 hover:text-primary-600">Endless Customers™ 2026 in Chicago</a> just recently, where hundreds of businesses and coaches came together to share results, learn from Marcus and the team, and push the methodology further. The stories I heard there only deepened my conviction that this system is the most powerful thing available to any service business today.
+      </p>
+
+      <!-- Pull-out quote -->
+      <figure class="my-10 mx-auto max-w-2xl text-center">
+        <blockquote>
+          <p class="font-display text-2xl italic leading-snug text-gray-900 dark:text-white lg:text-3xl">
+            "Less stressed. Happier. Better relationships at home. And a business that grows while they sleep."
+          </p>
+        </blockquote>
+        <figcaption class="mt-4 text-sm font-semibold uppercase tracking-widest text-primary-500">What I see in every founder I work with</figcaption>
+      </figure>
+
+      <p class="mx-auto max-w-3xl text-center text-lg text-gray-600 dark:text-gray-400">
+        I see it in every founder I work with. The change is not just commercial. It is personal. It is profound. And it starts sooner than most people expect.
+      </p>
+
+      <!-- Case study cards -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            company: 'Dental ClaimSupport',
+            result: 'A New Record. Every Single Month.',
+            body: 'Traffic through the roof. Organic leads pouring in. A sales process transformed from top to bottom.',
+            quote: 'The coaching is the biggest asset. It is holding us accountable, and that is what I love.',
+          },
+          {
+            company: 'Aquila Commercial',
+            result: 'From Zero Quality Leads to 200 a Month.',
+            body: 'A small real estate startup in Austin Texas used Endless Customers™ to take on firms ten times their size. A 1,050% increase in web traffic and an 11,350% increase in leads.',
+            quote: 'We are the envy of all of our competitors.',
+          },
+          {
+            company: 'Katherine Brown',
+            result: 'Turnover Doubled to £1.2 Million in Year One.',
+            body: 'Katherine runs a high-end curtains and blinds business in the UK. In her first year with Ambitions AI she doubled her turnover to £1.2 million.',
+            quote: null,
+          },
+          {
+            company: 'Jeffrey Linta Roofing',
+            result: 'From Six Employees to Twenty-One. From Top Fifteen to Top Three.',
+            body: 'Three years into the programme: six employees became twenty-one, 250 roof replacements a year became 450, revenue tracked toward $8 million.',
+            quote: 'You do not know what you do not know. There are so many layers to actually applying those principles and bringing it to life.',
+          },
+          {
+            company: 'Kalen\'s Plumbing',
+            result: 'From Barely Breaking Even to $80,000 Profit Every Single Month.',
+            body: 'Twelve months into the Endless Customers™ coaching programme he was generating $80,000 profit every single month.',
+            quote: 'I did not think that was possible for a business like mine.',
+          },
+          {
+            company: 'Marshall and Stewart',
+            result: 'A $45,000 Sale From a Single Honest Article.',
+            body: 'A woman walked into the store, told them she had been minutes away from buying a Hastens bed, read their honest comparison article, changed her mind, and paid $45,000 thirty minutes later.',
+            quote: 'His first ever sale through digital marketing.',
+          },
+        ].map(({ company, result, body, quote }) => (
+          <div class="flex flex-col rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+            <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">{company}</p>
+            <h3 class="mt-2 text-lg text-gray-900 dark:text-white">{result}</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{body}</p>
+            {quote && (
+              <blockquote class="mt-4 border-t border-gray-100 pt-4 dark:border-gray-700">
+                <p class="text-sm italic text-gray-500 dark:text-gray-400 before:content-['\u2018'] after:content-['\u2019']">{quote}</p>
+              </blockquote>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       URGENCY — competitors section
+  ====================================================== -->
+  <section class="bg-gray-950 py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8 text-center">
+      <h2 class="text-3xl text-white lg:text-4xl">
+        Will Your Competitors Discover Endless Customers™ Before You Do?
+      </h2>
+
+      <p class="mt-6 text-lg leading-relaxed text-gray-400">
+        While you are figuring it out, the business down the road is publishing honest answers, showing up in AI search, and arriving at sales conversations with buyers who already trust them.
+      </p>
+
+      <!-- Pull-out quote 1 -->
+      <figure class="my-10">
+        <blockquote>
+          <p class="font-display text-2xl italic text-primary-400 lg:text-3xl">
+            "Every month that passes, that gap gets wider."
+          </p>
+        </blockquote>
+      </figure>
+
+      <p class="text-lg leading-relaxed text-gray-400">
+        The other path is staying exactly where you are. Random months. Unpredictable growth. Marketing spend that stops working the moment you stop paying for it.
+      </p>
+
+      <!-- Pull-out quote 2 -->
+      <figure class="my-10">
+        <blockquote>
+          <p class="font-display text-2xl italic text-white lg:text-3xl">
+            "You already know there is a better way. You would not be reading this page if you did not."
+          </p>
+        </blockquote>
+      </figure>
+
+      <a
+        href="/contact/"
+        class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/30 transition-all hover:bg-primary-600"
+      >
+        Start Now
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FAQ
+  ====================================================== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl text-gray-900 lg:text-4xl">FAQ</h2>
+
+      <div class="mt-8 divide-y divide-gray-100">
+        {[
+          {
+            q: 'Is This the Same as They Ask You Answer Coaching?',
+            a: 'They Ask You Answer / Endless Customers™ is the same core methodology, evolved for the age of AI search. The principles you loved in the original book are all here, and more powerful than ever.',
+          },
+          {
+            q: 'Do I Need to Have Read the Book to Join?',
+            a: 'Not at all. Many clients arrive with no prior knowledge. We start from exactly where you are.',
+          },
+          {
+            q: 'How Much Does Endless Customers™ Coaching Cost?',
+            a: 'Prices start at $2,000 / £1,500 per month. For a full breakdown of everything included, visit our dedicated pricing page.',
+            linkText: 'How Much Does Endless Customers™ Coaching Cost?',
+            linkHref: '/pricing/',
+          },
+          {
+            q: 'How Much of My Time Does This Require?',
+            a: 'A weekly session of 60 to 90 minutes, plus quarterly full team planning sessions. I make sure you have the capacity before we commit to anything.',
+          },
+          {
+            q: 'Can I Do Just the Coaching Without the Full Ambitions AI Blueprint?',
+            a: "Absolutely. Coaching is a standalone service and many clients use it that way. The 'Explore Call' will help us work out what is right for your business.",
+          },
+        ].map(({ q, a, linkText, linkHref }) => (
+          <div class="py-6">
+            <h3 class="text-lg text-gray-900">{q}</h3>
+            <p class="mt-3 leading-relaxed text-gray-600">
+              {a}
+              {linkText && linkHref && (
+                <> <a href={linkHref} class="font-semibold text-primary-500 hover:text-primary-600">{linkText}</a></>
+              )}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FINAL CTA
+  ====================================================== -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">
+        The Most Trusted Business in Your Market Is Winning Every Day.
+      </h2>
+      <p class="mt-6 text-lg text-white/80">
+        Every day that passes, they get a little further ahead. The good news: this is fixable, it has been fixed for businesses just like yours across the UK and USA, and the first conversation costs nothing.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100"
+        >
+          Book Your Free Explore Call
+        </a>
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white/50 hover:bg-white/10"
+        >
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>

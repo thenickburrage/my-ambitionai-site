@@ -1,0 +1,195 @@
+---
+import { env } from 'cloudflare:workers';
+import Base from '@/layouts/Base.astro';
+import { categories } from '@/data/categories';
+
+const { slug } = Astro.params;
+
+const category = categories.find((c) => c.slug === slug);
+if (!category) return Astro.redirect('/learning-centre/', 302);
+
+const db = env.DB as D1Database;
+
+type PostRow = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  featured_image: string | null;
+  post_date: string | null;
+  published_at: string | null;
+  created_at: string;
+};
+
+const { results: posts } = await db
+  .prepare(
+    `SELECT p.id, p.slug, p.title, p.excerpt, p.featured_image, p.post_date, p.published_at, p.created_at
+     FROM ec_posts p
+     INNER JOIN content_taxonomies ct ON ct.entry_id = p.id AND ct.collection = 'posts'
+     WHERE ct.taxonomy_id = ?
+       AND p.status = 'published'
+       AND p.deleted_at IS NULL
+     ORDER BY COALESCE(p.post_date, p.published_at, p.created_at) DESC`
+  )
+  .bind(category.taxId)
+  .all<PostRow>();
+
+function parseImage(raw: string | null): { src: string; alt: string } | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as { src?: string; alt?: string };
+    return parsed.src ? { src: parsed.src, alt: parsed.alt ?? '' } : null;
+  } catch {
+    return null;
+  }
+}
+
+function cleanExcerpt(raw: string | null): string | null {
+  if (!raw) return null;
+  if (raw.includes('[vc_') || raw.includes('[/vc') || raw.startsWith('[')) return null;
+  if (raw.includes('<') && raw.includes('>')) return null;
+  return raw.trim() || null;
+}
+
+function formatDate(val: string | null): string {
+  if (!val) return '';
+  return new Date(val).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `https://theambitionsagency.com/category/${category.slug}/#webpage`,
+      "url": `https://theambitionsagency.com/category/${category.slug}/`,
+      "name": `${category.label} — Ambitions AI Learning Centre`,
+      "description": category.description,
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Learning Centre", "item": "https://theambitionsagency.com/learning-centre/" },
+          { "@type": "ListItem", "position": 3, "name": category.label, "item": `https://theambitionsagency.com/category/${category.slug}/` }
+        ]
+      }
+    }
+  ]
+};
+---
+
+<Base
+  title={category.label}
+  metaTitle={`${category.label} — Ambitions AI Learning Centre`}
+  description={category.description}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- Header -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+          <a href="/learning-centre/" class="hover:text-primary-500 transition-colors">Learning Centre</a>
+        </p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          {category.label}
+        </h1>
+        <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+          {category.description}
+        </p>
+        {posts.length > 0 && (
+          <p class="mt-2 text-sm text-gray-400 dark:text-gray-500">{posts.length} article{posts.length !== 1 ? 's' : ''}</p>
+        )}
+      </div>
+
+      <!-- Category filter pills -->
+      <div class="mt-10 -mx-4 overflow-x-auto px-4 lg:mx-0 lg:px-0">
+        <div class="flex min-w-max items-center justify-center gap-2 pb-2">
+          <a
+            href="/learning-centre/"
+            class="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 transition-all hover:border-primary-500 hover:text-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
+          >
+            All
+          </a>
+          {categories.map((cat) => (
+            <a
+              href={`/category/${cat.slug}/`}
+              class={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                cat.slug === category.slug
+                  ? 'border-primary-500 bg-primary-500 text-white'
+                  : 'border-gray-300 bg-white text-gray-600 hover:border-primary-500 hover:text-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300'
+              }`}
+            >
+              {cat.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts grid -->
+  <section class="bg-white py-16 dark:bg-gray-950 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      {posts.length === 0 ? (
+        <p class="text-center text-gray-500 dark:text-gray-400">No articles in this category yet — check back soon.</p>
+      ) : (
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => {
+            const image = parseImage(post.featured_image);
+            const date = formatDate(post.post_date ?? post.published_at);
+            return (
+              <article class="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+                {image && (
+                  <div class="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <img
+                      src={image.src}
+                      alt={image.alt || post.title}
+                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div class="flex flex-1 flex-col p-6">
+                  {date && (
+                    <time class="mb-3 block text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                      {date}
+                    </time>
+                  )}
+                  <h2 class="text-lg font-normal leading-snug text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400" style="font-family: var(--font-display)">
+                    <a href={`/${post.slug}/`} class="stretched-link">
+                      {post.title}
+                    </a>
+                  </h2>
+                  {cleanExcerpt(post.excerpt) && (
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-gray-600 line-clamp-3 dark:text-gray-400">
+                      {cleanExcerpt(post.excerpt)}
+                    </p>
+                  )}
+                  <span class="mt-4 text-sm font-semibold text-primary-500">Read more →</span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">Want results, not just reading material?</h2>
+      <a
+        href="/contact/"
+        class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100"
+      >
+        Book your free Explore Call
+      </a>
+    </div>
+  </section>
+</Base>

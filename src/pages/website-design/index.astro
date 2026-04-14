@@ -1,0 +1,716 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-11';
+const updatedISO   = '2026-04-11';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/website-design/#webpage",
+      "url": "https://theambitionsagency.com/website-design/",
+      "name": "Website Design That Actually Delivers | Ambitions AI",
+      "description": "We build websites that generate leads, build trust and close sales — designed for AI search and real buyers. From £10,000. Book your free Explore Call.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",            "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Website Design",  "item": "https://theambitionsagency.com/website-design/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/website-design/#service",
+      "name": "Website Design for Service Businesses",
+      "description": "We build websites that generate leads, build trust and close sales — designed for AI search and real buyers.",
+      "serviceType": "Website Design",
+      "url": "https://theambitionsagency.com/website-design/",
+      "image": "https://theambitionsagency.com/images/NICKB.webp",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "10000",
+          "maxPrice": "20000",
+          "priceCurrency": "GBP",
+          "description": "Complete done-for-you website design and build"
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="Website Design"
+  metaTitle="Website Design That Actually Delivers | Ambitions AI"
+  description="We build websites that generate leads, build trust and close sales — designed for AI search and real buyers. From £10,000. Book your free Explore Call."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Website Design</p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Website Design That Actually<br class="hidden sm:block" />
+          <em class="italic text-primary-500">Delivers.</em>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          When a website is really working, something magical happens. The whole team falls in love with it. People start having ideas. They hear the phone ringing. They see the leads coming in. They want to be part of it. That is what a successful website looks like. And it is what we build.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        12 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PROBLEM AND STAKES
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Things I hear all the time.
+        </h2>
+
+        <div class="mt-12 space-y-6" data-animate>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We have got a website, Nick. It looks fine. But honestly, it never really does anything.'
+            </p>
+          </blockquote>
+
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'I have heard our competitors get leads from their website. Ours just sits there.'
+            </p>
+          </blockquote>
+
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We spent good money on it a couple of years ago. I am not sure anyone has checked the enquiry inbox in months.'
+            </p>
+          </blockquote>
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-primary-50 px-8 py-6 dark:bg-primary-900/20" data-animate>
+          <p class="text-gray-700 dark:text-gray-300 lg:text-lg">
+            If any of that sounds familiar, you are not alone. I hear it constantly. And every single time, it makes me a little sad — because <strong class="text-gray-900 dark:text-white">the businesses saying it are brilliant at what they do</strong>. They just do not yet have the tools to show the world how good they are.
+          </p>
+          <p class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
+            So — is your website working as hard as you are?
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THE GUIDE STEPS IN
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <!-- Text + Photo: balanced two columns -->
+      <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <div data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Your guide</p>
+          <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+            I am not a developer. I am not a designer. I am a business owner who needed his website to work.
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none text-gray-600 dark:text-gray-400">
+            <p>I am Nick Burrage. I have never written a line of code in my life. What I have always cared about is commercial results. I did not build a website because it made me feel good. I built it because it is how I grow my business. And I take exactly the same view with every client I work with.</p>
+          </div>
+          <div class="mt-6 rounded-xl border-l-4 border-primary-500 bg-white pl-6 py-4 dark:bg-gray-800">
+            <p class="italic text-gray-700 dark:text-gray-300">A website is not an ornament. It is a hard-working business asset.</p>
+          </div>
+          <div class="prose dark:prose mt-6 max-w-none text-gray-600 dark:text-gray-400">
+            <p>That philosophy is why I spent years carefully building a team of specialists in design, development, SEO, and AEO. And when I discovered the content framework built by Marcus Sheridan and the StoryBrand messaging framework, I knew I had found the final pieces of the puzzle. <strong>Building a truly powerful website stopped being an art and became a formula</strong> — one I can replicate, reliably, for every client we work with.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl shadow-lg" data-animate>
+          <img
+            src="/images/NICKB.webp"
+            alt="Nick Burrage, founder of Ambitions AI"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Four boxes: full-width below, two columns on tablet, four on desktop -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-animate>
+        <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+          <div class="text-4xl font-bold text-primary-500">70+</div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Websites still on our servers, cared for and updated by us today</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+          <div class="text-4xl font-bold text-primary-500">10yr</div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Building websites for service businesses across the UK and USA</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Content first. Always.</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">My personal role in every website we build is the content: the strategy, the messaging, the story. Getting that right is what most agencies skip entirely.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+          <h3 class="font-semibold text-gray-900 dark:text-white">We do not just build. We think first.</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Every client receives our detailed <strong>Website Process Guide</strong> from day one: a clear picture of exactly how we build something that genuinely works.</p>
+        </div>
+      </div>
+
+      <!-- Video placeholder -->
+      <div class="mt-16 mx-auto max-w-3xl" data-animate>
+        <div class="flex aspect-video items-center justify-center overflow-hidden rounded-2xl bg-gray-800 shadow-2xl relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-900/40 to-gray-900/80"></div>
+          <div class="relative text-center">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 ring-2 ring-white/20 backdrop-blur-sm">
+              <svg class="h-7 w-7 translate-x-0.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-white/80">Video coming soon</p>
+            <p class="mt-1 text-xs text-white/50">Nick Burrage — 90 seconds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THE PLAN FORMS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          In 2026, website building got crazy. Hold on to your hat.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>Last week I onboarded a new client onto our content programme. His website had just been delivered. He had spent <strong>$20,000</strong> on it. It was entirely useless — not fit for purpose today, and certainly not ready for what is coming tomorrow.</p>
+          <p>It was a sad moment. And unfortunately it is not uncommon.</p>
+          <p>So here is what a truly great website looks like right now.</p>
+        </div>
+
+        <h3 class="mt-12 text-2xl font-normal text-gray-900 dark:text-white" data-animate>
+          To avoid nightmare builds like this, you first need solid foundations.
+        </h3>
+
+        <div class="prose dark:prose mt-4 max-w-none" data-animate>
+          <p>Start with the end in mind. If you want to be <strong>found by Google and recommended by AI</strong>, you build against that goal from day one. You map your business against the real search intentions of your future clients. You line everything up before a single word is written or an image chosen.</p>
+        </div>
+
+        <div class="mt-6 rounded-xl border-l-4 border-accent-500 bg-accent-50 pl-6 py-4 dark:bg-accent-900/10" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">This cannot be tacked on afterwards. It has to be built in from the very beginning.</p>
+        </div>
+
+        <!-- AI stat callout -->
+        <div class="mt-12 rounded-2xl bg-gray-900 p-8 text-white shadow-2xl" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest text-gray-400">The search landscape right now</p>
+          <h3 class="mt-3 text-2xl font-normal sm:text-3xl">
+            1 in 4 people have already left Google. They are searching with AI instead.
+          </h3>
+          <blockquote class="mt-6 border-l-2 border-primary-500 pl-6 text-gray-300 italic">
+            'In the last eighteen months, huge numbers of people have migrated from Google to AI search tools. Many now let AI decide who to call, who to trust, and who to buy from.'
+          </blockquote>
+          <p class="mt-6 text-gray-300">Your website needs to <strong class="text-white">get cited by AI</strong> as a credible source — and be compelling enough that AI actively recommends you to its human owner. That is a specific challenge. We know exactly how to meet it.</p>
+        </div>
+
+        <!-- Humans too -->
+        <div class="mt-12" data-animate>
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">
+            With all this talk of AI, let us not forget the humans.
+          </h3>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">At some point in every buying journey, a real person lands on your website. It needs to be:</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 text-lg">✅</span>
+              <span class="text-gray-700 dark:text-gray-300">Beautiful and immediately trustworthy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 text-lg">✅</span>
+              <span class="text-gray-700 dark:text-gray-300">Honest about who you are and what you do</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 text-lg">✅</span>
+              <span class="text-gray-700 dark:text-gray-300">Engaging enough to make someone think: <em>yes, these are the people I want to work with</em></span>
+            </li>
+          </ul>
+          <p class="mt-6 text-gray-600 dark:text-gray-400">Stock photography and vague corporate copy will not get you there. <strong class="text-gray-900 dark:text-white">Authenticity will.</strong></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THREE STEPS
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">How it works</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Three steps to a website that becomes your best salesperson.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">1</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Start the conversation</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Let's find out if we are right for each other. No pressure, no jargon, no obligation.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">2</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">We build your most powerful business asset</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">A website that truly represents your business, builds trust from the first click, and drives sales for years to come.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">3</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Wake up to new business</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Leads in your inbox. Your phone ringing. Consistent, predictable growth — every week, without chasing.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHAT WE BUILD AND WHAT IT COSTS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Pricing</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          What does a website from Ambitions AI cost?
+        </h2>
+        <p class="mt-6 text-gray-600 dark:text-gray-400 lg:text-lg">
+          Our websites are a complete, done-for-you service. Here is everything that is included:
+        </p>
+
+        <ul class="mt-8 space-y-3">
+          {[
+            'Full pre-build strategy and discovery',
+            'Professional design, beautiful on every device',
+            'Complete development and build',
+            'SEO planning and structure from day one',
+            'AEO — built for AI search from the ground up',
+            'Schema markup and technical setup',
+            'Content strategy and copywriting support',
+            'Staff training, so your whole team can update and use the site with confidence',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Price highlight -->
+        <div class="mt-10 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-8 text-white shadow-xl shadow-primary-500/20">
+          <p class="text-sm font-semibold uppercase tracking-widest opacity-80">Investment</p>
+          <p class="mt-2 text-3xl font-bold">£10,000 – £20,000</p>
+          <p class="mt-1 text-lg opacity-90">$12,500 – $25,000</p>
+          <p class="mt-4 text-sm opacity-80">More pages, more complexity, and more integrations push the price toward the higher end.</p>
+          <p class="mt-3 text-sm opacity-70">Optional hosting from £400/$500 per year. Maintenance from £300/$375 per quarter. Full details on our <a href="/pricing" class="underline underline-offset-2 hover:opacity-100">pricing page</a>.</p>
+        </div>
+      </div>
+
+      <!-- Real client table -->
+      <div class="mt-20" data-animate>
+        <h3 class="text-2xl font-normal text-gray-900 dark:text-white">What real clients are paying us today.</h3>
+        <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">Every business is different. Here is a selection of real website projects we have delivered, with prices adjusted to April 2026 values.</p>
+        <p class="mt-1 text-xs text-gray-400 dark:text-gray-500 italic">Turnover figures are indicative estimates only and are not based on verified financial data. Project cost is driven by scope and complexity, not company size.</p>
+
+        <div class="mt-8 overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-800">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
+                <th class="px-6 py-4 text-left font-semibold text-gray-700 dark:text-gray-300">Business type</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-700 dark:text-gray-300">Location</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-700 dark:text-gray-300">Est. turnover</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-700 dark:text-gray-300">Website investment</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white dark:divide-gray-800 dark:bg-gray-950">
+              {[
+                ['Cyber security firm',              'London, UK', '£10–15M/yr',     '£9,500 / $11,900'],
+                ['Law firm',                         'UK',         '£3–5M/yr',       '£12,200 / $15,300'],
+                ['Law firm',                         'UK',         '£7.5M/yr',       '£17,900 / $22,400'],
+                ['Electrical engineering manufacturer','UK',       '£40–50M/yr',     '£19,100 / $23,900'],
+                ['Packaging manufacturer',           'USA',        '£6–8M/yr',       '£20,200 / $25,300'],
+                ['Charitable organisation',          'UK',         '£3–5M/yr',       '£20,900 / $26,100'],
+                ['Retail business',                  'UK',         '£4–5M/yr',       '£7,800 / $9,750'],
+                ['Veterinary group (4 practices)',   'UK',         'n/a',            '£9,150 / $11,400'],
+                ['Frozen food distributor',          'Egypt',      '£10M/yr est.',   '£7,400 / $9,250'],
+                ['Individual artist',                'UK',         '£50K/yr',        '£2,900 / $3,600'],
+              ].map(([type, location, turnover, investment]) => (
+                <tr class="transition-colors hover:bg-gray-50 dark:hover:bg-gray-900">
+                  <td class="px-6 py-4 text-gray-800 dark:text-gray-200">{type}</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">{location}</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">{turnover}</td>
+                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">{investment}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- What drives cost up -->
+      <div class="mt-16 mx-auto max-w-3xl" data-animate>
+        <h3 class="text-2xl font-normal text-gray-900 dark:text-white">What drives the cost up?</h3>
+        <p class="mt-3 text-gray-600 dark:text-gray-400">Three things move a website investment toward the higher end:</p>
+        <div class="mt-6 space-y-4">
+          {[
+            ['Number of pages with a unique design', 'A site with ten custom page layouts costs more than one built around three or four templates.'],
+            ['Complex integrations', 'Connecting your website to a CRM, booking system, payment platform, or bespoke database adds real development time.'],
+            ['Design complexity', 'A highly bespoke, brand-led design with custom animations takes longer than a clean, structured build on a proven framework.'],
+          ].map(([title, desc]) => (
+            <div class="rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+              <p class="font-semibold text-gray-900 dark:text-white">{title}</p>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Photography callout -->
+      <div class="mt-12 mx-auto max-w-3xl" data-animate>
+        <div class="rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 p-8 text-center dark:border-gray-700 dark:bg-gray-900">
+          <p class="text-2xl">📷</p>
+          <h3 class="mt-3 text-xl font-semibold text-gray-900 dark:text-white">Please budget for photography.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Stock photography does not build trust. With humans or with AI.</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">One of the most powerful things a website can do is show people how your business actually works</strong> — your team, your premises, your work in progress, your finished results. Real photography does that. AI-generated images and stock photos do not.</p>
+          <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">If you are investing in a website built to perform, invest in images that show who you actually are. It makes a bigger difference than most people expect.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TRANSFORMATION
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          A website built properly brings your whole business to life.
+        </h2>
+        <div class="prose dark:prose mt-8 max-w-none">
+          <p>In pure commercial terms, <strong>a great website — used alongside our content programme — will typically double the size of your business</strong>.</p>
+          <p>But it is bigger than sales.</p>
+          <p>Your team will be proud of it. Your brand values will sing from every page. Prospects checking you out will instantly know you are the real deal. And for our charity and non-profit clients, it becomes a rallying point for everyone who believes in the cause.</p>
+        </div>
+        <div class="mt-8 rounded-xl border-l-4 border-accent-500 bg-white pl-6 py-4 dark:bg-gray-800">
+          <p class="italic text-gray-700 dark:text-gray-300">A great website does not just bring in business. It brings your whole organisation together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR PANEL — WEBSITE highlighted
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3" data-animate>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="text-gray-500 dark:text-gray-400">Brings the right prospects to you</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-600 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="text-gray-500 dark:text-gray-400">Turns those prospects into buyers</span>
+        </a>
+
+        <!-- WEBSITE — highlighted (you are here) -->
+        <div class="flex flex-col gap-1 rounded-2xl border-2 border-purple-400 bg-purple-50 px-6 py-5 sm:flex-row sm:items-center sm:gap-6 dark:border-purple-600 dark:bg-purple-900/20">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="font-medium text-gray-900 dark:text-white">
+            Closes the deal, 24 hours a day
+            <span class="ml-3 inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-700 dark:bg-purple-900 dark:text-purple-300">You are here</span>
+          </span>
+        </div>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes sure you win every sale, fast</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-600 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes you the obvious choice</span>
+        </a>
+
+      </div>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500 dark:text-gray-400" data-animate>
+        Each service works on its own. But when they work together, something remarkable happens. Full details on our <a href="/pricing" class="text-primary-500 hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOCIAL PROOF
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Do not just take our word for it.
+        </h2>
+      </div>
+
+      <!-- Trustindex reviews widget -->
+      <div class="mt-12" data-animate>
+        <div id="trustindex-widget-container-ws"></div>
+        <script is:inline>
+          var s = document.createElement('script');
+          s.defer = true;
+          s.async = true;
+          s.src = 'https://cdn.trustindex.io/loader.js?6b6cb28694e74070f386e4f44c5';
+          document.getElementById('trustindex-widget-container-ws').appendChild(s);
+        </script>
+      </div>
+
+      <!-- Client logos -->
+      <div class="mt-16" data-animate>
+        <p class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+          Trusted by service businesses across the UK &amp; USA
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          <img src="/images/Katherine.svg"  alt="Katherine Brown"       class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+          <img src="/images/marshall.webp"  alt="Marshall and Stewart"  class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+          <img src="/images/better.svg"     alt="Better Way Roofing"    class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+          <img src="/images/laautos.jpg"    alt="LA Autos"              class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RISK REVERSAL — THE BOOK
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <div class="order-2 lg:order-1" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Read this first</p>
+          <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+            Before you hire anyone to build your website — including us.
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>I wrote this book so that business owners like you would know <strong>exactly what questions to ask</strong>, what to watch out for, and how to tell a great web agency from an expensive disappointment.</p>
+            <p>It covers everything — from planning your website and defining your audience, to the <strong>nineteen critical questions</strong> you should put to any agency before you sign anything.</p>
+            <p>It is free. Download the PDF below.</p>
+          </div>
+          <p class="mt-4 italic text-gray-600 dark:text-gray-400">Read it before you spend a penny.</p>
+          <div class="mt-8">
+            <a href="https://ambitions.systeme.io/website-guide" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+              Download the free PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="order-1 flex items-center justify-center lg:order-2" data-animate>
+          <img
+            src="/images/Happily-book.webp"
+            alt="Happily Ever After — the website guide by Nick Burrage"
+            class="w-full max-w-sm rounded-2xl object-cover shadow-2xl"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        Questions we hear a lot.
+      </h2>
+
+      <div class="mt-12 space-y-4" data-animate>
+        {[
+          {
+            q: 'How long does it take?',
+            a: 'A typical website takes eight to twelve weeks from the start of our discovery process to launch. Complexity, integrations, and how quickly we can get the content right all affect the timeline. We will give you a clear picture of this before we start.',
+          },
+          {
+            q: 'Who writes the content?',
+            a: 'We do — but we need you. Our content team interviews you and your team, draws out what makes your business brilliant, and turns it into copy that works for your visitors, for Google, and for AI. You will review and approve everything before it goes live.',
+          },
+          {
+            q: 'What platform do you build on?',
+            a: 'We build on WordPress — the platform that powers forty percent of the internet. It is robust, flexible, and your team will find it straightforward to update. We train everyone who needs to use it before we hand over the keys.',
+          },
+          {
+            q: 'What is included that most agencies miss?',
+            a: 'The thinking. Most agencies start with design. We start with strategy: your audience, your search intent, your content structure, your AI readiness. By the time we get to design, the foundations are already solid. That is the difference.',
+          },
+          {
+            q: 'What happens after launch?',
+            a: 'We do not disappear. Optional hosting and maintenance packages mean we are always available when you need us. And because we still look after every website we have ever built, we have a very clear picture of what keeps a website performing over the long term.',
+          },
+          {
+            q: 'How much does it cost?',
+            a: 'A typical investment is between £10,000 and £20,000 / $12,500 and $25,000. Full pricing — including hosting, maintenance, and bundle discounts — is on our pricing page.',
+          },
+        ].map((item) => (
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white">
+              {item.q}
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">{item.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="mt-8 text-sm text-gray-500 dark:text-gray-400 italic" data-animate>
+        Any other questions? The best thing to do is have a conversation. It costs nothing and commits you to nothing.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL STAKES
+  ========================================================= -->
+  <section class="bg-gray-900 py-16">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <p class="text-center text-xl font-semibold text-white lg:text-2xl" data-animate>
+        Every month without a website that works is a month of leads going somewhere else.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Do not lose another sale.
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-lg text-gray-600 dark:text-gray-400">
+          Let us find out if we are right for each other. No pitch, no pressure — just an honest conversation about your business and what is possible. And if we are not the right fit, I will always point you towards someone who is.
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+          <a href="https://ambitions.systeme.io/website-guide" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700">
+            Download the free book
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-gray-400 dark:text-gray-500">
+          Nick Burrage · <a href="mailto:nb@ambitionsai.com" class="hover:text-primary-500 transition-colors">nb@ambitionsai.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Base>

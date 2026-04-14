@@ -1,32 +1,614 @@
 ---
 import Base from '@/layouts/Base.astro';
-import Hero from '@/components/sections/Hero.astro';
-import Services from '@/components/sections/Services.astro';
-import Portfolio from '@/components/sections/Portfolio.astro';
-import Testimonials from '@/components/sections/Testimonials.astro';
-import Contact from '@/components/sections/Contact.astro';
-import { awards } from '@/data/site';
 ---
 
-<Base title="Home">
-  <Hero />
+<Base
+  title="Home"
+  metaTitle="AI Marketing for Service Businesses | Ambitions AI"
+  description="Ambitions AI helps service businesses across the UK and USA get more leads, close more sales and build a reputation that does the selling for them. Book your free Explore Call."
+>
 
-  <!-- Clients/Awards Bar -->
-  <section class="border-y border-gray-200 bg-white py-8 dark:border-gray-800 dark:bg-gray-950">
-    <div class="mx-auto max-w-7xl px-4 lg:px-8">
-      <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
-        {awards.map((award) => (
-          <div class="text-center">
-            <div class="text-sm font-semibold text-gray-900 dark:text-white">{award.name}</div>
-            <div class="text-xs text-gray-500 dark:text-gray-400">{award.year}</div>
-          </div>
-        ))}
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-4 top-0 h-72 w-72 rounded-full bg-primary-500 blur-[128px]"></div>
+      <div class="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-accent-500 blur-[128px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-700 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
+          </span>
+          UK &amp; USA Service Business Growth
+        </div>
+
+        <h1 class="text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Service businesses that win trust,<br class="hidden sm:block" /> <em class="italic text-primary-500">win everything.</em>
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400 lg:text-xl">
+          Ambitions AI helps service businesses across the UK and USA get more leads, close more sales, and build a reputation that does the selling for them, using a proven system and the smartest AI tools available.
+        </p>
+
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30"
+          >
+            Start Now →
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700"
+          >
+            Book your free Explore Call
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="mt-20 grid grid-cols-2 gap-8 border-t border-gray-200 pt-12 dark:border-gray-800 sm:grid-cols-4">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">37</div>
+          <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">Certified coaches worldwide</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">$80k</div>
+          <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">Monthly profit achieved</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">$45k</div>
+          <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">Single sale in 4 months</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">2×</div>
+          <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">Turnover doubled in year one</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <Services />
-  <Portfolio />
-  <Testimonials />
-  <Contact />
+  <!-- =========================================================
+       CLIENT LOGOS
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-white py-10 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <p class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+        Trusted by service businesses across the UK &amp; USA
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+        <img src="/images/better.svg" alt="Better Way Roofing" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        <img src="/images/brightside.jpg" alt="Brightside" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        <img src="/images/Katherine.svg" alt="Katherine Brown" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        <img src="/images/laautos.jpg" alt="LA Autos" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        <img src="/images/marshall.webp" alt="Marshall and Stewart" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        <img src="/images/STLUKES.webp" alt="St Luke's" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR — Five services
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3" data-animate>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="text-gray-500 dark:text-gray-400">Brings the right prospects to you</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-600 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="text-gray-500 dark:text-gray-400">Turns those prospects into buyers</span>
+        </a>
+
+        <a href="/website-design/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="text-gray-500 dark:text-gray-400">Closes the deal, 24 hours a day</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes sure you win every sale, fast</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-600 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes you the obvious choice</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROBLEM
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl lg:max-w-none">
+        <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+              The problem isn't marketing. It's that you don't have a system.
+            </h2>
+            <div class="prose mt-8 dark:prose max-w-none" data-animate>
+              <p>If new business feels random, some months great and some months worrying, you're not alone. Most service businesses are stuck in the same loop:</p>
+              <ul>
+                <li>They try an agency. It doesn't stick.</li>
+                <li>They try ads. The leads are rubbish.</li>
+                <li>They try content. It fades away.</li>
+              </ul>
+              <p>So they conclude that marketing just doesn't work for them.</p>
+              <p>It does. It's just that nobody built you a system.</p>
+              <p>Some of you have already found the answer. You've read <em>Endless Customers™</em> or <em>They Ask You Answer</em>. You know exactly what needs to happen. But knowing and doing are very different things. Doing it alone, without the right tools and the right team, is nearly impossible.</p>
+              <p>Either way, you end up in the same place:</p>
+              <p class="font-semibold text-gray-900 dark:text-white">Working hard. Growing slowly. Wondering why.</p>
+            </div>
+          </div>
+          <div class="flex items-start" data-animate>
+            <img
+              src="/images/ENDLESS.webp"
+              alt="Endless Customers™"
+              class="w-full rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       GUIDE — Client results + video + who we are
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <!-- Section header -->
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          We've helped service businesses just like yours do this:
+        </h2>
+      </div>
+
+      <!-- Client result cards -->
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="text-4xl font-bold text-primary-500">$80k</div>
+          <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">Monthly profit</div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">
+            Kalen runs a plumbing business in the US. When he came to us he was barely breaking even. Within a year he was making $80,000 profit every single month.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="text-4xl font-bold text-primary-500">$45k</div>
+          <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">Single sale in 4 months</div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">
+            Brent sells luxury beds. Four months into the programme he closed his first ever sale through digital marketing, worth $45,000.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="text-4xl font-bold text-primary-500">2×</div>
+          <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">Turnover in year one</div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">
+            Katherine runs a high-end design business in the UK. In year one with us her turnover rose to £1.2 million ($1.5M).
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center font-semibold text-gray-600 dark:text-gray-400" data-animate>
+        Different businesses. Different countries. Same system.
+      </p>
+
+      <!-- Video -->
+      <div class="mt-16 mx-auto max-w-3xl" data-animate>
+        <div class="overflow-hidden rounded-2xl shadow-2xl">
+          <div class="aspect-video">
+            <iframe
+              src="https://www.youtube.com/embed/wOrJpODxJ-s?start=204"
+              title="Nick introducing the Ambitions AI Blueprint"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="h-full w-full"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who we are -->
+      <div class="mt-20" data-animate>
+        <h3 class="text-2xl font-normal text-gray-900 dark:text-white">Who we are</h3>
+        <div class="mt-8 grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="prose dark:prose max-w-none">
+            <p>Ambitions AI is a father and son agency. Nick (dad) is one of 37 certified Endless Customers™ coaches worldwide. He works with founder-led businesses, and the Endless Customers™ coaching programme naturally brings in the wider team, including sales, marketing, and beyond, because that's how the methodology works best. Manny (son) builds the AI systems that make the whole thing run faster, smarter, and harder than any traditional agency can.</p>
+            <p>Alongside Nick and Manny, our technical team is led by Liyana and Wes, a husband and wife partnership who are brilliant at all things technical. Together they lead a wider team of specialists across AEO, SEO, and content marketing.</p>
+            <p class="font-semibold text-gray-900 dark:text-white">We don't just consult. We build you a machine.</p>
+          </div>
+          <div>
+            <img
+              src="/images/NICKB.webp"
+              alt="Nick — Ambitions AI"
+              class="w-full rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PLAN — 3 steps
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Three steps to predictable growth.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">1</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Have a conversation</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">No pitch. No pressure. Just clarity on what's holding your business back.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">2</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Get your Blueprint</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">A clear, personalised plan. You'll know exactly what to fix and in what order.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">3</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Watch your business transform</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">More leads. More trust. A system that works while you sleep.</p>
+        </div>
+      </div>
+
+      <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400" data-animate>
+        Ready to jump in at any point? Every service is available on its own.
+      </p>
+      <div class="mt-6 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THE PROGRAMME — 5 components
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <!-- Blueprint highlight card -->
+      <div class="rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-10 text-white shadow-2xl shadow-primary-500/20" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest opacity-80">One system. Five powerful components.</p>
+        <h2 class="mt-3 text-3xl font-normal sm:text-4xl">The Ambitions AI Blueprint</h2>
+        <p class="mt-4 max-w-2xl text-lg opacity-90">
+          The complete system for service businesses that want predictable, scalable growth. All five elements working together. Done for you or done with you.
+        </p>
+        <a href="/contact" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 transition-all hover:bg-gray-100">
+          Start Now →
+        </a>
+      </div>
+
+      <!-- 5 components -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5" data-animate>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="font-normal text-gray-900 dark:text-white">Endless Customers™ Coaching</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">The foundation. Become the most trusted business in your market and build a content system that generates leads while you sleep.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-normal text-gray-900 dark:text-white">Website</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Built to convert. Your website becomes your best salesperson, answering the questions buyers are already asking before they ever speak to you.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <h3 class="font-normal text-gray-900 dark:text-white">AEO &amp; SEO</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Be found everywhere buyers look — on Google, on AI search, and everywhere in between.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-normal text-gray-900 dark:text-white">AI Sales &amp; Service Engine</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Voice. Text. Automation. A complete system that handles leads, books appointments and resolves queries 24/7, without adding headcount.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+          </div>
+          <h3 class="font-normal text-gray-900 dark:text-white">Reviews Automation</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Your reputation on autopilot. More five-star reviews, more trust, more customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOCIAL PROOF — Testimonials
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Loved by service businesses across the UK and USA
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 lg:grid-cols-3">
+        <div class="relative rounded-2xl bg-gray-50 p-8 shadow-sm dark:bg-gray-800" data-animate style="animation-delay: 0ms">
+          <svg class="absolute right-8 top-8 h-12 w-12 text-gray-100 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <div class="relative">
+            <div class="flex gap-1 text-yellow-400">
+              {[...Array(5)].map(() => (
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="mt-6 text-gray-700 dark:text-gray-300">
+              "I was barely breaking even month to month. Twelve months later I'm generating $80,000 profit every single month. I didn't think that was possible for a business like mine."
+            </blockquote>
+            <div class="mt-8">
+              <div class="font-semibold text-gray-900 dark:text-white">Kalen</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Plumbing Business Owner, USA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl bg-gray-50 p-8 shadow-sm dark:bg-gray-800" data-animate style="animation-delay: 100ms">
+          <svg class="absolute right-8 top-8 h-12 w-12 text-gray-100 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <div class="relative">
+            <div class="flex gap-1 text-yellow-400">
+              {[...Array(5)].map(() => (
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="mt-6 text-gray-700 dark:text-gray-300">
+              "Four months in we closed a $45,000 sale: our first ever through digital marketing. The system just works."
+            </blockquote>
+            <div class="mt-8">
+              <div class="font-semibold text-gray-900 dark:text-white">Brent</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Luxury Bed Retailer, USA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl bg-gray-50 p-8 shadow-sm dark:bg-gray-800" data-animate style="animation-delay: 200ms">
+          <svg class="absolute right-8 top-8 h-12 w-12 text-gray-100 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <div class="relative">
+            <div class="flex gap-1 text-yellow-400">
+              {[...Array(5)].map(() => (
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="mt-6 text-gray-700 dark:text-gray-300">
+              "I wanted the expertise of a big agency but with people who actually cared about my business. In year one my turnover doubled. That says everything."
+            </blockquote>
+            <div class="mt-8">
+              <div class="font-semibold text-gray-900 dark:text-white">Katherine</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">High End Designer, UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trustindex reviews widget -->
+      <div class="mt-16" data-animate>
+        <div id="trustindex-widget-container"></div>
+        <script is:inline>
+          var s = document.createElement('script');
+          s.defer = true;
+          s.async = true;
+          s.src = 'https://cdn.trustindex.io/loader.js?6b6cb28694e74070f386e4f44c5';
+          document.getElementById('trustindex-widget-container').appendChild(s);
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        Frequently asked questions
+      </h2>
+
+      <div class="mt-12 space-y-4" data-animate>
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            How does it work?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            It depends where you start. The full Ambitions AI Blueprint is an 18-month programme combining coaching, website, content, AI systems and reviews, all working together. Individual services like Reviews Automation or the AI Sales &amp; Service Engine can be up and running in days. Everything is explained in your free Explore Call.
+          </p>
+        </details>
+
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            How quickly will I see results?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Reviews Automation can deliver results within 24 hours. The AI Sales &amp; Service Engine can be live and booking appointments within days. For the full programme, expect meaningful results within three to five months, with compounding growth long after that.
+          </p>
+        </details>
+
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            How is this different from agencies I've tried before?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Most agencies do work for you. When you stop paying, the results stop coming. We build a system inside your business. The results compound and continue long after we've gone. That's a fundamentally different model.
+          </p>
+        </details>
+
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            Do I need to be technical?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Not at all. Our technical team handles everything.
+          </p>
+        </details>
+
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            How much time do I need to commit?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            For individual services, almost none. For the full programme, a weekly coaching session of 60 to 90 minutes is essential. There will be work outside those sessions too, but we make sure during discovery that you have the capacity before we accept you onto the programme.
+          </p>
+        </details>
+
+        <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white list-none">
+            What does it cost?
+            <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Coaching starts at $2,000 / £1,500 per month. Full pricing is on our <a href="/pricing" class="text-primary-500 underline hover:text-primary-600">pricing page</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-900 py-24 dark:bg-gray-950 lg:py-32">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute left-0 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[128px]"></div>
+      <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent-500 blur-[128px]"></div>
+    </div>
+    <div class="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl font-normal text-white sm:text-4xl lg:text-5xl" data-animate>
+        The most trusted service business in your market is winning every day. Is it you?
+      </h2>
+      <p class="mt-6 text-lg text-gray-400" data-animate>
+        If new business still feels random, something needs to change. The good news: it's fixable. And we've fixed it for businesses just like yours across the UK and USA.
+      </p>
+      <p class="mt-2 text-base text-gray-500" data-animate>
+        Take the first step. It costs nothing and commits you to nothing.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-600 px-8 py-4 text-base font-semibold text-gray-300 transition-all hover:border-gray-500 hover:bg-gray-800">
+          Book your free Explore Call
+        </a>
+      </div>
+
+      <div class="mt-16 border-t border-gray-800 pt-12" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500">Not ready yet?</p>
+        <p class="mt-3 text-lg text-gray-300">
+          Download our free guide: <em>19 AI Trust Signals Your Business Must Show To Win Today.</em>
+        </p>
+        <form
+          method="post"
+          action="https://systeme.io/embedded/39921808/subscription"
+          class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-3"
+        >
+          <div class="flex-1">
+            <label for="first_name" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">First name</label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              required
+              placeholder="Jane"
+              class="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            />
+          </div>
+          <div class="flex-1">
+            <label for="dl_email" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">Email address</label>
+            <input
+              type="email"
+              id="dl_email"
+              name="email"
+              required
+              placeholder="jane@yourcompany.com"
+              class="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            />
+          </div>
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30 sm:flex-shrink-0"
+          >
+            Send me the guide →
+          </button>
+        </form>
+        <p class="mt-3 text-xs text-gray-600">Free. No spam. Unsubscribe any time.</p>
+      </div>
+
+      <p class="mt-16 text-sm text-gray-600 italic">The last agency you'll ever need to hire.</p>
+    </div>
+  </section>
+
 </Base>

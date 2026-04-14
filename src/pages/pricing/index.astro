@@ -1,0 +1,859 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-09';
+const updatedISO   = '2026-04-12';
+const publishedDate = new Date(publishedISO).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const updatedDate   = new Date(updatedISO).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+
+    // 1. WebPage
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/pricing/#webpage",
+      "url": "https://theambitionsagency.com/pricing/",
+      "name": "How Much Does Ambitions AI Cost? | Pricing",
+      "description": "Full transparent pricing for all Ambitions AI services — Reviews Automation, AEO & SEO, Endless Customers Coaching, Website, and AI Sales & Service Engine. No vague quotes. Real numbers.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://theambitionsagency.com/pricing/" }
+        ]
+      }
+    },
+
+    // 2. Reviews Automation service
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/pricing/#reviews-automation",
+      "name": "Reviews Automation",
+      "description": "Automated review generation via email and SMS. Connect to your CRM and collect five-star reviews at exactly the right moment — after a job well done.",
+      "url": "https://theambitionsagency.com/pricing/#reviews-automation",
+      "serviceType": "Marketing Automation",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "269",
+        "priceCurrency": "GBP",
+        "description": "Per month. No setup fee. No contract.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+
+    // 3. AEO & SEO service
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/pricing/#aeo-seo",
+      "name": "AEO & SEO",
+      "description": "Answer Engine Optimisation and Search Engine Optimisation — making your business the one Google and AI both recommend. Hourly engagement from £120/month, typically £2,000/month.",
+      "url": "https://theambitionsagency.com/pricing/#aeo-seo",
+      "serviceType": "Search Engine Optimisation",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "120",
+        "priceCurrency": "GBP",
+        "description": "Per hour. Minimum 10 hours per month. Most clients invest around £2,000 per month.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+
+    // 4. Endless Customers Coaching service
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/pricing/#endless-customers",
+      "name": "Endless Customers™ Coaching",
+      "description": "Coaching programme built around becoming the most helpful, most transparent voice in your market. Coached by Nick Burrage, one of 37 certified Endless Customers coaches worldwide.",
+      "url": "https://theambitionsagency.com/pricing/#endless-customers",
+      "serviceType": "Business Coaching",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "1500",
+        "priceCurrency": "GBP",
+        "description": "Starting price per month. Coaching only for a founder or small team.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+
+    // 5. Website service
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/pricing/#website",
+      "name": "Website Design and Build",
+      "description": "A complete website built by Ambitions AI — designer, developer, SEO specialists, and content experts. Structured to be found by Google and recommended by AI.",
+      "url": "https://theambitionsagency.com/pricing/#website",
+      "serviceType": "Website Design",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "10000",
+        "priceCurrency": "GBP",
+        "description": "Typically £10,000–£20,000. No monthly fees unless you choose hosting and maintenance.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+
+    // 6. AI Sales & Service Engine
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/pricing/#ai-engine",
+      "name": "AI Sales & Service Engine",
+      "description": "Automated outbound calling, inbound call handling, and website chatbot — so you never miss a lead again. Most clients are live within three to five weeks.",
+      "url": "https://theambitionsagency.com/pricing/#ai-engine",
+      "serviceType": "AI Sales Automation",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "2500",
+        "priceCurrency": "GBP",
+        "description": "Per month for the full package — inbound calls, outbound calls, and website chatbot. No setup fee.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+
+    // 7. Person
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "jobTitle": "Founder & Certified Endless Customers™ Coach",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" }
+    }
+
+  ]
+};
+---
+
+<Base
+  title="How Much Does Ambitions AI Cost? | Pricing"
+  description="Full transparent pricing for all Ambitions AI services — Reviews Automation, AEO & SEO, Endless Customers Coaching, Website, and AI Sales & Service Engine. Real numbers. No vague quotes."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-4 top-0 h-72 w-72 rounded-full bg-primary-500 blur-[128px]"></div>
+      <div class="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-accent-500 blur-[128px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-3xl px-4 py-24 text-center lg:px-8 lg:py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Pricing</p>
+      <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+        How Much Does Ambitions AI Cost?<br class="hidden sm:block" />
+        <em class="italic text-primary-500">Here's the honest answer.</em>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        12 April 2026
+      </span>
+    </div>
+  </div>
+
+
+  <!-- ======================================================
+       INTRO
+  ====================================================== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <div class="space-y-5 text-lg leading-relaxed text-gray-600">
+        <p>
+          Pricing pages are usually one of two things: a wall of numbers that tells you nothing, or a vague "get in touch for a quote" that tells you even less.
+        </p>
+        <p>
+          This page is neither of those.
+        </p>
+        <p>
+          By the time you have read it, you will know exactly what each of our services costs, what drives the price up or down, and honestly — whether any of it is right for you. Some of it won't be. That's fine. We'd rather you knew that now.
+        </p>
+        <p>
+          One more thing before you dive in: nobody starts with everything at once. The Ambitions AI Blueprint is a complete system, but it is designed to be built piece by piece — around your budget, your time, and where your business is right now.
+        </p>
+        <p>
+          Jump to the section that interests you most, or read straight through. Either way, if you have questions, a free Explore Call costs nothing and commits you to nothing.
+        </p>
+      </div>
+
+      <!-- Jump links -->
+      <nav class="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-6" aria-label="Jump to section">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Jump to</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          {[
+            { label: 'Reviews Automation', href: '#reviews-automation' },
+            { label: 'AEO & SEO', href: '#aeo-seo' },
+            { label: 'Endless Customers™ Coaching', href: '#endless-customers' },
+            { label: 'Website', href: '#website' },
+            { label: 'AI Sales & Service Engine', href: '#ai-engine' },
+            { label: 'Bundle Pricing', href: '#bundle' },
+          ].map(({ label, href }) => (
+            <a
+              href={href}
+              class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-all hover:border-primary-200 hover:bg-primary-50 hover:text-primary-600"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SECTION 1: REVIEWS AUTOMATION
+  ====================================================== -->
+  <section id="reviews-automation" class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Service 01</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        Reviews Automation
+      </h2>
+      <p class="mt-2 text-lg italic text-gray-500 dark:text-gray-400">Your reputation on autopilot.</p>
+
+      <!-- Price callout -->
+      <div class="mt-8 rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Price</p>
+        <p class="mt-2 text-4xl font-normal text-gray-900 dark:text-white" style="font-family: var(--font-display)">£269 <span class="text-2xl text-gray-500">/ $340 per month</span></p>
+        <p class="mt-2 text-gray-500 dark:text-gray-400">No setup fee. No contract. Cancel any month you feel it isn't working.</p>
+      </div>
+
+      <!-- What you get -->
+      <div class="mt-10 space-y-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <h3 class="text-xl text-gray-900 dark:text-white">What Do You Get?</h3>
+        <p>
+          We connect to your CRM and reach out to your clients automatically by email and SMS — at exactly the right moment, after a job well done.
+        </p>
+        <p>
+          They leave a review. You watch your reputation grow.
+        </p>
+        <p>
+          One of our clients — a vet practice — went from a handful of reviews to over 800 five-star reviews in a few months. They are now, as far as we can tell, the most reviewed vet practice in the UK. They are also hiring new vets and opening new sites to keep up with demand.
+        </p>
+        <p>
+          Reviews matter to people. They matter to Google. And as of April 2026, they are one of the single biggest factors in whether AI recommends your business or your competitor's.
+        </p>
+      </div>
+
+      <!-- Is this right for you -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">Is This Right for Every Business?</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          Nearly. The one thing you need is a way to reach your clients after the job is done — an email address or a phone number. If you have that, this works.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          If your customers are anonymous — a walk-in takeaway, for example — it's not the right fit.
+        </p>
+      </div>
+
+      <!-- Pull-out quote -->
+      <figure class="my-8 border-l-4 border-primary-500 pl-6">
+        <blockquote>
+          <p style="font-family: var(--font-display)" class="text-xl italic leading-snug text-gray-900 dark:text-white lg:text-2xl">
+            "It costs less than a gym membership per day — and within days you'll see five-star reviews coming in."
+          </p>
+        </blockquote>
+        <figcaption class="mt-3 text-sm font-semibold text-primary-500">Nick Burrage, Ambitions AI</figcaption>
+      </figure>
+
+      <div class="mt-8 rounded-2xl bg-primary-50 border border-primary-100 p-6 dark:bg-gray-800">
+        <p class="text-gray-700 dark:text-gray-300">
+          If you've never worked with us before, this is where we'd suggest you begin. It's fast, it's affordable, and the results are visible within days. We've watched entire teams light up when five-star reviews start arriving — sometimes naming individual members of staff by name.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/contact/"
+            class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+          >
+            Book Your Free Explore Call
+          </a>
+          <a
+            href="/contact/"
+            class="inline-flex items-center gap-2 rounded-full border-2 border-primary-200 px-8 py-4 text-base font-semibold text-primary-600 transition-all hover:bg-primary-50"
+          >
+            Start Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SECTION 2: AEO & SEO
+  ====================================================== -->
+  <section id="aeo-seo" class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Service 02</p>
+      <h2 class="mt-3 text-3xl text-gray-900 lg:text-4xl">
+        AEO & SEO
+      </h2>
+      <p class="mt-2 text-lg italic text-gray-500">Be found everywhere buyers look.</p>
+      <p class="mt-1 text-sm text-gray-400">Last updated April 2026. This landscape is moving fast. Everything on this page reflects where things stand right now.</p>
+
+      <!-- What is AEO -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900">What Is AEO — and Why Does It Matter?</h3>
+        <div class="mt-4 space-y-4 text-lg leading-relaxed text-gray-600">
+          <p>You already know what SEO is. AEO — Answer Engine Optimisation — is what comes next.</p>
+          <p>
+            Google is still important. But 1 in 4 people now use AI instead of Google when they're trying to find a product or service. That number is growing every month.
+          </p>
+          <p>
+            The businesses showing up in AI recommendations aren't there by accident. They've earned it — by building a website and a reputation that AI trusts enough to recommend.
+          </p>
+          <p>
+            The good news: the work that makes AI recommend you is the same work that makes Google love you. You're not choosing one over the other. You're doing both at once.
+          </p>
+        </div>
+      </div>
+
+      <!-- Price callout -->
+      <div class="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Price</p>
+        <p class="mt-2 text-4xl font-normal text-gray-900" style="font-family: var(--font-display)">£120 <span class="text-2xl text-gray-500">/ $150 per hour</span></p>
+        <p class="mt-2 text-gray-500">Minimum 10 hours per month. Most clients invest around <strong class="text-gray-900">£2,000 / $2,500 per month</strong>.</p>
+        <p class="mt-1 text-gray-500">No setup fee.</p>
+      </div>
+
+      <!-- What drives cost -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900">What Drives the Cost Up or Down?</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          Simply the volume of work your project needs each month. A business with a neglected or disorganised digital footprint will need more hours in the early months to get everything in order. One that's already well set up can move faster and focus purely on growth. We'll always be honest with you about what we think is needed — and why.
+        </p>
+      </div>
+
+      <!-- Warning -->
+      <div class="mt-10 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-amber-600">A word of warning</p>
+        <p class="mt-3 text-lg leading-relaxed text-gray-700">
+          AEO and SEO are not quick fixes. If you need leads tomorrow, we can help you run ads — and our team will be glad to do that. But the services on this page are about building something that lasts and compounds over time.
+        </p>
+        <p class="mt-3 text-lg leading-relaxed text-gray-700">
+          This works best alongside a strong content strategy. Technical excellence without great content is like having a beautiful shop with empty shelves. The two work together — which is why so many clients combine this with Endless Customers™ Coaching.
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SECTION 3: ENDLESS CUSTOMERS COACHING
+  ====================================================== -->
+  <section id="endless-customers" class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Service 03</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        Endless Customers™ Coaching
+      </h2>
+      <p class="mt-2 text-lg italic text-gray-500 dark:text-gray-400">Become the most trusted business in your market.</p>
+
+      <!-- What is it -->
+      <div class="mt-8 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <p>
+          A coaching programme built around one simple idea: buyers trust businesses that answer their questions honestly. When you become the most helpful, most transparent voice in your market, something remarkable happens. Leads arrive warmer. Sales cycles shorten. Growth compounds.
+        </p>
+        <p>
+          Nick Burrage is one of just 37 certified Endless Customers coaches worldwide, trained directly by Marcus Sheridan and his team at Impact.
+        </p>
+      </div>
+
+      <!-- Pricing table -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">What Does It Cost?</h3>
+        <p class="mt-3 text-gray-600 dark:text-gray-400">
+          Pricing depends on two things: the size of your team, and whether you want us to produce your written content alongside the coaching.
+        </p>
+
+        <div class="mt-6 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-100 dark:bg-gray-800">
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white"></th>
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Coaching only</th>
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Coaching + content</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 dark:divide-gray-700 bg-white dark:bg-gray-900">
+              <tr>
+                <td class="px-5 py-4 font-semibold text-gray-900 dark:text-white">Founder or small team</td>
+                <td class="px-5 py-4 text-gray-700 dark:text-gray-300">£1,500 / $2,000/mo</td>
+                <td class="px-5 py-4 text-gray-700 dark:text-gray-300">£3,000 / $4,000/mo</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-4 font-semibold text-gray-900 dark:text-white">Larger team (3+ people)</td>
+                <td class="px-5 py-4 text-gray-700 dark:text-gray-300">£3,000 / $4,000/mo</td>
+                <td class="px-5 py-4 text-gray-700 dark:text-gray-300">£6,000 / $8,000/mo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 space-y-4 text-gray-600 dark:text-gray-400">
+          <p>
+            <strong class="text-gray-900 dark:text-white">Coaching only</strong> means one session per week — 60 to 90 minutes — plus everything that happens in between: reviewing your content, watching your videos, checking your social media, researching opportunities, and planning. If something big happens and you need two or three sessions in a week, that's fine.
+          </p>
+          <p>
+            <strong class="text-gray-900 dark:text-white">Coaching plus content</strong> means we interview you and your team, then write the articles ourselves. Those articles can be repurposed into social media content, and we will script and guide your video production — though filming is down to you.
+          </p>
+          <p>Quarterly full-team planning sessions are included at every level.</p>
+        </div>
+      </div>
+
+      <!-- Contracts -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">What About Contracts?</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          There aren't any — beyond a rolling monthly agreement. The programme typically runs for 18 months. But we will never ask you to commit to more than one month at a time. And we mean this: if any month doesn't deliver the value to justify the invoice, don't pay it. We have never had a client leave the programme unhappy, and we intend to keep it that way.
+        </p>
+      </div>
+
+      <!-- How we compare -->
+      <div class="mt-10 rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+        <h3 class="text-xl text-gray-900 dark:text-white">How Does Our Pricing Compare?</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          The only direct comparison is going to Impact — Marcus Sheridan's own agency — where the equivalent programme starts at significantly higher prices. Their Mastery programme, comparable to our larger team tier, is priced at $8,000 per month. Our equivalent is $4,000.
+        </p>
+        <p class="mt-4 font-semibold text-gray-900 dark:text-white">Same methodology. Same certification. Half the price.</p>
+      </div>
+
+      <!-- Is it worth it -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">Is It Worth It?</h3>
+        <div class="mt-4 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          <p>Ask yourself one question: if your turnover doubled in the next 12 to 18 months, what would that be worth?</p>
+          <p>If that number is less than what you'd spend with us, don't do it. If it's more — and for most of our clients it is significantly more — then consider this: unlike advertising, which stops the moment you stop paying, this programme builds something you own permanently. Skills, systems, and a content engine that compounds long after the coaching ends.</p>
+          <p>And here's the part most people don't expect: this is not a forever spend. Endless Customers is designed to fade out. Once you've built your in-house machine — and most clients do within 12 to 18 months — you won't need us anymore. That's exactly how we want it.</p>
+        </div>
+      </div>
+
+      <!-- Pull-out quote -->
+      <figure class="my-8 border-l-4 border-primary-500 pl-6">
+        <blockquote>
+          <p style="font-family: var(--font-display)" class="text-xl italic leading-snug text-gray-900 dark:text-white lg:text-2xl">
+            "In a world where AI is rapidly replacing Google as the place buyers go for answers, there is no programme better suited to getting your business found."
+          </p>
+        </blockquote>
+        <figcaption class="mt-3 text-sm font-semibold text-primary-500">Nick Burrage</figcaption>
+      </figure>
+
+      <!-- Not right for everyone -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">This Isn't Right for Everyone.</h3>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">We turn people away if:</p>
+        <div class="mt-4 space-y-4">
+          <div class="rounded-2xl bg-white p-5 shadow-sm dark:bg-gray-800">
+            <p class="font-semibold text-gray-900 dark:text-white">The leadership of the business isn't fully bought in.</p>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">A marketing manager who loves the methodology but can't bring the leadership team to the table won't get the results. We need the decision makers in the room.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm dark:bg-gray-800">
+            <p class="font-semibold text-gray-900 dark:text-white">Time isn't genuinely available.</p>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">The weekly session is just the beginning. Creating content is a real job. It requires real time, real focus, and real commitment from your team. If content creation only happens when everything else is done — it won't happen. We'd rather tell you that now.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SECTION 4: WEBSITE
+  ====================================================== -->
+  <section id="website" class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Service 04</p>
+      <h2 class="mt-3 text-3xl text-gray-900 lg:text-4xl">
+        Website
+      </h2>
+      <p class="mt-2 text-lg italic text-gray-500">Your best salesperson. Working 24 hours a day.</p>
+
+      <!-- Price callout -->
+      <div class="mt-8 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Price</p>
+        <p class="mt-2 text-4xl font-normal text-gray-900" style="font-family: var(--font-display)">£10,000–£20,000</p>
+        <p class="mt-1 text-xl text-gray-500">/ $12,500–$25,000</p>
+        <p class="mt-3 text-gray-500">No monthly fees unless you choose hosting and maintenance.</p>
+      </div>
+
+      <p class="mt-6 text-sm text-gray-400">What pushes the price toward the higher end is straightforward: more pages, more complexity, and more integrations with other systems such as CRMs, booking tools, or payment platforms.</p>
+
+      <!-- Hosting and maintenance -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900">Hosting and Maintenance</h3>
+        <p class="mt-4 text-gray-600">You are welcome to take your website away and host it yourself — that's absolutely fine. If you'd like us to handle it:</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-100 bg-gray-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Hosting</p>
+            <p class="mt-2 text-2xl font-normal text-gray-900" style="font-family: var(--font-display)">£400–£1,000</p>
+            <p class="mt-1 text-sm text-gray-500">/ $500–$1,250 per year, depending on traffic</p>
+          </div>
+          <div class="rounded-2xl border border-gray-100 bg-gray-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Maintenance</p>
+            <p class="mt-2 text-2xl font-normal text-gray-900" style="font-family: var(--font-display)">£300</p>
+            <p class="mt-1 text-sm text-gray-500">/ $375 per quarter — includes full inspection, code updates, and peace of mind</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why does it vary -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900">Why Does a Website Vary So Much in Price — Across the Whole Industry?</h3>
+        <div class="mt-4 space-y-4 text-lg leading-relaxed text-gray-600">
+          <p>You can spend £500 on a website. You can spend £500,000. The difference has almost nothing to do with how pretty it looks.</p>
+          <p>What separates a website that generates real business from one that simply looks nice is the thinking behind it — the structure, the content strategy, the technical build, and how well it's set up to be found by Google and recommended by AI.</p>
+          <p>When we build a website, the whole team is involved from day one: designer, developer, SEO specialists, and content experts. The structure is planned around how your buyers actually search. The content is written to answer their real questions. The technical foundation is built to perform.</p>
+          <p>That process takes time. And it's why our websites sit in the inbound marketing agency bracket — not the cheap end, and nowhere near the expensive end. Right in the middle, where serious businesses get serious results.</p>
+        </div>
+      </div>
+
+      <!-- Honest advice -->
+      <div class="mt-10 rounded-2xl border-l-4 border-primary-500 bg-primary-50 p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">One honest piece of advice</p>
+        <p class="mt-3 text-lg leading-relaxed text-gray-700">
+          Budget for photography. We have built over 70 websites in the last six years. The ones that truly shine have one thing in common — real, current photography of real people and real work.
+        </p>
+        <p class="mt-3 text-lg leading-relaxed text-gray-700">
+          Stock photography and AI-generated images do not build trust. With humans or with AI. If you're investing in a website that's built to perform, invest in images that show who you actually are.
+        </p>
+      </div>
+
+      <!-- Not right if -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900">This Isn't Right for You If:</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          You're looking to hand over the keys and walk away. A great website is a collaboration. We need your time, your thinking, and your input — particularly during the content phase. Not enormous amounts, but it must be real and it must be thoughtful. If that isn't possible right now, it's worth waiting until it is.
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SECTION 5: AI SALES & SERVICE ENGINE
+  ====================================================== -->
+  <section id="ai-engine" class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Service 05</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        AI Sales & Service Engine
+      </h2>
+      <p class="mt-2 text-lg italic text-gray-500 dark:text-gray-400">Never miss a lead again. Day or night.</p>
+
+      <!-- The problem -->
+      <div class="mt-8 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <h3 class="text-xl text-gray-900 dark:text-white">The Problem This Solves.</h3>
+        <p>Speed is everything in sales. The business that responds first wins — not the one with the best service or the lowest price. First.</p>
+        <p>Most businesses are losing sales they don't even know about. A lead comes in at 7pm. Nobody calls back until 10am the next morning. By then, the buyer has moved on.</p>
+        <p>Our AI Sales & Service Engine fixes that. Permanently.</p>
+      </div>
+
+      <!-- What it does -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">What Does It Actually Do?</h3>
+        <div class="mt-6 space-y-4">
+          {[
+            {
+              title: 'Instant outbound calling.',
+              body: 'The moment a lead comes in — from your website, a Facebook ad, anywhere — our system calls them. Not in an hour. Not in ten minutes. Immediately. From that call, it can book an appointment, qualify the lead, or hand them straight to one of your team.',
+            },
+            {
+              title: 'Inbound call handling.',
+              body: 'For most clients, we take between 70 and 85% of all incoming calls — filtering out the noise and making sure your team only speaks to the people who matter.',
+            },
+            {
+              title: 'AI website chatbot.',
+              body: 'An AI that knows your business inside out handles text enquiries. Not the clunky, frustrating chatbots of old. Something genuinely useful that can take a customer from first question to booked appointment without a human lifting a finger.',
+            },
+          ].map(({ title, body }) => (
+            <div class="rounded-2xl bg-white p-5 shadow-sm dark:bg-gray-800">
+              <p class="font-semibold text-gray-900 dark:text-white">{title}</p>
+              <p class="mt-2 text-gray-600 dark:text-gray-400">{body}</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          The result: a leaner business, happier customers, and a sales team that only ever talks to people who are ready to go.
+        </p>
+      </div>
+
+      <!-- Price callout -->
+      <div class="mt-10 rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Price</p>
+        <p class="mt-2 text-4xl font-normal text-gray-900 dark:text-white" style="font-family: var(--font-display)">£2,500 <span class="text-2xl text-gray-500">/ $3,150 per month</span></p>
+        <p class="mt-2 text-gray-500 dark:text-gray-400">Full package — inbound calls, outbound calls, and website chatbot. No setup fee. Most clients are live within three to five weeks.</p>
+        <p class="mt-3 text-sm text-gray-400 dark:text-gray-500">Very high outbound call volumes may incur additional telephony costs — typically £500–£750 / $625–$940 per month.</p>
+      </div>
+
+      <!-- Weekly reporting -->
+      <div class="mt-10">
+        <h3 class="text-xl text-gray-900 dark:text-white">What About Setup and Ongoing Support?</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          The first few weeks are spent building, integrating with your CRM, and testing. We monitor every single interaction the system has, particularly in the early weeks — and the improvement that happens in that period is remarkable.
+        </p>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">We also send a weekly report covering:</p>
+        <ul class="mt-4 space-y-2">
+          {[
+            'What customers are asking and worrying about',
+            'What your team is handling well — and where there are gaps',
+            'What isn\'t clear on your website',
+            'What market opportunities are emerging',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary-500"></span>
+              <span class="text-gray-600 dark:text-gray-400">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-lg italic text-gray-500 dark:text-gray-400">Our clients consistently tell us this data alone is worth the investment.</p>
+      </div>
+
+      <!-- Is this right -->
+      <div class="mt-10 rounded-2xl border border-gray-200 bg-white p-6 dark:bg-gray-800 dark:border-gray-700">
+        <h3 class="text-xl text-gray-900 dark:text-white">Is This Right for Your Business?</h3>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          This service needs volume to make sense. You need either a busy sales function, a busy customer service function, or both. If you're receiving a handful of leads or calls each week, the numbers won't stack up yet. Come back to this one when the volume is there.
+        </p>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          If you do have that volume, ask yourself: what does it cost me to have humans handling all of this today — in salaries, in missed leads, in slow response times? For most of our clients, the AI engine pays for itself within the first month.
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       BUNDLE PRICING
+  ====================================================== -->
+  <section id="bundle" class="bg-gray-950 py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center lg:px-8">
+
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-400">The Ambitions AI Blueprint</p>
+      <h2 class="mt-3 text-3xl text-white lg:text-4xl">
+        One System. Five Components. Built Around You.
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
+        Each service on this page works on its own. But when they work together, something different happens. The content brings the traffic. The SEO and AEO make sure the right people find it. The website converts them. The AI engine catches every lead. The reviews build the trust that makes people choose you.
+      </p>
+
+      <!-- Pull-out quote -->
+      <figure class="my-10">
+        <blockquote>
+          <p style="font-family: var(--font-display)" class="text-2xl italic text-primary-400 lg:text-3xl">
+            "In April 2026, there is no more complete system available to a service business that wants predictable, scalable growth."
+          </p>
+        </blockquote>
+      </figure>
+
+      <!-- Discount table -->
+      <div class="mx-auto mt-10 max-w-lg overflow-hidden rounded-2xl border border-white/10">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 text-left font-semibold text-white">Services taken</th>
+              <th class="px-6 py-4 text-left font-semibold text-white">Discount</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr>
+              <td class="px-6 py-4 text-gray-300">Any two services</td>
+              <td class="px-6 py-4 font-semibold text-primary-400">10% off everything</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-300">Any three or more services</td>
+              <td class="px-6 py-4 font-semibold text-primary-400">20% off everything</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mx-auto mt-6 max-w-2xl text-gray-400">
+        That includes the website build. To give you a sense of what that means in practice: a typical client on three monthly services — Reviews Automation, AEO & SEO, and Endless Customers™ Coaching — would be spending around £5,769 / $7,200 per month before the discount. At 20% off, that becomes <strong class="text-white">£4,615 / $5,760 per month</strong>. A saving of over <strong class="text-white">£13,800 / $17,000 in a year.</strong>
+      </p>
+
+      <!-- Where to start -->
+      <div class="mx-auto mt-12 max-w-2xl rounded-2xl bg-white/5 p-8">
+        <h3 class="text-xl text-white">Where Do Most People Start?</h3>
+        <p class="mt-4 text-gray-400">
+          Honestly — Reviews Automation. It's fast, affordable, and the results are visible within days. It's a lovely way to get to know us and to feel what it's like when your marketing starts working. From there, we build your Blueprint together — at a pace that works for you.
+        </p>
+      </div>
+
+      <!-- Urgency -->
+      <p class="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-gray-400">
+        The businesses investing in trust, content, and AI visibility right now are pulling ahead of their competitors month by month. April 2026 is still early enough to move first in most markets.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/30 transition-all hover:bg-primary-600"
+        >
+          Start Now
+        </a>
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white/50 hover:bg-white/10"
+        >
+          Book Your Free Explore Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FINAL CTA
+  ====================================================== -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">
+        The First Conversation Is Free. There's No Pitch and No Pressure.
+      </h2>
+      <p class="mt-6 text-lg text-white/80">
+        Just an honest look at your business and what we think would make the biggest difference. You'll leave with clarity — and a plan, if you want one.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100"
+        >
+          Book Your Free Explore Call
+        </a>
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white/50 hover:bg-white/10"
+        >
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>

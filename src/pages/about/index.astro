@@ -1,0 +1,315 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://theambitionsagency.com/about/#webpage",
+      "url": "https://theambitionsagency.com/about/",
+      "name": "About Ambitions AI",
+      "description": "Ambitions AI is a deliberately small, deliberately senior digital marketing agency. We help founder-led service businesses across the UK and USA grow using AI tools, SEO, AEO, content strategy and the Endless Customers™ methodology.",
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://theambitionsagency.com/#organization",
+      "name": "Ambitions AI",
+      "url": "https://theambitionsagency.com",
+      "logo": "https://theambitionsagency.com/images/AAI_HEADERLOGO.webp",
+      "description": "Ambitions AI helps founder-led service businesses grow using AI tools, SEO, AEO, content strategy and the Endless Customers™ methodology.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "80 Magdalen Road",
+        "addressLocality": "Exeter",
+        "addressRegion": "Devon",
+        "postalCode": "EX2 4TT",
+        "addressCountry": "GB"
+      },
+      "areaServed": ["GB", "US"],
+      "founder": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "employee": [
+        { "@id": "https://theambitionsagency.com/#nick-burrage" },
+        {
+          "@type": "Person",
+          "name": "Emanuel Burrage",
+          "jobTitle": "Head of AI Systems"
+        },
+        { "@id": "https://theambitionsagency.com/#liyana-van-wyk" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "jobTitle": "Founder & Certified Endless Customers™ Coach",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/nicholas-burrage-digital-marketing"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#liyana-van-wyk",
+      "name": "Liyana van Wyk",
+      "jobTitle": "Technical SEO & AEO Lead",
+      "url": "https://theambitionsagency.com/authors/liyana-van-wyk/",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/iamliyanav/"]
+    }
+  ]
+};
+---
+
+<Base
+  title="About"
+  metaTitle="About Ambitions AI | A Deliberately Small, Deliberately Senior Agency"
+  description="Ambitions AI helps founder-led service businesses across the UK and USA grow using AI tools, SEO, AEO, content strategy and the Endless Customers™ methodology. Meet the team."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-4 top-0 h-72 w-72 rounded-full bg-primary-500 blur-[128px]"></div>
+      <div class="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-accent-500 blur-[128px]"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">About us</p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          You're brilliant at your business.<br class="hidden sm:block" />
+          <em class="italic text-primary-500">Marketing is another matter.</em>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400 lg:text-xl">
+          Most business owners we meet are not struggling because they lack drive or intelligence. They are struggling because marketing is simply not their craft.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        12 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       THE STORY OPENS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <div class="prose dark:prose max-w-none" data-animate>
+          <p>So they do what any sensible person does. They hire people to help.</p>
+          <p>Sometimes it works. More often, they end up burned.</p>
+          <p>A website that cost a fortune and brought nothing in. Ad spend that vanished without a trace. Agencies that promised the world and quietly underdelivered. Content that took weeks to produce and disappeared without a click.</p>
+          <p>If any of that sounds familiar, you are in good company.</p>
+        </div>
+
+        <!-- The burned section -->
+        <div class="mt-16" data-animate>
+          <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+            Even the people in marketing get burned by marketing.
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>Nick Burrage founded Ambitions AI after spending years running a marketing agency. In that time, he made some of the same mistakes his clients had made.</p>
+            <p>He once hired a cold outreach service that did, technically, generate leads. One of those leads told him:</p>
+          </div>
+          <blockquote class="mt-6 rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="mb-3 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-lg italic text-gray-700 dark:text-gray-300">
+              'Nick, I'm only responding because the person emailing me has been so persistent. I just wanted to make it stop.'
+            </p>
+          </blockquote>
+          <p class="mt-6 text-gray-600 dark:text-gray-400">
+            That was the moment he realised that a lot of what passes for marketing is not just ineffective. It is actively damaging to the businesses paying for it.
+          </p>
+        </div>
+
+        <!-- The book -->
+        <div class="mt-16" data-animate>
+          <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+            The book that changed everything.
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>On the advice of his business coach, Nick picked up a copy of <em>They Ask You Answer</em> by Marcus Sheridan. It is now in its third edition and sells more copies each year than the year before.</p>
+            <p>The reason is simple: it is built on principles, not tactics. And principles do not go out of fashion.</p>
+          </div>
+          <blockquote class="mt-6 rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="mb-3 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-lg italic text-gray-700 dark:text-gray-300">
+              'Tactics are many, principles are few. Tactics often change; principles never do.'
+            </p>
+          </blockquote>
+          <p class="mt-6 text-gray-600 dark:text-gray-400">
+            Nick was so convinced he emailed Marcus Sheridan directly to ask if he needed coaches. He did. Nick joined Marcus's very first coaching training programme and has been a Certified Endless Customers™ Coach ever since.
+          </p>
+        </div>
+
+        <!-- Small senior team -->
+        <div class="mt-16" data-animate>
+          <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+            A deliberately small, deliberately senior team.
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>Most agencies carry a lot of overhead. Rows of staff who need to be kept busy. That overhead drives a particular kind of behaviour: chasing any work available to fill the seats.</p>
+            <p>We work differently.</p>
+            <p>Every person in our core team is highly experienced and works independently. There are no layers between you and the people doing the work. When you get in touch, you speak to Nick or Liyana directly. No salesperson in between. No pressure. No pitch.</p>
+            <p>Just an honest conversation about whether we are a good fit for each other.</p>
+          </div>
+          <blockquote class="mt-6 rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="mb-3 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-lg italic text-gray-700 dark:text-gray-300">
+              'Of the 70-plus websites we have built over the last decade, nearly all of those clients are still with us.'
+            </p>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THE TEAM
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">The team</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          The people doing the work.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+
+        <!-- Nick -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-6 aspect-square w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-700">
+            <img
+              src="/images/NICKB.webp"
+              alt="Nick Burrage, Founder of Ambitions AI"
+              class="h-full w-full object-cover object-top"
+            />
+          </div>
+          <a href="/authors/nick-burrage/" class="group">
+            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+              Nick Burrage
+            </h3>
+          </a>
+          <p class="mt-1 text-sm font-medium text-primary-500">Founder &amp; Certified Endless Customers™ Coach</p>
+          <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+            25 years in marketing. A decade at the top of the UK advertising industry. Certified on the Endless Customers™ methodology since its very first training programme. Works directly with founder-led businesses across the UK and USA.
+          </p>
+          <a href="/authors/nick-burrage/" class="mt-4 inline-block text-sm font-medium text-primary-500 hover:underline">
+            Read more about Nick →
+          </a>
+        </div>
+
+        <!-- Emanuel -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-6 aspect-square w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-700">
+            <img
+              src="/images/EMANUEL_AUTHOR.webp"
+              alt="Emanuel Burrage, Head of AI Systems at Ambitions AI"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Emanuel Burrage</h3>
+          <p class="mt-1 text-sm font-medium text-primary-500">Head of AI Systems</p>
+          <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+            Nick's son. Shown the AI automation systems Nick was building in 2024 and running them better within ten days. Builds the systems that allow Ambitions AI to do things no traditional agency can.
+          </p>
+        </div>
+
+        <!-- Liyana -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-6 aspect-square w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-700">
+            <img
+              src="/images/LIYANA_AUTHOR.webp"
+              alt="Liyana van Wyk, Technical SEO & AEO Lead at Ambitions AI"
+              class="h-full w-full object-cover object-top"
+            />
+          </div>
+          <a href="/authors/liyana-van-wyk/" class="group">
+            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+              Liyana van Wyk
+            </h3>
+          </a>
+          <p class="mt-1 text-sm font-medium text-primary-500">Technical SEO &amp; AEO Lead</p>
+          <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+            15 years of experience. An extraordinary list of qualifications. Leads the technical SEO and AEO team alongside her husband Wes. Works with clients across the UK, USA, and beyond. Usually with the South African coast visible through the window behind her on Zoom.
+          </p>
+          <a href="/authors/liyana-van-wyk/" class="mt-4 inline-block text-sm font-medium text-primary-500 hover:underline">
+            Read more about Liyana →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       READY WHEN YOU ARE
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Ready when you are.
+        </h2>
+        <div class="prose dark:prose mt-8 max-w-none">
+          <p>No pitch. No aggressive follow-up. Just a conversation.</p>
+          <p>Honestly, these calls are one of the best parts of the job. Every business is different. Every owner has a different story, different challenges, different patterns. I find it genuinely fascinating, and more often than not, I learn something too.</p>
+          <p>If your marketing has never quite delivered what was promised, or you simply want to think out loud with someone who has seen it all before, get in touch. I would love to hear about your business.</p>
+        </div>
+        <div class="mt-10">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Book a free Explore Call →
+          </a>
+        </div>
+
+        <!-- Nick's signature -->
+        <div class="mt-16 border-t border-gray-200 pt-10 dark:border-gray-800">
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/NICKB.webp"
+              alt="Nick Burrage"
+              class="h-14 w-14 rounded-full object-cover object-top"
+            />
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white">Nick Burrage</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Founder, Ambitions AI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>

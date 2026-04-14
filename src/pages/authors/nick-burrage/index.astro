@@ -1,0 +1,229 @@
+---
+import { env } from 'cloudflare:workers';
+import Base from '@/layouts/Base.astro';
+
+const db = env.DB as D1Database;
+
+type PostRow = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  post_date: string | null;
+  published_at: string | null;
+  created_at: string;
+};
+
+const { results: posts } = await db
+  .prepare(
+    `SELECT p.id, p.slug, p.title, p.excerpt, p.post_date, p.published_at, p.created_at
+     FROM ec_posts p
+     INNER JOIN _emdash_content_bylines cb ON cb.content_id = p.id
+     INNER JOIN _emdash_bylines b ON b.id = cb.byline_id
+     WHERE p.status = 'published'
+       AND p.deleted_at IS NULL
+       AND (b.slug = 'nick-burrage' OR b.slug = 'ambitions')
+     ORDER BY COALESCE(p.post_date, p.published_at, p.created_at) DESC
+     LIMIT 12`
+  )
+  .all<PostRow>();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://theambitionsagency.com/authors/nick-burrage/#webpage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "name": "Nick Burrage — Founder & Certified Endless Customers™ Coach",
+      "description": "Nick Burrage is the founder of Ambitions AI and a Certified Endless Customers™ Coach. 25 years in marketing, including senior roles at Saatchi & Saatchi and Ford. Based in Exeter, Devon.",
+      "mainEntity": { "@id": "https://theambitionsagency.com/#nick-burrage" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "jobTitle": "Founder & Certified Endless Customers™ Coach",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Sussex"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Exeter",
+        "addressRegion": "Devon",
+        "addressCountry": "GB"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nicholas-burrage-digital-marketing"
+      ],
+      "knowsAbout": [
+        "Digital Marketing",
+        "Content Marketing",
+        "Endless Customers Coaching",
+        "They Ask You Answer",
+        "SEO",
+        "AEO",
+        "AI Marketing",
+        "Brand Strategy"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://theambitionsagency.com/#organization",
+      "name": "Ambitions AI",
+      "url": "https://theambitionsagency.com"
+    }
+  ]
+};
+---
+
+<Base
+  title="Nick Burrage"
+  metaTitle="Nick Burrage — Founder & Certified Endless Customers™ Coach | Ambitions AI"
+  description="Nick Burrage is the founder of Ambitions AI and a Certified Endless Customers™ Coach. 25 years in marketing, including senior roles at Saatchi & Saatchi and Ford's global brand team."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- =========================================================
+       AUTHOR HEADER
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 opacity-40">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-600 blur-[160px]"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 py-20 lg:px-8 lg:py-28">
+      <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-gray-400">Author</p>
+          <h1 class="mt-3 text-4xl font-normal text-white sm:text-5xl">Nick Burrage</h1>
+          <p class="mt-2 text-lg text-primary-400">Founder &amp; Certified Endless Customers™ Coach</p>
+          <p class="mt-6 text-gray-300 lg:text-lg">
+            25 years in marketing. A decade at the top of the UK advertising industry. Founder of Ambitions AI and one of only 37 Certified Endless Customers™ Coaches worldwide.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://www.linkedin.com/in/nicholas-burrage-digital-marketing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full border border-gray-600 bg-gray-800 px-5 py-2.5 text-sm font-medium text-gray-200 transition-all hover:border-primary-500 hover:text-primary-400"
+            >
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.997 23.227 23.997 22.271V1.729C23.997.774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-600"
+            >
+              Work with Nick →
+            </a>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl shadow-2xl">
+          <img
+            src="/images/NICKB.webp"
+            alt="Nick Burrage, Founder of Ambitions AI"
+            class="w-full object-cover"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BIO
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl space-y-16">
+
+        <div data-animate>
+          <h2 class="text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">
+            From Coca-Cola to Saatchi's
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>Nick was born in the USA, grew up in the UK, and studied economics at the University of Sussex. His first job was selling Coca-Cola door to door. Not an obvious route into advertising. But it turned out to be a perfect one.</p>
+            <p>He spent the next 15 years at the heart of the UK advertising industry, including several years at Saatchi &amp; Saatchi creating campaigns for Toyota, Sky TV, Carlsberg and Nestlé. His final corporate role was on Ford's global brand team, split between London and Detroit.</p>
+          </div>
+        </div>
+
+        <div data-animate>
+          <h2 class="text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">
+            Building Something of His Own
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>In 2016, Nick bought a small design agency and set about doing what he had wanted to do for years: bring the rigour and power of big-agency thinking to smaller businesses.</p>
+            <p>His father was an academic at the London School of Economics. His mother was a ceramic artist. Nick has always lived where those two worlds meet, where creativity and commerce collide. That is exactly where Ambitions AI operates today.</p>
+          </div>
+        </div>
+
+        <div data-animate>
+          <h2 class="text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">
+            The Book That Changed Everything
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>The real turning point came in 2021, when his coach handed him a copy of <em>They Ask You Answer</em> by Marcus Sheridan. It solved a problem Nick had been wrestling with for years: why creating content felt like such a grind, and why so little of it actually worked.</p>
+            <p>On something of a whim, he emailed Marcus directly. Marcus had just decided that businesses needed help implementing the framework. Nick joined his very first coaching training programme and has been a Certified Endless Customers™ Coach ever since.</p>
+          </div>
+        </div>
+
+        <div data-animate>
+          <h2 class="text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">
+            Outside of Work
+          </h2>
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>Nick is based in Exeter, Devon, having swapped 40 years of London for somewhere with a beach in one direction and a national park in the other. He has three children: one in the business, one studying art in London, and one about to head off to university.</p>
+            <p>He is a competitive CrossFit athlete who competes across the UK, a lifelong motocross fan (he used to race; now he watches from a safer distance), and a proud greyhound owner who is always happy to stop and talk dogs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ARTICLES BY NICK
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        Articles by Nick
+      </h2>
+
+      {posts.length > 0 ? (
+        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-animate>
+          {posts.map((post) => {
+            const date = post.post_date ?? post.published_at ?? post.created_at;
+            const formatted = date
+              ? new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+              : null;
+            return (
+              <a href={`/${post.slug}/`} class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-800">
+                {formatted && <p class="text-xs text-gray-400 dark:text-gray-500">{formatted}</p>}
+                <h3 class="mt-2 font-semibold text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+                  {post.title}
+                </h3>
+                {post.excerpt && (
+                  <p class="mt-2 text-sm text-gray-600 line-clamp-3 dark:text-gray-400">{post.excerpt}</p>
+                )}
+                <span class="mt-4 inline-block text-sm font-medium text-primary-500">Read more →</span>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <p class="mt-8 text-gray-500 dark:text-gray-400" data-animate>Articles coming soon.</p>
+      )}
+    </div>
+  </section>
+
+</Base>

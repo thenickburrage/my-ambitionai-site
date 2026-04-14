@@ -1,0 +1,789 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-13';
+const updatedISO   = '2026-04-13';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/#webpage",
+      "url": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/",
+      "name": "AI Review Automation for Service Businesses | Ambitions AI",
+      "description": "Get more five-star Google reviews automatically. Personalised review request sequences by email and SMS, AI-written replies, and reputation management on autopilot. From £269/month.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://my-ambitionai-site.nb-e51.workers.dev/#nick-burrage" },
+      "publisher": { "@id": "https://my-ambitionai-site.nb-e51.workers.dev/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",                "item": "https://my-ambitionai-site.nb-e51.workers.dev/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Review Automation", "item": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/#service",
+      "name": "AI Review Automation",
+      "description": "Automated review request sequences sent by email and SMS to your customers after every service. AI-written responses to every Google review. Protection against negative reviews reaching public platforms. Full automation with zero ongoing effort.",
+      "serviceType": "Review Automation",
+      "url": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://my-ambitionai-site.nb-e51.workers.dev/#organization",
+        "name": "Ambitions AI",
+        "url": "https://my-ambitionai-site.nb-e51.workers.dev"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "269",
+        "priceCurrency": "GBP",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "269",
+          "priceCurrency": "GBP",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "MON"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://my-ambitionai-site.nb-e51.workers.dev/ai-review-automation/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does AI review automation cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "£269 per month (or $340 USD). No setup fee. No contract. Cancel any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which review platforms do you support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support all major platforms including Google, Trustpilot, Yelp, Facebook, Tripadvisor, RealSelf, Healthgrades, Zocdoc, Which?, and Houzz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to do anything once it is set up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very little. We connect directly to your CRM and run everything from there. We handle sequences, timing, replies, and ensure unhappy customer feedback reaches your team privately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this service right for my business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you serve customers and capture their email address or phone number, this will work for you. Around 15 customers a month is a workable minimum, though even a slower flow of fresh reviews compounds significantly over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I get any negative reviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very unlikely with our system. It is deliberately designed to take anyone with a complaint away from public platforms and into a private channel where you can deal with it directly. Every client running our system has maintained a completely clean public review record. In the rare event a negative review appears, the volume of five-star reviews we generate will quickly outweigh it."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://my-ambitionai-site.nb-e51.workers.dev/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://my-ambitionai-site.nb-e51.workers.dev/authors/nick-burrage/",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://my-ambitionai-site.nb-e51.workers.dev/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="AI Review Automation"
+  metaTitle="AI Review Automation for Service Businesses | Ambitions AI"
+  description="Get more five-star Google reviews automatically. Personalised review request sequences by email and SMS, AI-written replies, and reputation management on autopilot. From £269/month."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Reviews Automation</p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Your Service Is Brilliant.<br class="hidden sm:block" />
+          <em class="italic text-primary-500">Your Google Reviews Should Say So.</em>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          Trust is what turns a stranger into a customer. Reviews are how you earn it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        13 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PROBLEM AND STAKES
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Things I Hear From Great Service Businesses All the Time.
+        </h2>
+
+        <div class="mt-12 space-y-6" data-animate>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We know we do an excellent job. Our clients tell us all the time. We just never quite get round to asking for reviews.'
+            </p>
+          </blockquote>
+
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'Sometimes on a sales call, I really want to share how our clients love our service, but it sounds like sales talk. If our other clients could be there with me and tell them, every sale would be easy.'
+            </p>
+          </blockquote>
+
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'A competitor with half our quality has twice our reviews. It is honestly maddening.'
+            </p>
+          </blockquote>
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-primary-50 px-8 py-6 dark:bg-primary-900/20" data-animate>
+          <p class="text-gray-700 dark:text-gray-300 lg:text-lg">
+            That middle one is the real issue. It is not just about reviews. It is about trust. <strong class="text-gray-900 dark:text-white">When people trust you, they buy. When they do not, they hesitate, and hesitation usually means losing the sale.</strong>
+          </p>
+          <p class="mt-6 text-gray-600 dark:text-gray-400 lg:text-lg">
+            Reviews are the single most powerful trust signal available to a service business. They are third-party, independent, and unedited. Your website says you are good. Your reviews prove it. Google trusts them. AI trusts them. And your future customers trust them more than anything you could ever write about yourself.
+          </p>
+        </div>
+
+        <div class="mt-8 rounded-xl border-l-4 border-primary-500 bg-white pl-6 py-4 dark:bg-gray-800" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">Reviews are not the last thing on your to-do list. They are the last thing your customers check before they say yes.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MORE REVIEWS. MORE TRUST. MORE SALES.
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          More Reviews. More Trust. More Sales.
+        </h2>
+
+        <div class="mt-8 space-y-4" data-animate>
+          <p class="text-gray-600 dark:text-gray-400 lg:text-lg">
+            <strong class="text-gray-900 dark:text-white">People read your reviews</strong> to decide whether to trust you. If they trust you, they buy.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 lg:text-lg">
+            <strong class="text-gray-900 dark:text-white">Google reads your reviews</strong> to decide how prominently to show your business. ChatGPT, Perplexity, and other AI platforms read them to decide whether to recommend you at all. Every system that could send you a new customer is using your reviews as a primary signal.
+          </p>
+        </div>
+
+        <!-- Marcus Sheridan block quote — maximum visual weight -->
+        <div class="my-16 rounded-2xl bg-gray-900 p-10 shadow-2xl lg:p-14" data-animate>
+          <svg class="mb-6 h-10 w-10 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="text-2xl font-normal italic leading-relaxed text-white sm:text-3xl lg:text-4xl">
+            "The most powerful content framework in existence cannot outperform the raw trust signal of a great reputation."
+          </p>
+          <p class="mt-6 text-base text-gray-400">
+            Marcus Sheridan, <em>Endless Customers</em>
+          </p>
+        </div>
+
+        <div data-animate>
+          <p class="mb-6 text-gray-600 dark:text-gray-400 lg:text-lg">The research backs it up:</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {[
+              { stat: '93%', text: 'of consumers say online reviews influence their purchase decision' },
+              { stat: '88%', text: 'trust reviews as much as a personal recommendation from a friend' },
+              { stat: '73%', text: 'only trust reviews left in the last month — old reviews actively undermine confidence' },
+              { stat: '35%', text: 'more revenue earned by businesses that reply to reviews' },
+              { stat: '5–9%', text: 'revenue increase from a single star improvement in rating' },
+              { stat: '82%', text: 'more annual revenue earned by businesses above average review count' },
+              { stat: '89%', text: 'of consumers expect businesses to respond to reviews' },
+              { stat: '89%', text: 'read those responses before deciding whether to get in touch' },
+            ].map((item) => (
+              <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+                <p class="text-3xl font-bold text-primary-500">{item.stat}</p>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Secondary CTA — trust signals briefing -->
+        <div class="mt-12 rounded-2xl border-2 border-dashed border-primary-300 bg-primary-50 p-8 text-center dark:border-primary-700 dark:bg-primary-900/20" data-animate>
+          <p class="text-gray-700 dark:text-gray-300 lg:text-lg">Want to understand every way trust drives revenue in an AI-driven world?</p>
+          <div class="mt-4">
+            <a href="/learning-centre/19-ai-trust-signals/" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700">
+              Download the Free 19 AI Trust Signals Briefing
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WE BUILT THIS TO SOLVE EXACTLY THAT PROBLEM
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Ambitions AI: We Help Service Businesses Become the Most Trusted in Their Market.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>We have seen what happens when a great service business finally gets the reviews it deserves.</p>
+          <p>The team loves it. Customers name individual members of staff by name. Sales conversations get easier because the trust is already there. Prospects who used to hesitate say yes faster.</p>
+          <p>And we can show you the numbers. Every review client receives a regular report showing how many people clicked through from their Google Maps profile to their website. You will see, in black and white, how your growing reputation translates directly into traffic, enquiries, and customers.</p>
+          <p>No other form of marketing delivers a return this fast. A flow of positive reviews begins within hours of going live.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       THE PROOF — BEACON VET CARE
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          One Client. Three Practices. The Best-Reviewed Vet in the UK.
+        </h2>
+
+        <div class="mt-10 overflow-hidden rounded-2xl shadow-lg" data-animate>
+          <img
+            src="/images/BEACON.webp"
+            alt="Beacon Vet Care Google reviews showing five-star ratings across three veterinary practices in Cornwall"
+            class="w-full"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Beacon Vet Care — Three Veterinary Practices, Cornwall</h3>
+
+          <ul class="mt-6 space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Started with Google ratings of 4.7 and 4.8. One branch was brand new with almost no reviews.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Now has over <strong class="text-gray-900 dark:text-white">1,160 five-star Google reviews</strong>. Every branch rated five stars.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">As far as we can find, the <strong class="text-gray-900 dark:text-white">number one rated vet practice in the entire United Kingdom</strong> — by the only measure that actually matters: volume and rating combined. Five stars with five reviews proves nothing. Five stars with over a thousand reviews is a genuine commercial asset.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Now <strong class="text-gray-900 dark:text-white">hiring new vets and opening new sites</strong> to meet demand.</span>
+            </li>
+          </ul>
+
+          <p class="mt-6 text-gray-600 dark:text-gray-400">You can look them up. The reviews speak for themselves.</p>
+        </div>
+
+        <div class="mt-8 rounded-xl border-l-4 border-accent-500 bg-white pl-6 py-4 dark:bg-gray-800" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">A great reputation does not just feel good. It builds businesses.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HOW IT WORKS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">How it works</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          How to End Up With a Brilliant Flow of Up-to-Date Positive Reviews.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">1</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">You Get in Touch</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">You start the ball rolling. That is all we need from you to begin.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">2</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">We Connect to Your CRM and Build Everything</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">We log into your CRM and build the entire system. We write every message, configure the timing, and handle all the infrastructure. You approve before anything goes out. Then it runs itself.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">3</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your Business Grows on Autopilot</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Reviews arrive. Your Google profile fills with five-star proof. Sales conversations get easier. More people find you. More of them convert. You stop losing business to competitors with worse services and better profiles.</p>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-8 max-w-3xl" data-animate>
+        <p class="text-center text-lg font-semibold text-gray-900 dark:text-white">You are no longer the best-kept secret in your market.</p>
+      </div>
+
+      <div class="mt-10 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHAT IS INCLUDED
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Your Five-Star Reviews Flow Live to Google, Your Website, and Every Platform That Matters.
+        </h2>
+
+        <div class="mt-12 space-y-6" data-animate>
+          {[
+            {
+              title: 'Review Request Sequences',
+              text: 'Years of experience have taught us exactly when to send, what channel to lead with, and how to write messages that get results. Every customer receives a carefully timed series — typically SMS followed by up to three emails over around 23 days — sent during business hours, spaced naturally. It never looks like a bulk send.',
+            },
+            {
+              title: 'Dedicated Sending Infrastructure',
+              text: 'Our dedicated infrastructure ensures absolute security and that your messages get through to their intended recipient.',
+            },
+            {
+              title: 'Unhappy Customers Come to You, Not Google',
+              text: 'If a customer had a less-than-perfect experience, a private link in their message brings their feedback directly to your team — quietly and discreetly.',
+            },
+            {
+              title: 'AI-Written Review Replies',
+              text: 'Every incoming review receives a natural, on-brand response, posted at a realistic time. 89% of potential customers read business responses to reviews — this keeps your profile looking active, engaged, and human.',
+            },
+            {
+              title: 'Reviews on Your Website',
+              text: 'We make sure your best reviews appear on your website as they arrive, not just on the platforms themselves.',
+            },
+            {
+              title: 'Regular Performance Reports',
+              text: 'Every client receives a report showing how many people clicked through from their Google Maps profile to their website — so you can see exactly how your growing reputation converts into real commercial activity.',
+            },
+            {
+              title: 'QA Monitoring',
+              text: 'A QA check runs every six hours across all active sequences.',
+            },
+          ].map((item) => (
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+              <h3 class="font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-400">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PLATFORMS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Every Platform That Matters to Your Customers.
+        </h2>
+
+        <div class="mt-12 grid gap-4 sm:grid-cols-2" data-animate>
+          {[
+            { name: 'Google Reviews', desc: 'The most important platform for local and service businesses. Directly influences local search ranking and is a primary signal for AI recommendation engines.' },
+            { name: 'Trustpilot', desc: 'The world\'s most recognised independent review platform. Powerful for any business with an online presence.' },
+            { name: 'Yelp', desc: 'Dominant for local service discovery in the United States.' },
+            { name: 'Facebook Reviews', desc: 'Strong for community trust and local referrals.' },
+            { name: 'Tripadvisor', desc: 'The go-to platform for hospitality, leisure, and experience businesses.' },
+            { name: 'RealSelf', desc: 'The leading specialist platform for aesthetic treatments and medical spas in the US. As important as Google in that market.' },
+            { name: 'Healthgrades', desc: 'Critical for health and wellness businesses. Patients use it to research providers before booking.' },
+            { name: 'Zocdoc', desc: 'Fast-growing for appointment-based health and wellness services.' },
+            { name: 'Which?', desc: 'The most trusted independent review source for UK service businesses.' },
+            { name: 'Houzz', desc: 'The dominant platform for home improvement, interiors, and trade services.' },
+          ].map((item) => (
+            <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+              <p class="font-semibold text-gray-900 dark:text-white">{item.name}</p>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-8 text-sm text-gray-500 dark:text-gray-400 italic" data-animate>
+          Not sure which platforms matter most for your sector? We will advise you as part of setup.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRICING
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          What Does It Cost?
+        </h2>
+
+        <div class="mt-10 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-8 text-white shadow-xl shadow-primary-500/20" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest opacity-80">Monthly investment</p>
+          <p class="mt-2 text-3xl font-bold">£269 / $340 per month</p>
+          <p class="mt-4 text-sm opacity-90">This is the base price for a single Google Business Profile. If you have multiple locations, there is a small additional charge for each one — ask us for a quote.</p>
+          <p class="mt-3 text-sm opacity-80">No setup fee. No contract. Cancel any month it is not working — though in our experience, nobody does.</p>
+        </div>
+
+        <p class="mt-8 text-gray-600 dark:text-gray-400 lg:text-lg" data-animate>
+          That is less than £9 a day for a service that runs entirely on its own, collects reviews around the clock, replies to every one of them, and actively protects your reputation.
+        </p>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FIRST STEP INTO AI AUTOMATIONS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          This Is Your First Step Into AI Automations. They Will Soon Be Running Throughout Your Business.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>A flow of five-star reviews begins within hours of going live. Within days, your business will have an entirely different public profile.</p>
+          <p>This is also the beginning of something bigger. After a few months working together, we will reach out and offer to automate something else in your business. We will set it up for you at no charge.</p>
+        </div>
+
+        <div class="mt-8 rounded-xl border-l-4 border-accent-500 bg-gray-50 pl-6 py-4 dark:bg-gray-800" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">One service. No contract. Your business starts running on autopilot from day one.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHO WILL THIS NOT WORK FOR
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500" data-animate>Honest caveats</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+          Who Will This Not Work For?
+        </h2>
+
+        <div class="mt-10 space-y-6" data-animate>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <h3 class="font-semibold text-gray-900 dark:text-white">No Customer Contact Details</h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">This service runs through email and SMS. If you have no way to reach customers after their visit — no email address, no phone number — it cannot run. A QR code in reception is the right starting point.</p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <h3 class="font-semibold text-gray-900 dark:text-white">Very Low Customer Volume</h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">Fewer than 15 customers a month and the review flow will be slow. The system still works and compounds over time, but the impact takes longer to feel significant.</p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <h3 class="font-semibold text-gray-900 dark:text-white">You Are Not Yet Delivering an Excellent Service</h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">The first step to success with reviews is delivering a genuinely excellent experience to your buyers. Fix that first — then come back to us.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FASTEST ROI
+  ========================================================= -->
+  <section class="bg-gray-900 py-16">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-2xl font-normal text-white lg:text-3xl">
+          The Fastest Return on Investment in Marketing — Including All of Our Services.
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-gray-400">
+          A flow of positive reviews begins within hours of going live. Within days, your business has an entirely different public profile. Of all the services we offer — and of all the marketing services we are aware of — nothing delivers a visible return on investment this fast.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR PANEL — REVIEWS highlighted
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3" data-animate>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="text-gray-500 dark:text-gray-400">Brings the right prospects to you</span>
+        </a>
+
+        <a href="/endless-customers-coaching/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-600 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="text-gray-500 dark:text-gray-400">Turns those prospects into buyers</span>
+        </a>
+
+        <a href="/website-design/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="text-gray-500 dark:text-gray-400">Closes the deal, 24 hours a day</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes sure you win every sale, fast</span>
+        </a>
+
+        <!-- REVIEWS — highlighted (you are here) -->
+        <div class="flex flex-col gap-1 rounded-2xl border-2 border-amber-400 bg-amber-50 px-6 py-5 sm:flex-row sm:items-center sm:gap-6 dark:border-amber-600 dark:bg-amber-900/20">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-600 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="font-medium text-gray-900 dark:text-white">
+            Makes you the obvious choice
+            <span class="ml-3 inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:bg-amber-900 dark:text-amber-300">You are here</span>
+          </span>
+        </div>
+
+      </div>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500 dark:text-gray-400" data-animate>
+        Each service works on its own. But when they work together, something remarkable happens. Full details on our <a href="/pricing" class="text-primary-500 hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        Frequently Asked Questions
+      </h2>
+
+      <div class="mt-12 space-y-4" data-animate>
+        {[
+          {
+            q: 'How Much Does It Cost?',
+            a: '£269 per month (or $340 USD). No setup fee. No contract. Cancel any time.',
+          },
+          {
+            q: 'How Long Does Setup Take?',
+            a: 'Typically a few days. We connect to your CRM, agree the sequences with you, and test everything before going live.',
+          },
+          {
+            q: 'Do I Need to Do Any Technical Work?',
+            a: 'No. No DNS setup, no developer involvement, nothing technical required from you. We handle all of it.',
+          },
+          {
+            q: 'Can I Approve the Messages Before They Go Out?',
+            a: 'Always. Nothing is sent to your customers until you have read and approved every message in the sequence.',
+          },
+          {
+            q: 'Will I Get Any Negative Reviews?',
+            a: 'Very unlikely if you use our system. It is deliberately designed to take anyone with a complaint away from public platforms and into a private channel where you can deal with it directly and discreetly. Every client running our system has maintained a completely clean public review record. In the rare event a negative review does appear — from someone who goes directly to Google outside the system — the flood of five-star reviews we generate will quickly put it in its proper context.',
+          },
+          {
+            q: 'Do You Reply to Reviews on All Platforms?',
+            a: 'We can manage replies across multiple platforms. We will agree which ones you want covered at setup.',
+          },
+          {
+            q: 'What Does the Regular Report Show?',
+            a: 'How many people clicked through from your Google Maps profile to your website — a clear, consistent measure of how your growing reputation is driving real commercial activity.',
+          },
+        ].map((item) => (
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white">
+              {item.q}
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <h2 class="text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Your Reputation Is Being Built Right Now. Are You in Control of It?
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-lg text-gray-600 dark:text-gray-400">
+          Fresh Google reviews build trust with buyers, signal quality to Google, and drive AI recommendations. Start today and your first reviews could be live within hours.
+        </p>
+        <div class="mt-10">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOURCES
+  ========================================================= -->
+  <section class="border-t border-gray-200 bg-white py-12 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Sources</p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">The statistics cited on this page are drawn from the following sources:</p>
+      <ul class="mt-4 space-y-2 text-sm text-gray-500 dark:text-gray-400">
+        <li><a href="https://www.brightlocal.com/research/local-consumer-review-survey-2025/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">BrightLocal Local Consumer Review Survey 2025</a></li>
+        <li><a href="https://www.brightlocal.com/webinars/the-state-of-reviews-2025/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">BrightLocal State of Reviews 2025</a></li>
+        <li><a href="https://brightlocal.com/resources/local-seo-statistics/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">BrightLocal Local SEO Statistics</a></li>
+        <li><a href="https://corporate.trustpilot.com/trust/trust-report-2025" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">Trustpilot Trust Report 2025</a></li>
+        <li><a href="https://www.chatmeter.com/resource/blog/25-stats-that-prove-the-power-of-online-reviews/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">Chatmeter: 25 Stats That Prove the Power of Online Reviews</a></li>
+        <li><a href="https://trustmary.com/reviews/online-reviews-statistics-that-will-blow-your-mind/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">Trustmary: Online Reviews Statistics</a></li>
+        <li><a href="https://www.textedly.com/blog/online-review-statistics-for-2025-to-know" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">Textedly: Online Review Statistics for 2025</a></li>
+        <li><a href="https://searchlabdigital.com/blog/data-from-brightlocals-consumer-review-survey/" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">Search Lab Digital</a></li>
+        <li><a href="https://learn.g2.com/customer-reviews-statistics" class="hover:text-primary-500 transition-colors" target="_blank" rel="noopener noreferrer">G2: Customer Reviews Statistics</a></li>
+      </ul>
+      <p class="mt-8 text-xs text-gray-400 dark:text-gray-500 italic">Page last updated: April 2026</p>
+    </div>
+  </section>
+
+</Base>

@@ -1,6 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '@fontsource/dm-serif-display/400.css';
+@import '@fontsource/dm-serif-display/400-italic.css';
+@import '@fontsource/source-sans-3/400.css';
+@import '@fontsource/source-sans-3/500.css';
+@import '@fontsource/source-sans-3/600.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom theme colors */
+@theme {
+  --color-primary-50: #fff0f6;
+  --color-primary-100: #ffe0ed;
+  --color-primary-200: #ffb3d1;
+  --color-primary-300: #ff80b3;
+  --color-primary-400: #ff4d90;
+  --color-primary-500: #ff006b;
+  --color-primary-600: #cc0056;
+  --color-primary-700: #990040;
+  --color-primary-800: #660029;
+  --color-primary-900: #330015;
+  --color-primary-950: #1a000a;
+
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+
+  --color-accent-50: #ecfeff;
+  --color-accent-100: #cffafe;
+  --color-accent-200: #a5f3fc;
+  --color-accent-300: #67e8f9;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2;
+  --color-accent-700: #0e7490;
+  --color-accent-800: #155e75;
+  --color-accent-900: #164e63;
+  --color-accent-950: #083344;
+}
 
 /* Custom base styles */
 @layer base {
@@ -9,12 +44,23 @@
     }
 
   body {
-        @apply bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100;
+    @apply bg-white antialiased dark:bg-gray-950 dark:text-gray-100;
+    color: #1a1a1a;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
   }
 
   /* Focus styles */
   :focus-visible {
         @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+
+  /* Display font for headings */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
   }
 }
 
@@ -135,12 +181,22 @@
     animation: scrollIndicator 1.5s ease-in-out infinite;
 }
 
+/* Article body column — controls the max-width sitewide for all blog posts */
+.article-prose {
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Prose/Typography styles for content */
 .prose {
-    color: theme(colors.gray.600);
-    max-width: 65ch;
-    font-size: 1rem;
-    line-height: 1.75;
+  --tw-prose-body: #1a1a1a;
+  --tw-prose-headings: theme(colors.gray.900);
+  --tw-prose-links: theme(colors.primary.500);
+  --tw-prose-bold: theme(colors.gray.900);
+  color: var(--tw-prose-body);
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {

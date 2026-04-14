@@ -1,5 +1,5 @@
 ---
-import { site, nav, header, socialLinks } from '@/data/site';
+import { site, nav, header } from '@/data/site';
 
 interface Props {
   transparent?: boolean;
@@ -13,34 +13,64 @@ const currentPath = Astro.url.pathname;
   data-header
   class={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${transparent ? 'bg-transparent' : 'bg-white/95 shadow-sm backdrop-blur-sm dark:bg-gray-950/95'}`}
 >
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+  <nav aria-label="Main navigation" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
     <!-- Logo -->
-    <a href="/" class="relative z-10 flex items-center gap-2">
+    <a href="/" class="relative z-10 ml-2 flex items-center gap-2">
       <img
         src={site.logo.src}
         alt={site.logo.alt}
-        class="h-8 w-auto dark:hidden"
-      />
-      <img
-        src={site.logo.srcLight}
-        alt={site.logo.alt}
-        class="hidden h-8 w-auto dark:block"
+        width="64"
+        height="64"
+        class="h-16 w-auto"
       />
     </a>
 
     <!-- Desktop Navigation -->
     <div class="hidden items-center gap-8 lg:flex">
       {nav.map((item) => (
-        <a
-          href={item.url}
-          class={`text-sm font-medium transition-colors hover:text-primary-500 ${
-            currentPath === item.url || currentPath.startsWith(item.url + '/')
-              ? 'text-primary-500'
-              : 'text-gray-700 dark:text-gray-300'
-          }`}
-        >
-          {item.text}
-        </a>
+        item.children ? (
+          <!-- Dropdown -->
+          <div class="relative group">
+            <button
+              type="button"
+              class={`flex items-center gap-1 text-base font-medium transition-colors hover:text-primary-500 ${
+                item.children.some(c => currentPath === c.url || currentPath.startsWith(c.url))
+                  ? 'text-primary-500'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {item.text}
+              <svg class="h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full z-50 hidden pt-2 group-hover:block">
+              <div class="min-w-[220px] rounded-xl border border-gray-200 bg-white py-2 shadow-xl dark:border-gray-800 dark:bg-gray-900">
+                {item.children.map((child) => (
+                  <a
+                    href={child.url}
+                    class={`block px-4 py-2.5 text-base transition-colors hover:bg-gray-50 hover:text-primary-500 dark:hover:bg-gray-800 ${
+                      currentPath === child.url ? 'text-primary-500' : 'text-gray-700 dark:text-gray-300'
+                    }`}
+                  >
+                    {child.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <a
+            href={item.url}
+            class={`text-base font-medium transition-colors hover:text-primary-500 ${
+              currentPath === item.url || currentPath.startsWith(item.url + '/')
+                ? 'text-primary-500'
+                : 'text-gray-700 dark:text-gray-300'
+            }`}
+          >
+            {item.text}
+          </a>
+        )
       ))}
     </div>
 
@@ -66,7 +96,7 @@ const currentPath = Astro.url.pathname;
       <!-- CTA Button (Desktop) -->
       <a
         href={header.cta.url}
-        class="hidden rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30 lg:inline-flex"
+        class="hidden rounded-full bg-primary-500 px-5 py-2.5 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30 lg:inline-flex"
       >
         {header.cta.text}
       </a>
@@ -94,16 +124,34 @@ const currentPath = Astro.url.pathname;
   >
     <div class="flex flex-col gap-4">
       {nav.map((item) => (
-        <a
-          href={item.url}
-          class={`text-lg font-medium transition-colors hover:text-primary-500 ${
-            currentPath === item.url || currentPath.startsWith(item.url + '/')
-              ? 'text-primary-500'
-              : 'text-gray-900 dark:text-white'
-          }`}
-        >
-          {item.text}
-        </a>
+        item.children ? (
+          <div>
+            <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 px-0 pb-2">
+              {item.text}
+            </div>
+            {item.children.map((child) => (
+              <a
+                href={child.url}
+                class={`block py-2 pl-3 text-base font-medium transition-colors hover:text-primary-500 ${
+                  currentPath === child.url ? 'text-primary-500' : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                {child.text}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <a
+            href={item.url}
+            class={`text-lg font-medium transition-colors hover:text-primary-500 ${
+              currentPath === item.url || currentPath.startsWith(item.url + '/')
+                ? 'text-primary-500'
+                : 'text-gray-900 dark:text-white'
+            }`}
+          >
+            {item.text}
+          </a>
+        )
       ))}
       <div class="mt-4 border-t border-gray-200 pt-4 dark:border-gray-800">
         <a
