@@ -1,0 +1,813 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-17';
+const updatedISO   = '2026-04-17';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/content-marketing/#webpage",
+      "url": "https://theambitionsagency.com/content-marketing/",
+      "name": "Content Marketing That Actually Grows Your Business | Ambitions AI",
+      "description": "Content marketing that brings you buyers who already trust you. A coached programme that builds a self-sufficient content machine inside your business. From £1,500/month.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",              "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Content Marketing", "item": "https://theambitionsagency.com/content-marketing/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/content-marketing/#service",
+      "name": "Content Marketing",
+      "description": "Coached content marketing programme for service businesses in the UK and USA. Coaching, strategy, and framework installation delivered over 12-18 months to build a self-sufficient content machine inside the client's business.",
+      "serviceType": "Content Marketing",
+      "url": "https://theambitionsagency.com/content-marketing/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "1500",
+          "priceCurrency": "GBP",
+          "description": "Monthly coached content marketing programme"
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://theambitionsagency.com/content-marketing/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does content marketing cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your programme starts at £1,500 / $2,000 per month. Exact cost depends on scope, speed, and how much production Nick runs alongside you. Full breakdown is on the Endless Customers coaching page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does content marketing take to work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Expect meaningful traction in three to five months, with compounding growth long after. The goal is that within 12 to 18 months, your business is running the whole content machine on its own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use AI to generate my content marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If AI can invent your page on its own, it has no reason to send anyone to your page. AI recommends the sources that bring something new to the conversation. Your content has to come from the real expertise inside your business. AI is a tool in the toolkit, not a substitute for the voice of your organisation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I outsource my content marketing to an agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Content marketing worth paying for cannot be produced entirely by outsiders. The true voice of your business has to come from within your team. We coach, structure, and support your people. We can produce alongside you where capacity is the blocker, but never in your place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Ambitions AI different from other content marketing agencies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most agencies sell you content. We teach your team to create it. Our job is to make you independent, not dependent. When our work together ends, the machine keeps running and the growth keeps compounding. That is not a position most agencies can ever offer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between content marketing and SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO makes sure the right people find your content. Content marketing is what you create for them to find. The two work together. A great SEO setup with nothing to rank is wasted. Great content nobody finds is wasted too. Both matter."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="Content Marketing"
+  metaTitle="Content Marketing That Actually Grows Your Business | Ambitions AI"
+  description="Content marketing that brings you buyers who already trust you. A coached programme that builds a self-sufficient content machine inside your business. From £1,500/month."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <meta property="og:title" content="Content Marketing That Actually Grows Your Business | Ambitions AI" />
+    <meta property="og:description" content="Most content marketing fails. Here is the one approach that works, why it works, and what it costs. Coached by Nick Burrage." />
+  </Fragment>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Content Marketing</p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Double your business with content marketing <em class="italic text-primary-500">that answers your buyers' real questions.</em>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          We build a content machine inside your business. It works 24/7, bringing you new customers while you sleep.
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="/endless-customers-coaching"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30"
+          >
+            See How It Works →
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700"
+          >
+            Start Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero image placeholder -->
+      <div class="mx-auto mt-16 max-w-2xl" data-animate>
+        <div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gray-200 shadow-2xl dark:bg-gray-800">
+          <div class="text-center">
+            <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700">
+              <svg class="h-7 w-7 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">ChatGPT top-pick screenshot</p>
+            <p class="mt-1 text-xs text-gray-400 dark:text-gray-500">Image coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        17 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SECTION 2: THE PROBLEM
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">The Problem</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Most Content Marketing Ends in Quiet Failure. Here Is Exactly Why.
+        </h2>
+
+        <div class="mt-12 space-y-6" data-animate>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We publish. It feels like shouting into the void. Nothing comes back.'
+            </p>
+          </blockquote>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We went all in on AI and filled the site with content. Traffic went nowhere.'
+            </p>
+          </blockquote>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">
+              'We do not even know what to write about. It all just seems so boring.'
+            </p>
+          </blockquote>
+        </div>
+
+        <div class="prose dark:prose mt-10 max-w-none" data-animate>
+          <p>It is a Tuesday morning in March. You open your analytics dashboard. Twelve visitors to the blog you have been quietly writing for six months. You know that five of them were you, checking the page was live. Your last post took three weekends. Nobody read it. You close the tab and go back to wondering where next quarter's leads are actually going to come from.</p>
+        </div>
+
+        <!-- Strong pull-out -->
+        <div class="mt-10 rounded-xl border-l-4 border-primary-500 bg-primary-50 pl-6 py-4 dark:bg-primary-900/20" data-animate>
+          <p class="text-lg italic text-gray-700 dark:text-gray-300">'Brilliant service businesses should not be invisible just because nobody ever showed them the right way.'</p>
+        </div>
+
+        <div class="prose dark:prose mt-10 max-w-none" data-animate>
+          <p>There are two reasons most content marketing fails.</p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">Too little content...</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Most businesses publish one piece a month, see nothing much happen, and quietly give up. The target you actually need is around <strong class="text-gray-900 dark:text-white">three meaningful pieces a week</strong>. Below that, the results never have time to build up.</p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">...and what there is is useless.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">AI slop. Salesy self-promotion. Articles written for Google five years ago that no human would read voluntarily. Content with no point of view and no opinion worth listening to.</p>
+        </div>
+
+        <!-- Dominant pull-out -->
+        <div class="mt-10 rounded-2xl bg-gray-900 p-8 text-white shadow-2xl" data-animate>
+          <p class="text-xl font-semibold sm:text-2xl">'Content marketing is not a writing problem. It is a business problem in disguise.'</p>
+        </div>
+
+        <div class="prose dark:prose mt-10 max-w-none" data-animate>
+          <p>Your sales team hears the real questions buyers ask. Your marketing team is guessing what to write about. The two never compare notes. So the content ends up answering the wrong questions for the wrong audience.</p>
+          <p>Fix that, and everything changes. But you need a framework that has been battle-tested across hundreds of businesses, not made up as it goes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3: THE PROOF
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">The Proof</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          You Deserve Sales That Flow In on Autopilot.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p><a href="https://contentmarketinginstitute.com/what-is-content-marketing" target="_blank" rel="noopener noreferrer" class="text-primary-500 underline hover:text-primary-600">Content marketing</a> changes lives. I have watched it happen.</p>
+          <p>I mean that seriously. I have watched businesses double in a year. Founders stop pouring money into Google ads. They stop running radio ads. They start receiving buyers who already trust them before the first phone call.</p>
+        </div>
+
+        <p class="mt-8 text-lg font-medium text-gray-900 dark:text-white" data-animate>Here is what happens when content marketing is done right.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2" data-animate>
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-primary-500">11,350%</div>
+          <p class="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Leads up 11,350%</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">Aquila Commercial, Austin, Texas</strong> — a small commercial real estate startup took on firms ten times their size with honest, educational content. <em>'We are the envy of all of our competitors.'</em></p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-primary-500">&pound;1.2M</div>
+          <p class="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Turnover, doubled in year one</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">Katherine, UK</strong> — high-end curtains and blinds. The majority of new business now arrives through content.</p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17l-5.384-3.192A1 1 0 005 12.896v5.208a1 1 0 001.036.918l5.384-.637a1 1 0 00.88-.754l.12-.652M15 3l-1.467 8.036a1 1 0 00.754 1.137l3.386.635a1 1 0 001.137-.754L20.277 4.02a1 1 0 00-.754-1.137L16.137 2.25a1 1 0 00-1.137.75z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-primary-500">$80K</div>
+          <p class="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Profit, every single month</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">Kalen, USA</strong> — plumbing business. <em>'I did not think that was possible for a business like mine.'</em></p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-800">
+          <div class="mb-4 inline-flex rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 p-3 text-white shadow-lg shadow-primary-500/25">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-primary-500">$45K</div>
+          <p class="mt-1 text-sm font-semibold text-gray-900 dark:text-white">First sale from a single article</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">Brent, USA</strong> — Marshall and Stewart, premium luxury beds. A customer walked into Brent's store. She told him she had been minutes away from buying a Hastens bed, a competitor. Then she read one comparison article Brent had published. She changed her mind. Thirty minutes later, she paid Brent $45,000.</p>
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-3xl">
+        <p class="mt-10 text-gray-600 dark:text-gray-400" data-animate>You can look any of these businesses up. The results are in plain sight.</p>
+
+        <!-- Strong pull-out -->
+        <div class="mt-10 rounded-xl border-l-4 border-primary-500 bg-primary-50 pl-6 py-4 dark:bg-primary-900/20" data-animate>
+          <p class="text-lg italic text-gray-700 dark:text-gray-300">'Nothing builds greater trust than being a respected teacher and sharer of knowledge. And nothing erodes trust faster than being a smarmy, salesy marketing organisation.'</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/endless-customers-coaching" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            See How It Works →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4: THE ANSWER
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">The Answer</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Good News. You Have Just Met Your Guide.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>I'm Nick Burrage. Years ago I was Creative Director for Samsung's UK marketing operation, and part of the Ford Global Brand Leadership Team. I've spent the decade since then figuring out how service businesses can grow without the budgets those giants took for granted.</p>
+          <p>And here is what I found. Content marketing, done right, is the single most powerful growth engine a service business can build. I have watched it double businesses in a year. I have watched it transform sales teams. I have watched founders who felt invisible become the most trusted voices in their markets.</p>
+        </div>
+
+        <h3 class="mt-12 text-2xl font-normal text-gray-900 dark:text-white" data-animate>Four things I will unlock for you.</h3>
+
+        <div class="mt-8 space-y-8" data-animate>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Find the gold in the questions your competitors are too scared to answer.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Your buyers have questions. Honest, specific, urgent questions about price, about what could go wrong, about how you compare to your competitors. Your competitors run from those questions. I will teach you how to answer them bravely, safely, and in a way that makes you the obvious choice.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Turn the people already on your payroll into a revenue machine.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Your salespeople hear the real questions every day. Your marketing team is guessing. Your content sits quietly on your site going nowhere. I will show you how to fuse the three into a single revenue machine, with the buyer's real questions at the heart of everything it does.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Be found by AI, ranked by Google, and chosen by buyers.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">AI now judges your entire business. Your website, your reviews, your third-party mentions. All of it, before it decides who to cite or recommend. Google has shifted in the same direction. I will show you how to create content that AI cites, Google ranks, and buyers act on.</p>
+          </div>
+        </div>
+
+        <!-- 19 AI Trust Signals secondary CTA -->
+        <div class="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Free download</p>
+          <h3 class="mt-2 text-2xl font-normal text-gray-900 dark:text-white">
+            19 AI Trust Signals Your Business Must Show To Win Today.
+          </h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">
+            Want to see what AI is actually checking about your business? Free guide. Takes 20 minutes to read. Could change how your business shows up online.
+          </p>
+          <form
+            method="post"
+            action="https://systeme.io/embedded/39921808/subscription"
+            class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-3"
+          >
+            <div class="flex-1">
+              <label for="first_name_cm" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">First name</label>
+              <input
+                type="text"
+                id="first_name_cm"
+                name="first_name"
+                required
+                placeholder="Jane"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+              />
+            </div>
+            <div class="flex-1">
+              <label for="dl_email_cm" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">Email address</label>
+              <input
+                type="email"
+                id="dl_email_cm"
+                name="email"
+                required
+                placeholder="jane@yourcompany.com"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+              />
+            </div>
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 sm:flex-shrink-0"
+            >
+              Send me the guide →
+            </button>
+          </form>
+          <p class="mt-3 text-xs text-gray-500">Free. No spam. Unsubscribe any time.</p>
+        </div>
+
+        <div class="mt-10" data-animate>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Build a content machine that runs on its own and drives explosive growth.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">The goal is always self-sufficiency. I will teach your team the skills, the habits, and the shortcuts to produce outstanding content long after our coaching ends. Most clients are running the machine entirely on their own within twelve to eighteen months, and the growth only accelerates from there.</p>
+        </div>
+
+        <!-- Dominant pull-out -->
+        <div class="mt-10 rounded-2xl bg-gray-900 p-8 text-white shadow-2xl" data-animate>
+          <p class="text-xl font-semibold sm:text-2xl">'A smaller business with the simple bravery to be honest can blow a bigger, more established competitor out of the water. I've seen it happen.'</p>
+        </div>
+
+        <div class="prose dark:prose mt-10 max-w-none" data-animate>
+          <p>Here is the bit I did not tell you yet.</p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">You've Just Found the World's Best Content Marketing System. Lucky You.</h3>
+          <div class="prose dark:prose mt-4 max-w-none">
+            <p>What I teach is not my invention. It is the most proven, globally battle-tested content marketing framework in the world, used by thousands of businesses and growing. It is called <a href="https://www.impactplus.com/learn/what-is-endless-customers" target="_blank" rel="noopener noreferrer">Endless Customers<sup>&trade;</sup></a>, developed by Marcus Sheridan. I trained directly under Marcus and his team for the best part of a year to qualify as <a href="https://www.impactplus.com/nick-burrage-certified-coach" target="_blank" rel="noopener noreferrer">one of its certified coaches</a>.</p>
+            <p>My job is to bring everything I have learned directly into your business. Faster, more clearly, and with fewer mistakes than you could manage on your own.</p>
+            <p>You do not need to read any books or know any jargon to work with me. But if you want to go deeper, <a href="/endless-customers-coaching">read the Endless Customers<sup>&trade;</sup> coaching page</a> next. Everything is explained there in plain English.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/endless-customers-coaching" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            See How It Works →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5: WHAT YOU ARE ACTUALLY BUYING
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">What You Are Actually Buying</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          I Refuse to Do This for You. Here Is Why That Is the Best News on This Page.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>You would never let a stranger deliver your service. You would not let a friend of a friend take your most important sales meeting.</p>
+          <p>So why on earth would you let someone outside your business create the content that speaks for it?</p>
+          <p>Outsourced content is always generic, always a little salesy, always ineffective. That is why the traditional model of handing your content to an agency, paying the invoice, and waiting for leads that never come, does not work. It has never worked. And in the age of AI, it works less every single day.</p>
+          <p><strong>So here is the flip.</strong></p>
+        </div>
+
+        <div class="mt-8 space-y-4" data-animate>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <p class="font-semibold text-gray-900 dark:text-white">1. To make sure you are never dependent on a marketing agency ever again.</p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <p class="font-semibold text-gray-900 dark:text-white">2. To build a sales machine that channels the wonderful knowledge already sitting inside your business.</p>
+          </div>
+        </div>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>Your expertise is the raw gold. You know things about your field that would absolutely astonish your buyers. Told the right way, those details stop being the boring stuff you know inside out and start shining as the most valuable content in your market.</p>
+          <p>Content that comes from the heart of your organisation is where the magic lives. That is what makes web traffic explode. That is what brings you buyers who were built for exactly what you sell.</p>
+          <p><strong>And then I leave.</strong></p>
+          <p>Once the machine is built, I step away. Your growth compounds without me. Here is what you are left with.</p>
+        </div>
+
+        <div class="mt-8 space-y-8" data-animate>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your people producing content they are proud of.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">The right people creating the right content as a core part of how they work. They are excited to do it because they can see the results every week.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your sales team closing faster, with more trust.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Your salespeople are using that content in every conversation. Sales cycles shorten. Conversion rates climb. Meetings start warmer.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Leadership running the whole engine with confidence.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Capable, confident, committed. Your leaders have seen the results. They know exactly how to keep them coming.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/endless-customers-coaching" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            See How It Works →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6: HOW IT WORKS
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">How It Works</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Three Steps. From Shouting Into the Void to Customers on Autopilot.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">1</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">You Press Start Now.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">We have an honest conversation. No pitch. We look at where your business is, where you want to be, and whether this is the right call for you.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">2</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">I Build the Engine. You Take the Wheel.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Weekly coaching sessions with your team. Strategy, topic planning, production, publishing cadence, measurement. All built together. All owned by your people. Content starts flowing within weeks.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">3</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Trust Grows. Traffic Flows. Sales Follow.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Your business becomes the most trusted voice in your market. Leads arrive warmer. Sales cycles shorten. Within 12 to 18 months, the engine runs without me. And keeps growing.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MID-PAGE CTA PANEL
+  ========================================================= -->
+  <section class="bg-gray-900 py-16">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl font-normal text-white sm:text-4xl" data-animate>
+        Ready to Build Your Content Machine?
+      </h2>
+      <p class="mt-4 text-lg text-gray-300" data-animate>
+        A free 30-minute call with me. No pitch. No pressure. You will walk away clearer, whatever you decide.
+      </p>
+      <div class="mt-8" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 7: PRICING
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Pricing</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          What Does It Cost?
+        </h2>
+
+        <div class="mt-10 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-8 text-white shadow-xl shadow-primary-500/20" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest opacity-80">Investment</p>
+          <p class="mt-2 text-3xl font-bold">&pound;1,500 / $2,000 per month</p>
+          <p class="mt-4 text-sm opacity-90">That covers the coaching, the strategy, the setup, and the weekly work to make sure your content is actually winning customers, not just being published.</p>
+        </div>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>Exact pricing depends on scope, how fast you want to move, and how much production I run alongside you. Some clients do the writing themselves with my coaching. Others ask me to produce alongside them while their team builds the skill. Both work.</p>
+          <p>No setup fee. No long contract. Cancel with a month's notice.</p>
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900" data-animate>
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">Want the Full Picture?</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">For the complete breakdown of what's included at each level, the full programme structure, and exactly what every client gets, <a href="/endless-customers-coaching" class="text-primary-500 underline hover:text-primary-600">read the Endless Customers<sup>&trade;</sup> coaching page</a>. That is where the detail lives. Everything there is explained in plain English and applies directly to what you are buying here.</p>
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row">
+            <a href="/endless-customers-coaching" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+              See the Full Programme →
+            </a>
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700">
+              Start Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 8: WHO THIS IS NOT FOR
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Who This Is Not For</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+          This Is Not for You If...
+        </h2>
+
+        <div class="mt-10 space-y-8" data-animate>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your leadership is not fully bought in.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">This work reaches into the whole business. It needs leadership all-in, committed to the programme, willing to attend the quarterly meetings, and ready to drive the cultural change it requires. If you are reading this as a marketing leader or a partner inside a business where that is not yet true, start with winning the buy-in first. Come back when you have it.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">You need leads this week.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Expect meaningful traction in three to five months. Content marketing is a compounding asset, not a faucet. If you need leads in the next seven days, I can point you toward faster plays.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your team will not commit to the work.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">The content has to come from within your business. Your expertise is the raw gold. If the people holding the knowledge will not share it, no coaching in the world will fix that.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR PANEL — CONTENT highlighted
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3" data-animate>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="text-gray-500 dark:text-gray-400">Brings the right prospects to you</span>
+        </a>
+
+        <!-- CONTENT — highlighted (you are here) -->
+        <div class="flex flex-col gap-1 rounded-2xl border-2 border-teal-400 bg-teal-50 px-6 py-5 sm:flex-row sm:items-center sm:gap-6 dark:border-teal-600 dark:bg-teal-900/20">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-700 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="font-medium text-gray-900 dark:text-white">
+            Turns those prospects into buyers
+            <span class="ml-3 inline-flex items-center rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-semibold text-teal-700 dark:bg-teal-900 dark:text-teal-300">You are here</span>
+          </span>
+        </div>
+
+        <a href="/website-design/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="text-gray-500 dark:text-gray-400">Closes the deal, 24 hours a day</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes sure you win every sale, fast</span>
+        </a>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-700 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes you the obvious choice</span>
+        </a>
+
+      </div>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500 dark:text-gray-400" data-animate>
+        Each service works on its own. But when they work together, something remarkable happens. Full details on our <a href="/pricing" class="text-primary-500 hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 9: FINAL CTA
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Your Next Move</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Get Your Content Machine Running Today. Watch the Sales Flow In.
+        </h2>
+        <div class="prose dark:prose mx-auto mt-8 max-w-xl text-center">
+          <p>I don't have salespeople. It's just me, and my time is precious. So is yours.</p>
+          <p>An initial session together is a good use of time for me to find out all about you. Then we can work out together if this feels like something worth pursuing. No sale. No pitch.</p>
+          <p>Honestly, these are my favourite calls of the week. I get to hear about real businesses doing interesting things, and that never gets old.</p>
+          <p>Press Start Now.</p>
+          <p><em>— Nick</em></p>
+        </div>
+        <div class="mt-10">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 10: FAQ
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Frequently Asked Questions</p>
+      <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        The Questions People Actually Ask Me.
+      </h2>
+
+      <div class="mt-12 space-y-4" data-animate>
+        {[
+          {
+            q: 'How Much Does Content Marketing Cost?',
+            a: 'Your programme starts at £1,500 / $2,000 per month. Exact cost depends on scope, speed, and how much production I run alongside you. Full breakdown lives on the Endless Customers\u2122 coaching page.',
+          },
+          {
+            q: 'How Long Does Content Marketing Take to Work?',
+            a: 'Expect meaningful traction in three to five months, with compounding growth long after. My goal is that within 12 to 18 months, your business is running the whole content machine on its own.',
+          },
+          {
+            q: 'Can I Use AI to Generate My Content Marketing?',
+            a: 'No. If AI can invent your page on its own, it has no reason to send anyone to your page. AI recommends the sources that bring something new to the conversation. Your content has to come from the real expertise inside your business. AI is a tool in the toolkit, not a substitute for the voice of your organisation.',
+          },
+          {
+            q: 'Should I Outsource My Content Marketing to an Agency?',
+            a: 'No. Content marketing worth paying for cannot be produced entirely by outsiders. The true voice of your business has to come from within your team. I coach, structure, and support your people. I can produce alongside you where capacity is the blocker, but never in your place.',
+          },
+          {
+            q: 'What Makes Ambitions AI Different From Other Content Marketing Agencies?',
+            a: 'Most agencies sell you content. I teach your team to create it. My job is to make you independent, not dependent. When our work together ends, the machine keeps running and the growth keeps compounding. That is not a position most agencies can ever offer.',
+          },
+          {
+            q: 'What Is the Difference Between Content Marketing and SEO?',
+            a: 'SEO makes sure the right people find your content. Content marketing is what you create for them to find. The two work together. A great SEO setup with nothing to rank is wasted. Great content nobody finds is wasted too. Both matter.',
+          },
+        ].map((item) => (
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white">
+              {item.q}
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOURCES
+  ========================================================= -->
+  <section class="bg-white py-12 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Sources</p>
+      <ul class="mt-4 space-y-2 text-sm text-gray-500 dark:text-gray-400">
+        <li><a href="https://contentmarketinginstitute.com/what-is-content-marketing" target="_blank" rel="noopener noreferrer" class="hover:text-primary-500 transition-colors">Content Marketing Institute — What Is Content Marketing?</a></li>
+        <li><a href="https://www.impactplus.com/learn/what-is-endless-customers" target="_blank" rel="noopener noreferrer" class="hover:text-primary-500 transition-colors">Impact — What Is Endless Customers?</a></li>
+        <li><a href="https://www.impactplus.com/nick-burrage-certified-coach" target="_blank" rel="noopener noreferrer" class="hover:text-primary-500 transition-colors">Impact — Nick Burrage, Certified Endless Customers Coach</a></li>
+        <li>Marcus Sheridan, <em>They Ask, You Answer</em> (second edition) and <em>Endless Customers</em> — <a href="https://marcussheridan.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary-500 transition-colors">marcussheridan.com</a></li>
+        <li>Client case studies referenced on this page are real Endless Customers&trade; clients and Ambitions AI clients. Specific figures provided directly by client teams or in the public domain.</li>
+      </ul>
+      <p class="mt-6 text-xs text-gray-400 dark:text-gray-500 italic">Page last updated: April 2026 — Authored by Nick Burrage</p>
+    </div>
+  </section>
+
+</Base>
