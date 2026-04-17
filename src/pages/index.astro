@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import 'lite-youtube-embed/src/lite-yt-embed.css';
 ---
 
 <Base
@@ -217,18 +218,18 @@ import Base from '@/layouts/Base.astro';
         Different businesses. Different countries. Same system.
       </p>
 
-      <!-- Video -->
+      <!-- Video (lite-youtube facade — loads player only on click) -->
+      <script>
+        import 'lite-youtube-embed/src/lite-yt-embed.js';
+      </script>
       <div class="mt-16 mx-auto max-w-3xl" data-animate>
         <div class="overflow-hidden rounded-2xl shadow-2xl">
-          <div class="aspect-video">
-            <iframe
-              src="https://www.youtube.com/embed/wOrJpODxJ-s?start=204"
-              title="Nick introducing the Ambitions AI Blueprint"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              class="h-full w-full"
-            ></iframe>
-          </div>
+          <lite-youtube
+            videoid="wOrJpODxJ-s"
+            params="start=204"
+            playlabel="Play: Nick introducing the Ambitions AI Blueprint"
+            style="background-image: url('https://i.ytimg.com/vi/wOrJpODxJ-s/hqdefault.jpg'); max-width: 100%;"
+          ></lite-youtube>
         </div>
       </div>
 
