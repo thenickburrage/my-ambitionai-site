@@ -37,7 +37,7 @@ export const nav: NavItem[] = [
       { text: 'SEO & AEO',        url: '#' },
       { text: 'Content',          url: '/endless-customers-coaching/' },
       { text: 'Website',          url: '/website-design/' },
-      { text: 'AI Automations',   url: '#' },
+      { text: 'AI Automations',   url: '/ai-voice-agent/' },
       { text: 'Reviews',          url: '/ai-review-automation/' },
     ],
   },

@@ -1,0 +1,706 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-17';
+const updatedISO   = '2026-04-17';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/ai-voice-agent/#webpage",
+      "url": "https://theambitionsagency.com/ai-voice-agent/",
+      "name": "AI Voice Agent for Sales and Service | Ambitions AI",
+      "description": "Answer every lead in seconds. Handle every inbound call 24/7. Turn every website visitor into a buyer. AI voice and chat for service businesses. From £2,500/month.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",           "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Voice Agent", "item": "https://theambitionsagency.com/ai-voice-agent/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/ai-voice-agent/#service",
+      "name": "AI Voice Agent",
+      "alternateName": ["AI Sales and Service Engine", "AI Voice Systems", "AI Automations"],
+      "description": "AI voice and chat systems for service businesses. Outbound voice agents that call every inbound lead within seconds. Inbound voice receptionists that handle routine calls around the clock. Intelligent on-page chatbots that qualify and convert website visitors. Integrated with your CRM, monitored weekly, and refined continuously.",
+      "serviceType": "AI Voice and Chat Automation",
+      "url": "https://theambitionsagency.com/ai-voice-agent/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "2500",
+          "priceCurrency": "GBP",
+          "description": "Monthly AI voice and chat system"
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://theambitionsagency.com/ai-voice-agent/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does an AI voice system cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The full system, speed-to-lead voice agent, 24-hour voice receptionist, and on-page AI chatbot, is \u00a32,500 per month (or $3,150 USD). Individual elements are available separately at lower cost. No setup fee. No long contract. Very high outbound call volume adds telephony costs of roughly \u00a3500 to \u00a3750 per month on top."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does setup take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically around ten days. More complex CRM integrations can take a little longer. We write the scripts, train the voice on your business, connect your systems, and test every conversation in private before a single real call happens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will callers know they are speaking to an AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are always upfront. The AI introduces itself honestly. In our experience, callers rarely mind once they discover how quickly and efficiently their question gets answered. If a caller wants to speak to a human, they are transferred straight through during office hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens outside office hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The voice receptionist handles routine questions, bookings, and rescheduling around the clock. The speed-to-lead agent either calls the lead immediately, or at the start of the next office hours, depending on how you want to run it. Your diary fills while you sleep."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which CRMs do you integrate with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most mainstream CRMs including HubSpot, Salesforce, Pipedrive, Zoho, Go High Level, and many industry-specific systems. If yours is unusual, we check the integration during the Explore Call before anyone commits to anything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this right for every business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It needs volume to earn its keep. A busy sales function, a busy service function, or both. A handful of leads a week will not yet justify the full system, though the on-page chatbot works at much lower volumes and is often a good starting point."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="AI Voice Agent"
+  metaTitle="AI Voice Agent for Sales and Service | Ambitions AI"
+  description="Answer every lead in seconds. Handle every inbound call 24/7. Turn every website visitor into a buyer. AI voice and chat for service businesses. From £2,500/month."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <meta property="og:title" content="AI Voice Agent for Sales and Service | Ambitions AI" />
+    <meta property="og:description" content="Every lead called in seconds. Every inbound call answered. Every website visitor engaged. 24/7 AI voice and chat systems for service businesses." />
+  </Fragment>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">AI Voice Agent</p>
+        <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          Answer Every Lead in Seconds.<br class="hidden sm:block" />
+          <em class="italic text-primary-500">With an AI Voice Agent That Never Sleeps.</em>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          Outbound calls, inbound calls, and intelligent on-page chat. One connected system. Often live within ten days. No setup fee.
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30"
+          >
+            Start Now →
+          </a>
+          <a
+            href="#how-it-works"
+            class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700"
+          >
+            See How It Works
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero image placeholder -->
+      <div class="mx-auto mt-16 max-w-2xl" data-animate>
+        <div class="flex aspect-[16/9] items-center justify-center overflow-hidden rounded-2xl bg-gray-200 shadow-2xl dark:bg-gray-800">
+          <div class="text-center">
+            <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700">
+              <svg class="h-7 w-7 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Hero visual</p>
+            <p class="mt-1 text-xs text-gray-400 dark:text-gray-500">Image coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        17 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SECTION 2: THE PROBLEM
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">The Problem</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          The Sale Goes to Whoever Picks Up the Phone First. Not the Best. Not the Cheapest.
+        </h2>
+
+        <div class="mt-12 space-y-6" data-animate>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">'We know the leads are coming in. We just can't get to them all fast enough.'</p>
+          </blockquote>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">'By the time we call back, half of them have already gone elsewhere.'</p>
+          </blockquote>
+          <blockquote class="relative rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+            <svg class="absolute left-8 top-6 h-6 w-6 text-gray-300 dark:text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="pl-8 text-lg italic text-gray-700 dark:text-gray-300">'Reception is drowning. Most of the calls are just opening hours and directions anyway.'</p>
+          </blockquote>
+        </div>
+
+        <div class="prose dark:prose mt-10 max-w-none" data-animate>
+          <p>Those are three different sentences. They are the same problem.</p>
+          <p>It's 7.43pm on a Thursday. A lead fills in your form. Your team are at home with their families, where they should be.</p>
+          <p>The lead waits.</p>
+          <p>At 7.46pm, they fill in a form on one of your competitors' websites too. Just in case.</p>
+          <p>By 9.15am on Friday, when you finally spot the enquiry, the competitor has already called. Twice. Booked an appointment. Closed the sale.</p>
+          <p>You never even knew that lead was there.</p>
+          <p>This is not a feeling. It is documented, repeatable research. Harvard Business Review found that businesses who respond to a new lead within an hour are nearly seven times more likely to have a real conversation with that buyer than those who respond even an hour later. Wait twenty-four hours and you are sixty times less likely.</p>
+        </div>
+
+        <!-- Dominant pull-out -->
+        <div class="mt-10 rounded-2xl bg-gray-900 p-8 text-white shadow-2xl" data-animate>
+          <p class="text-xl font-semibold sm:text-2xl">You are not competing on quality. You are competing on speed. And right now, you are losing.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3: THE FLIP
+  ========================================================= -->
+  <section class="bg-gray-50 py-24 dark:bg-gray-900 lg:py-32">
+    <div class="mx-auto max-w-4xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl font-normal leading-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+        You Deserve Every Buyer and Every Customer<br class="hidden sm:block" />
+        <em class="italic text-primary-500">to Meet a Warm, Smart, Helpful Voice. At Any Hour of Any Day.</em>
+      </h2>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4: WHAT IT DOES
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">What It Does</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Catch Every Lead. Book Every Caller. Convert Every Visitor.
+        </h2>
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>Three capabilities. You might take one. You might take all three. Each one solves a different problem. Together they close every gap in your sales and service at once.</p>
+          <p>Here is how each one works.</p>
+        </div>
+
+        <!-- ===== SPEED-TO-LEAD ===== -->
+        <div class="mt-16 border-t border-gray-200 pt-12 dark:border-gray-800" data-animate>
+          <p class="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Speed-to-Lead AI Voice Agent</p>
+          <h3 class="mt-4 text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">Catch Every Hot Lead. Before It Cools.</h3>
+
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>The moment someone fills in a form, replies to an ad, or clicks a campaign link, the system calls them. Not in an hour. Not in ten minutes. In seconds.</p>
+          </div>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Your Buyer Is Also Looking at Three of Your Competitors.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Modern buyers shortlist in bulk. Your form is one of three or four they will fill in. Once they have, they go with whoever gets back to them first. Where services are broadly comparable, it is nearly always speed that wins.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">An Instant Call. A Warm Conversation. An Appointment, Where Possible, Booked on the Spot.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">The system rings while the interest is still hot. It runs a warm, engaging conversation. It asks the right qualifying questions. It listens. It responds. And wherever possible, it books the buyer straight into the diary, closing the moment while the moment is live. The unqualified callers are handled politely and removed from your team's day. The real buyers get transferred straight through to a human, already warmed up and leaning in.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">120 Responses a Day. Every One Called Within Seconds.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">A Los Angeles car dealership runs adverts aimed at buyers who struggle to get finance elsewhere. On a busy day, that is 120 form responses. A proportion of those are bots. Another proportion are people nowhere near ready to buy. In the middle sit the genuine, motivated buyers, the ones who change a business month.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">No More Bots. No More Voicemails. Just Buyers.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Before the voice agent, their sales team waded through every response by hand. Now the agent calls every single enquiry within seconds, runs the qualification, and only forwards the real prospects. The team no longer dials voicemails, dead numbers, and bots. Their staffing has naturally reduced, because every remaining salesperson is now talking only to people who want to buy.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Same Pattern, the Other Side of the Atlantic.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">A UK sporting organisation whose customers book football pitches runs an almost identical system. Instant response, warm qualification, warm handover to a human for the booking itself.</p>
+
+          <!-- Audio placeholder -->
+          <div class="mt-8 flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/30">
+              <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-gray-900 dark:text-white">Outbound voice agent sample</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Audio recording coming soon</p>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-xl border-l-4 border-indigo-500 bg-indigo-50 pl-6 py-4 dark:bg-indigo-900/10">
+            <p class="italic text-gray-700 dark:text-gray-300">Your sales team stops dialling bots. They start talking to buyers already leaning in.</p>
+          </div>
+        </div>
+
+        <!-- ===== 24-HOUR RECEPTIONIST ===== -->
+        <div class="mt-16 border-t border-gray-200 pt-12 dark:border-gray-800" data-animate>
+          <p class="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">24-Hour AI Voice Receptionist</p>
+          <h3 class="mt-4 text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">Appointments Booked at Midnight. Diaries Full by Morning.</h3>
+
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>Most service businesses have a reception team drowning in the same twenty questions on repeat. Opening hours. Directions. Prices. Joining procedures. Every one of those calls swallows a minute of staff time, and every one of them leaves a genuine buyer on hold.</p>
+            <p>That is only half the problem. The other half is worse.</p>
+          </div>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Your Busiest Booking Hours Are the Hours You're Not Open.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">The moment a prospective customer is most likely to pick up the phone is rarely between nine and five. It is Tuesday evening on the sofa, after the children are in bed. It is Sunday morning over coffee. It is Friday night after dinner. That is when people make decisions, because that is when they have the headspace.</p>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">That is also when your team are at home, where they should be. So those calls go unanswered. The customer waits until Monday. By then, someone else has picked up.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">No Stack of Messages Waiting at Nine in the Morning.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Your reception team start their Monday helping the people standing in front of them. Not working through a backlog of voicemails left over the weekend. Not apologising to buyers who have already gone somewhere else. The diary is already filling. The day is already moving.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">When Plans Change, the System Handles It.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Customers who need to reschedule, cancel, or move an appointment are answered politely, 24 hours a day. No gaps appear in the diary because nobody was there to rebook the slot. Nobody double-books because the system didn't know.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Up to 4,000 Calls a Month. Two-Thirds Handled Instantly.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">A UK chain of gyms and fitness centres takes between 3,000 and 4,000 calls a month. Between 60 and 70 per cent of those are routine information questions. The AI handles them instantly, day and night.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Reception Back on the Gym Floor. Members Served Around the Clock.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">The reception team get their time back to serve the members actually standing in front of them. Members still get answers, even at ten past midnight. Nobody loses.</p>
+
+          <!-- Audio placeholder -->
+          <div class="mt-8 flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/30">
+              <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-gray-900 dark:text-white">Inbound voice agent sample</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Audio recording coming soon</p>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-xl border-l-4 border-indigo-500 bg-indigo-50 pl-6 py-4 dark:bg-indigo-900/10">
+            <p class="italic text-gray-700 dark:text-gray-300">Your reception team stops answering the same twenty questions. They start serving the people in front of them.</p>
+          </div>
+        </div>
+
+        <!-- ===== ON-PAGE CHATBOT ===== -->
+        <div class="mt-16 border-t border-gray-200 pt-12 dark:border-gray-800" data-animate>
+          <p class="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">On-Page AI Chatbot</p>
+          <h3 class="mt-4 text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">Your Website Becomes the Best Salesperson You've Ever Had. Tireless. Patient. Always Right.</h3>
+
+          <div class="prose dark:prose mt-6 max-w-none">
+            <p>On-page chatbots used to be terrible. Dumb, rigid, usually frustrating. This is not that. Our chatbot is a genuinely intelligent text system that knows your business as well as your best person does.</p>
+          </div>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Turn Curious Visitors Into Eager Buyers.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Most visitors arrive with questions. The chatbot answers them usefully, openly, and honestly. Then it asks the right follow-up questions, the ones that guide a curious visitor toward wanting to buy from you. It is a conversation, not a pitch. It just happens to be one that closes.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Hand Your Sales Team a Head Start.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Every conversation quietly builds a profile of the buyer. Their questions. Their worries. What they liked about you. What they were unsure of. When a human on your team picks up the phone afterwards, they already know who they are talking to. That is a faster, warmer, better-informed sales call than any form would ever set up.</p>
+
+          <h4 class="mt-8 text-lg font-semibold text-gray-900 dark:text-white">Turn a Daunting Form Into a Natural Conversation.</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Some businesses genuinely need a lot of information from a buyer before they can qualify or serve them. A long form scares people off. A conversation doesn't. The same information comes through one warm and friendly question at a time, and the visitor actually enjoys the ride. One client replaced a high-abandonment form with the chatbot. Completion jumped dramatically.</p>
+
+          <!-- Image placeholder -->
+          <div class="mt-8 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gray-200 dark:bg-gray-800">
+            <div class="text-center">
+              <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                </svg>
+              </div>
+              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Chatbot screenshot</p>
+              <p class="mt-1 text-xs text-gray-400 dark:text-gray-500">Image coming soon</p>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-xl border-l-4 border-indigo-500 bg-indigo-50 pl-6 py-4 dark:bg-indigo-900/10">
+            <p class="italic text-gray-700 dark:text-gray-300">Every visitor gets answered. Every question gets noted. Every sales call starts warm.</p>
+          </div>
+        </div>
+
+        <!-- Section-closing dominant pull-out -->
+        <div class="mt-16 rounded-2xl bg-gray-900 p-8 text-white shadow-2xl" data-animate>
+          <p class="text-xl font-semibold sm:text-2xl">Take one. Take two. Take all three. Either way, nothing slips through again.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5: THE GUIDE
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Who Builds It</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Built by a Father and Son. Trusted on Both Sides of the Atlantic.
+        </h2>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>I'm Nick Burrage, founder of Ambitions AI. My son Manny is Head of AI Systems. He and his team build and run the voice agents and chatbots. Car dealerships, gyms, sporting venues, medical spas, and a growing list of clients in the UK and USA.</p>
+        </div>
+
+        <div class="mt-10 space-y-8" data-animate>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Yes, You Could Build One Yourself. No, It Won't Perform.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">The tools are out there. The gap between a voice agent you build yourself and one that actually wins business is enormous, and it widens over time. CRM integration that holds up. Monitoring that catches every misstep in the first weeks. Human judgement on what the AI handles and what it hands over. We have spent two years learning where that gap lives.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your Best Sales Calls Are Our Best Training Data.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Recordings of your sales calls, transcripts of real email conversations with buyers, all of it goes into the system. The richer the input, the better the system performs. If you have recordings, we want them.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-normal text-gray-900 dark:text-white">We Are Still on the Call When It Goes Live.</h3>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">Most agencies hand you the keys and walk away. We don't. We monitor every call in the early weeks and keep monitoring long after. Every week, a report of what your customers are asking, where the gaps are, and what the system is learning about your market.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-xl border-l-4 border-primary-500 bg-primary-50 pl-6 py-4 dark:bg-primary-900/20" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">Clever demos are easy. Systems that sell for you are hard. We do the hard part.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6: HOW IT WORKS
+  ========================================================= -->
+  <section id="how-it-works" class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">How It Works</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Three Simple Steps. Often Live in Ten Days.
+        </h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">No lengthy discovery phase. No six-month implementation. Three steps from first conversation to a system answering your calls.</p>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-3" data-animate>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">1</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">You Book a Free Explore Call.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Thirty minutes. No pitch, no pressure. We map what's coming in, what's going out, and where the bottlenecks are hurting most. You leave with a clear picture of what the system would do for your business, whether you work with us or not.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">2</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">We Build, Train, and Test.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">We write the scripts, train the voice on your business, connect your CRM, and test every conversation in private before a single real call happens. Typical build is around ten days. More complex integrations take a little longer.</p>
+        </div>
+        <div class="relative rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-800">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl font-bold text-white">3</div>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Your Leads Get Called. Your Callers Get Answered. Your Diary Fills Up.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">The system goes live. Every lead gets a call within seconds. Every inbound caller gets a warm, intelligent response. Every website visitor gets a real conversation. You carry on running your business, and the sales engine runs itself behind you.</p>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl">
+        <div class="rounded-xl border-l-4 border-primary-500 bg-primary-50 pl-6 py-4 dark:bg-primary-900/20" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">A month from now, your business could be catching every lead, around the clock.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 7: PRICING
+  ========================================================= -->
+  <section class="bg-gray-50 py-20 dark:bg-gray-900 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Pricing</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl" data-animate>
+          Less Than the Cost of One Junior Hire. Working 24 Hours a Day.
+        </h2>
+
+        <div class="mt-10 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-8 text-white shadow-xl shadow-primary-500/20" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-widest opacity-80">Full System</p>
+          <p class="mt-2 text-3xl font-bold">&pound;2,500 / $3,150 per month</p>
+          <p class="mt-2 text-sm opacity-90">Speed-to-lead voice agent + 24-hour voice receptionist + on-page AI chatbot</p>
+        </div>
+
+        <div class="prose dark:prose mt-8 max-w-none" data-animate>
+          <p>Individual elements are available separately at a lower cost. On the Explore Call we'll work out what makes sense for your business, and where to start.</p>
+          <p><strong>No Setup Fee. No Long Contract. Cancel Any Month.</strong></p>
+          <p>You can cancel any month it isn't working for you, though in our experience, once it's running, nobody does.</p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">One Thing That Can Add to the Bill.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">Very high outbound call volume brings additional telephony costs. If we are making thousands of outbound calls on your behalf each month, expect roughly &pound;500 to &pound;750 / $625 to $940 per month on top. We'll flag this clearly before you sign anything.</p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white">Compare That to the Alternative.</h3>
+          <p class="mt-3 text-gray-600 dark:text-gray-400">One full-time sales or reception hire in the UK or USA costs far more than this, takes weeks to recruit, needs training, sleeps at night, takes holidays, and only works one shift. The system works every shift, every day, every weekend, and bank holidays too.</p>
+        </div>
+
+        <div class="mt-10 rounded-xl border-l-4 border-primary-500 bg-primary-50 pl-6 py-4 dark:bg-primary-900/20" data-animate>
+          <p class="italic text-gray-700 dark:text-gray-300">A sales engine that never calls in sick. For less than a junior salary.</p>
+        </div>
+
+        <div class="mt-10 text-center" data-animate>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+            Start Now →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR PANEL — AI AUTOMATIONS highlighted
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3" data-animate>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="text-gray-500 dark:text-gray-400">Brings the right prospects to you</span>
+        </a>
+
+        <a href="/content-marketing/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-700 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="text-gray-500 dark:text-gray-400">Turns those prospects into buyers</span>
+        </a>
+
+        <a href="/website-design/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="text-gray-500 dark:text-gray-400">Closes the deal, 24 hours a day</span>
+        </a>
+
+        <!-- AI AUTOMATIONS — highlighted (you are here) -->
+        <div class="flex flex-col gap-1 rounded-2xl border-2 border-indigo-400 bg-indigo-50 px-6 py-5 sm:flex-row sm:items-center sm:gap-6 dark:border-indigo-600 dark:bg-indigo-900/20">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="font-medium text-gray-900 dark:text-white">
+            Makes sure you win every sale, fast
+            <span class="ml-3 inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-semibold text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300">You are here</span>
+          </span>
+        </div>
+
+        <a href="#" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-700 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes you the obvious choice</span>
+        </a>
+
+      </div>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500 dark:text-gray-400" data-animate>
+        Each service works on its own. But when they work together, something remarkable happens. Full details on our <a href="/pricing" class="text-primary-500 hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 8: FINAL CTA
+  ========================================================= -->
+  <section class="bg-gray-900 py-24 lg:py-32">
+    <div class="mx-auto max-w-4xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl font-normal leading-tight text-white sm:text-4xl lg:text-5xl" data-animate>
+        Every Minute You Wait, Another Lead Goes Somewhere Else.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-lg text-gray-300" data-animate>
+        Your competitors are already answering in seconds. The buyers you paid to generate are already picking whoever called them back first.
+      </p>
+      <p class="mx-auto mt-3 max-w-xl text-gray-400" data-animate>
+        We can have your system catching every lead, answering every call, and talking to every visitor within days, not months.
+      </p>
+      <div class="mt-10" data-animate>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30">
+          Start Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 9: FAQ
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">FAQ</p>
+      <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl" data-animate>
+        The Questions We Get Asked Most.
+      </h2>
+      <p class="mt-3 text-gray-600 dark:text-gray-400" data-animate>If yours isn't here, the Explore Call is where it gets answered.</p>
+
+      <div class="mt-12 space-y-4" data-animate>
+        {[
+          {
+            q: 'How much does an AI voice system cost?',
+            a: 'The full system, speed-to-lead voice agent, 24-hour voice receptionist, and on-page AI chatbot, is \u00a32,500 / $3,150 per month. Individual elements are available separately at lower cost. No setup fee. No long contract. Very high outbound call volume adds telephony costs of roughly \u00a3500 to \u00a3750 / $625 to $940 per month on top.',
+          },
+          {
+            q: 'How long does setup take?',
+            a: 'Typically around ten days. More complex CRM integrations can take a little longer. We write the scripts, train the voice on your business, connect your systems, and test every conversation in private before a single real call happens.',
+          },
+          {
+            q: 'Will callers know they\u2019re speaking to an AI?',
+            a: 'We\u2019re always upfront. The AI introduces itself honestly. In our experience, callers rarely mind once they discover how quickly and efficiently their question gets answered. If a caller wants to speak to a human, they are transferred straight through during office hours.',
+          },
+          {
+            q: 'What happens outside office hours?',
+            a: 'The voice receptionist handles routine questions, bookings, and rescheduling around the clock. The speed-to-lead agent either calls the lead immediately, or at the start of the next office hours, depending on how you want to run it. Your diary fills while you sleep.',
+          },
+          {
+            q: 'Which CRMs do you integrate with?',
+            a: 'Most mainstream CRMs: HubSpot, Salesforce, Pipedrive, Zoho, Go High Level, and many industry-specific systems. If yours is unusual, we check the integration during the Explore Call before anyone commits to anything.',
+          },
+          {
+            q: 'Is this right for every business?',
+            a: 'It needs volume to earn its keep. A busy sales function, a busy service function, or both. A handful of leads a week won\u2019t yet justify the full system, though the on-page chatbot works at much lower volumes and is often a good starting point.',
+          },
+        ].map((item) => (
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-800">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white">
+              {item.q}
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOURCES
+  ========================================================= -->
+  <section class="bg-gray-50 py-12 dark:bg-gray-900">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Sources</p>
+      <ul class="mt-4 space-y-2 text-sm text-gray-500 dark:text-gray-400">
+        <li>Lead response research: Harvard Business Review, <em>The Short Life of Online Sales Leads</em> — <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" class="hover:text-primary-500 transition-colors">hbr.org</a> (research by James Oldroyd, MIT, showing businesses responding within an hour are seven times more likely to qualify a lead than those responding later, and sixty times more likely than those responding in 24 hours)</li>
+      </ul>
+      <p class="mt-6 text-xs text-gray-400 dark:text-gray-500 italic">Page last updated: April 2026 — Authored by Nick Burrage</p>
+    </div>
+  </section>
+
+</Base>
