@@ -1,4 +1,5 @@
 ---
+import { env } from 'cloudflare:workers';
 import { getEmDashEntry } from "emdash";
 import { PortableText } from "emdash/ui";
 import Base from "@/layouts/Base.astro";
@@ -141,6 +142,98 @@ const articleSchema = isPost ? {
     }
   ]
 } : null;
+
+// ── Related posts (blog posts only) ──
+type RelatedRow = {
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  featured_image: string | null;
+  post_date: string | null;
+  published_at: string | null;
+  created_at: string;
+};
+
+let relatedPosts: RelatedRow[] = [];
+
+if (isPost) {
+  const db = env.DB as D1Database;
+  const postId = post!.data.id as string;
+
+  // 1. Get this post's category IDs
+  const { results: cats } = await db
+    .prepare(
+      `SELECT taxonomy_id FROM content_taxonomies WHERE entry_id = ? AND collection = 'posts'`
+    )
+    .bind(postId)
+    .all<{ taxonomy_id: string }>();
+
+  const catIds = cats.map((c) => c.taxonomy_id);
+
+  if (catIds.length > 0) {
+    // 2. Find up to 3 other posts in the same categories
+    const placeholders = catIds.map(() => '?').join(',');
+    const { results: sameCat } = await db
+      .prepare(
+        `SELECT DISTINCT p.slug, p.title, p.excerpt, p.featured_image, p.post_date, p.published_at, p.created_at
+         FROM ec_posts p
+         INNER JOIN content_taxonomies ct ON ct.entry_id = p.id AND ct.collection = 'posts'
+         WHERE ct.taxonomy_id IN (${placeholders})
+           AND p.slug != ?
+           AND p.status = 'published'
+           AND p.deleted_at IS NULL
+         ORDER BY COALESCE(p.post_date, p.published_at, p.created_at) DESC
+         LIMIT 3`
+      )
+      .bind(...catIds, slug!)
+      .all<RelatedRow>();
+
+    relatedPosts = sameCat;
+  }
+
+  // 3. Backfill with recent posts if fewer than 3
+  if (relatedPosts.length < 3) {
+    const excludeSlugs = [slug!, ...relatedPosts.map((p) => p.slug)];
+    const exPlaceholders = excludeSlugs.map(() => '?').join(',');
+    const needed = 3 - relatedPosts.length;
+    const { results: backfill } = await db
+      .prepare(
+        `SELECT slug, title, excerpt, featured_image, post_date, published_at, created_at
+         FROM ec_posts
+         WHERE slug NOT IN (${exPlaceholders})
+           AND status = 'published'
+           AND deleted_at IS NULL
+         ORDER BY COALESCE(post_date, published_at, created_at) DESC
+         LIMIT ?`
+      )
+      .bind(...excludeSlugs, needed)
+      .all<RelatedRow>();
+
+    relatedPosts = [...relatedPosts, ...backfill];
+  }
+}
+
+function parseRelatedImage(raw: string | null): { src: string; alt: string } | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as { src?: string; alt?: string };
+    return parsed.src ? { src: parsed.src, alt: parsed.alt ?? '' } : null;
+  } catch {
+    return null;
+  }
+}
+
+function formatRelatedDate(val: string | null): string {
+  if (!val) return '';
+  return new Date(val).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function cleanRelatedExcerpt(raw: string | null): string | null {
+  if (!raw) return null;
+  if (raw.includes('[vc_') || raw.includes('[/vc') || raw.startsWith('[')) return null;
+  if (raw.includes('<') && raw.includes('>')) return null;
+  return raw.trim() || null;
+}
 ---
 
 <Base title={String(data.title)} description={description}>
@@ -276,6 +369,56 @@ const articleSchema = isPost ? {
           </div>
         </div>
       </div>
+
+      <!-- Related reading -->
+      {relatedPosts.length > 0 && (
+        <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+          <div class="mx-auto max-w-7xl px-4 lg:px-8">
+            <h2 class="text-center text-2xl font-normal text-gray-900 dark:text-white sm:text-3xl">
+              Keep reading
+            </h2>
+            <div class="mt-10 grid gap-8 sm:grid-cols-3">
+              {relatedPosts.map((rp) => {
+                const img = parseRelatedImage(rp.featured_image);
+                const date = formatRelatedDate(rp.post_date ?? rp.published_at);
+                const excerpt = cleanRelatedExcerpt(rp.excerpt);
+                return (
+                  <article class="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-950">
+                    {img && (
+                      <div class="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                        <img
+                          src={img.src}
+                          alt={img.alt || rp.title}
+                          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="flex flex-1 flex-col p-6">
+                      {date && (
+                        <time class="mb-3 block text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                          {date}
+                        </time>
+                      )}
+                      <h3 class="text-lg font-normal leading-snug text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400" style="font-family: var(--font-display)">
+                        <a href={`/${rp.slug}/`} class="stretched-link">
+                          {rp.title}
+                        </a>
+                      </h3>
+                      {excerpt && (
+                        <p class="mt-3 flex-1 text-sm leading-relaxed text-gray-600 line-clamp-3 dark:text-gray-400">
+                          {excerpt}
+                        </p>
+                      )}
+                      <span class="mt-4 text-sm font-semibold text-primary-500">Read more →</span>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
     </article>
   ) : (
     <!-- ============ PAGE LAYOUT ============ -->
