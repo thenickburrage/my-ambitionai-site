@@ -23,6 +23,7 @@ const redirects: Record<string, string> = {
   '/seo-trends-in-2025/':                '/geo-vs-seo-vs-aeo/',
   '/they-ask-you-answer-coaching-alternatives/': '/learning-centre/',
   '/they-ask-you-answer-coaching-and-content/':  '/endless-customers-coaching/',
+  '/write-a-service-page/':                      '/website-design/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
