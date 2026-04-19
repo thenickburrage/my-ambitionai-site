@@ -74,11 +74,12 @@ const authorPageMap: Record<string, string> = {
 };
 const authorUrl = authorPageMap[authorName] ?? null;
 
-// R2-hosted author photos (400×400 source, displayed at 200×200)
-// Add entries here as photos are uploaded to R2
+// Author photos (400×400 source, displayed circular at 80×80 in the byline card).
+// Served as local static assets from /public/images/ — the R2 custom domain
+// media.theambitionsagency.com is not currently attached to the MEDIA bucket.
 const authorPhotoMap: Record<string, string> = {
-  // "Nick Burrage": "https://media.theambitionsagency.com/authors/nick-burrage-400x400.jpg",
-  "Liyana van Wyk": "https://media.theambitionsagency.com/authors/liyana-van-wyck.webp",
+  "Nick Burrage": "/images/nick-burrage-400.webp",
+  "Liyana van Wyk": "/images/liyana-van-wyk-400.webp",
 };
 const authorPhoto = authorPhotoMap[authorName] ?? null;
 
@@ -96,13 +97,74 @@ const authorBioMap: Record<string, Array<{ text: string; link?: { href: string; 
 const authorBio = authorBioMap[authorName] ?? null;
 const authorFirstName = authorName.split(" ")[0];
 
+// Per-article author bio (portableText field on the post, optional).
+// If present, takes precedence over the hardcoded authorBioMap above.
+const customAuthorBio = data.author_bio as any[] | undefined;
+const useCustomAuthorBio = Array.isArray(customAuthorBio) && customAuthorBio.length > 0;
+
+// SEO meta title override (string field on the post, optional).
+const metaTitleOverride = data.meta_title as string | undefined;
+
+// Schema.org @id for the author. Falls back to the org identity when the
+// byline is the generic "Ambitions AI" (i.e. no specific person attributed).
+const authorSchemaIdMap: Record<string, string> = {
+  "Nick Burrage": "https://theambitionsagency.com/#nick-burrage",
+  "Liyana van Wyk": "https://theambitionsagency.com/#liyana-van-wyk",
+  "Liyana V.": "https://theambitionsagency.com/#liyana-van-wyk",
+};
+const authorIsPerson = authorName in authorSchemaIdMap;
+const authorSchemaId = authorSchemaIdMap[authorName] ?? "https://theambitionsagency.com/#organization";
+
 const featuredImage = data.featured_image as
   | { src?: string; alt?: string }
   | undefined;
 
 const pageUrl = `https://theambitionsagency.com/${slug}/`;
 
-// Article schema (blog posts only)
+// Extract FAQ items from the post content for FAQPage schema.
+// Looks for an h2 block whose text equals "FAQ" (case-insensitive). Each
+// following h3 is treated as a question; the next non-heading normal blocks
+// form the answer. Ends at the next h2 or at the end of the content array.
+interface FaqItem { question: string; answer: string }
+function blockText(block: any): string {
+  return (block?.children ?? []).map((c: any) => c?.text ?? "").join("").trim();
+}
+function extractFaqs(content: any): FaqItem[] {
+  if (!Array.isArray(content)) return [];
+  const faqs: FaqItem[] = [];
+  let inFaqSection = false;
+  let currentQuestion: string | null = null;
+  let currentAnswerParts: string[] = [];
+  const flush = () => {
+    if (currentQuestion && currentAnswerParts.length > 0) {
+      faqs.push({ question: currentQuestion, answer: currentAnswerParts.join(" ").trim() });
+    }
+    currentQuestion = null;
+    currentAnswerParts = [];
+  };
+  for (const block of content) {
+    if (block?._type !== "block") continue;
+    const text = blockText(block);
+    if (block.style === "h2") {
+      flush();
+      inFaqSection = text.toLowerCase() === "faq";
+      continue;
+    }
+    if (!inFaqSection) continue;
+    if (block.style === "h3") {
+      flush();
+      currentQuestion = text;
+    } else if (block.style === "normal" && !block.listItem && currentQuestion && text) {
+      currentAnswerParts.push(text);
+    }
+  }
+  flush();
+  return faqs;
+}
+const faqItems = isPost ? extractFaqs(data.content) : [];
+
+// Article schema (blog posts only). Single JSON-LD @graph with BlogPosting,
+// BreadcrumbList, and FAQPage (when the post has an FAQ section).
 const articleSchema = isPost ? {
   "@context": "https://schema.org",
   "@graph": [
@@ -115,8 +177,8 @@ const articleSchema = isPost ? {
       ...(publishedISO ? { "datePublished": publishedISO, "dateModified": updatedISO ?? publishedISO } : {}),
       ...(featuredImage?.src ? { "image": featuredImage.src } : {}),
       "author": {
-        "@type": "Person",
-        "@id": "https://theambitionsagency.com/#nick-burrage",
+        "@type": authorIsPerson ? "Person" : "Organization",
+        "@id": authorSchemaId,
         "name": authorName
       },
       "publisher": {
@@ -139,7 +201,16 @@ const articleSchema = isPost ? {
         { "@type": "ListItem", "position": 2, "name": "Learning Centre", "item": "https://theambitionsagency.com/learning-centre/" },
         { "@type": "ListItem", "position": 3, "name": String(data.title), "item": pageUrl }
       ]
-    }
+    },
+    ...(faqItems.length > 0 ? [{
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      "mainEntity": faqItems.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+      }))
+    }] : [])
   ]
 } : null;
 
@@ -236,7 +307,7 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
 }
 ---
 
-<Base title={String(data.title)} description={description}>
+<Base title={String(data.title)} description={description} metaTitle={metaTitleOverride}>
   {articleSchema && (
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   )}
@@ -312,6 +383,16 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
         </div>
       </section>
 
+      <!-- Primary post CTA -->
+      <div class="mx-auto max-w-3xl px-4 pb-12 text-center lg:px-8">
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30"
+        >
+          Contact Us →
+        </a>
+      </div>
+
       <!-- Back link -->
       <div class="mx-auto max-w-3xl px-4 pb-8 lg:px-8">
         <a
@@ -340,7 +421,12 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                 Hi, I'm {authorFirstName} and I wrote this article.
               </h3>
-              {authorBio && (
+              {useCustomAuthorBio && (
+                <div class="mt-3 space-y-2 text-sm italic text-gray-600 dark:text-gray-400 [&_a]:font-medium [&_a]:text-primary-500 [&_a]:hover:text-primary-600 [&_a]:not-italic [&_p]:m-0">
+                  <PortableText value={customAuthorBio} />
+                </div>
+              )}
+              {!useCustomAuthorBio && authorBio && (
                 <div class="mt-3 space-y-2">
                   {authorBio.map((para) => (
                     <p class="text-sm italic text-gray-600 dark:text-gray-400">
@@ -353,7 +439,7 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
                   ))}
                 </div>
               )}
-              {!authorBio && (
+              {!useCustomAuthorBio && !authorBio && (
                 <div class="mt-2">
                   <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Written by</p>
                   {authorUrl ? (
