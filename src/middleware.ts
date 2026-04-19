@@ -36,6 +36,8 @@ const redirects: Record<string, string> = {
   '/inbound-marketing-creating-content/':        '/content-marketing/',
   '/great-blog-post/':                           '/endless-customers-coaching/',
   '/content-marketing-problems/':                '/content-marketing/',
+  '/they-ask-you-answer-book-summary/':          '/endless-customers-by-marcus-sheridan-book-summary-review/',
+  '/marcus-sheridan/':                           '/endless-customers-coaching/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
