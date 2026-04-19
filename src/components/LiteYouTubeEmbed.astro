@@ -1,0 +1,61 @@
+---
+/**
+ * Lazy-load YouTube embed for blog posts. Used as a custom override for the
+ * EmDash PortableText `embed` block type — if the embed URL is a YouTube URL,
+ * we render <lite-youtube> (facade from lite-youtube-embed package, which is
+ * already used on the homepage). Otherwise we fall back to a simple link.
+ *
+ * Expected node shape (standard EmDash embed block):
+ *   { _type: "embed", _key, url, provider?, caption? }
+ */
+import 'lite-youtube-embed/src/lite-yt-embed.css';
+
+export interface Props {
+  node: {
+    _type: 'embed';
+    _key: string;
+    url: string;
+    provider?: string;
+    caption?: string;
+  };
+}
+
+const { node } = Astro.props;
+const url = node?.url ?? '';
+
+const YT_RE = /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+const match = url.match(YT_RE);
+const videoId = match ? match[1] : null;
+const posterUrl = videoId
+  ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  : null;
+---
+
+<script>
+  import 'lite-youtube-embed/src/lite-yt-embed.js';
+</script>
+
+{videoId ? (
+  <figure class="my-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="overflow-hidden rounded-2xl shadow-lg">
+        <lite-youtube
+          videoid={videoId}
+          playlabel={node.caption ?? 'Play video'}
+          style={`background-image: url('${posterUrl}'); max-width: 100%;`}
+        ></lite-youtube>
+      </div>
+    </div>
+    {node.caption && (
+      <figcaption class="mt-3 text-center text-sm italic text-gray-600 dark:text-gray-400">
+        {node.caption}
+      </figcaption>
+    )}
+  </figure>
+) : (
+  <p class="my-4">
+    <a href={url} target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600">
+      {url}
+    </a>
+  </p>
+)}

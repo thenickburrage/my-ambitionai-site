@@ -2,6 +2,15 @@
 import { env } from 'cloudflare:workers';
 import { getEmDashEntry } from "emdash";
 import { PortableText } from "emdash/ui";
+import LiteYouTubeEmbed from "@/components/LiteYouTubeEmbed.astro";
+
+// Custom PortableText components: override the `embed` block so YouTube URLs
+// render as lazy-loaded <lite-youtube> facades instead of eager iframes.
+const customPortableTextComponents = {
+  type: {
+    embed: LiteYouTubeEmbed,
+  },
+};
 import Base from "@/layouts/Base.astro";
 
 const { slug } = Astro.params;
@@ -163,6 +172,19 @@ function extractFaqs(content: any): FaqItem[] {
 }
 const faqItems = isPost ? extractFaqs(data.content) : [];
 
+// Extract the first YouTube embed (if any) for VideoObject JSON-LD schema.
+function extractFirstYouTubeEmbed(content: any): { videoId: string; caption?: string; url: string } | null {
+  if (!Array.isArray(content)) return null;
+  const YT_RE = /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  for (const block of content) {
+    if (block?._type !== 'embed' || typeof block.url !== 'string') continue;
+    const m = block.url.match(YT_RE);
+    if (m) return { videoId: m[1], caption: block.caption, url: block.url };
+  }
+  return null;
+}
+const firstVideo = isPost ? extractFirstYouTubeEmbed(data.content) : null;
+
 // Article schema (blog posts only). Single JSON-LD @graph with BlogPosting,
 // BreadcrumbList, and FAQPage (when the post has an FAQ section).
 const articleSchema = isPost ? {
@@ -210,6 +232,16 @@ const articleSchema = isPost ? {
         "name": f.question,
         "acceptedAnswer": { "@type": "Answer", "text": f.answer }
       }))
+    }] : []),
+    ...(firstVideo ? [{
+      "@type": "VideoObject",
+      "@id": `${pageUrl}#video`,
+      "name": firstVideo.caption ?? data.title,
+      "description": firstVideo.caption ?? description,
+      "thumbnailUrl": `https://i.ytimg.com/vi/${firstVideo.videoId}/maxresdefault.jpg`,
+      "contentUrl": firstVideo.url,
+      "embedUrl": `https://www.youtube.com/embed/${firstVideo.videoId}`,
+      ...(publishedISO ? { "uploadDate": publishedISO } : {})
     }] : [])
   ]
 } : null;
@@ -378,7 +410,7 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
       <section class="py-12 lg:py-16">
         <div class="mx-auto max-w-3xl px-4 lg:px-8">
           <div class="prose prose-gray article-prose dark:prose-invert prose-headings:font-normal prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-img:rounded-xl prose-blockquote:border-l-primary-500 prose-blockquote:not-italic prose-blockquote:text-gray-700">
-            {data.content && <PortableText value={data.content} />}
+            {data.content && <PortableText value={data.content} components={customPortableTextComponents} />}
           </div>
         </div>
       </section>
@@ -533,7 +565,7 @@ function cleanRelatedExcerpt(raw: string | null): string | null {
       <section class="py-12 lg:py-16">
         <div class="mx-auto max-w-4xl px-4 lg:px-8">
           <div class="prose prose-gray max-w-none dark:prose-invert prose-headings:font-normal prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-img:rounded-xl">
-            {data.content && <PortableText value={data.content} />}
+            {data.content && <PortableText value={data.content} components={customPortableTextComponents} />}
           </div>
         </div>
       </section>
