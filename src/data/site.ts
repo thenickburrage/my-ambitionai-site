@@ -49,11 +49,11 @@ export const nav: NavItem[] = [
 
 // Footer services links
 export const footerServices = [
-  { text: 'Content Marketing', url: '/content-marketing/' },
-  { text: 'Social Media Marketing', url: '/social-media-marketing/' },
-  { text: 'Search Engine Marketing', url: '/search-engine-marketing/' },
-  { text: 'Digital Marketing', url: '/digital-marketing/' },
-  { text: 'Website Design', url: '/website-design/' },
+  { text: 'SEO & AEO',       url: '#' },
+  { text: 'Content',         url: '/endless-customers-coaching/' },
+  { text: 'Website',         url: '/website-design/' },
+  { text: 'AI Automations',  url: '/ai-voice-agent/' },
+  { text: 'Reviews',         url: '/ai-review-automation/' },
 ];
 
 // Author pages
