@@ -35,6 +35,7 @@ const redirects: Record<string, string> = {
   '/semantic-keywords/':                         '/entity-seo-for-geo/',
   '/inbound-marketing-creating-content/':        '/content-marketing/',
   '/great-blog-post/':                           '/endless-customers-coaching/',
+  '/content-marketing-problems/':                '/content-marketing/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
