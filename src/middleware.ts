@@ -26,6 +26,7 @@ const redirects: Record<string, string> = {
   '/write-a-service-page/':                      '/website-design/',
   '/how-to-drive-great-seo-through-a-pillar-page/': '/entity-seo-for-geo/',
   '/content-marketing-and-seo/':                 '/endless-customers-coaching/',
+  '/seo-for-blogs/':                             '/entity-seo-for-geo/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
