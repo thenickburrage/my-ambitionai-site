@@ -7,6 +7,7 @@ import { defineMiddleware } from 'astro:middleware';
  */
 const redirects: Record<string, string> = {
   '/nick-burrage/':                       '/authors/nick-burrage/',
+  '/digital-marketing-company/nick-burrage/': '/authors/nick-burrage/',
   '/category/they-ask-you-answer/':       '/learning-centre/',
   '/category/digital-marketing/':         '/learning-centre/',
   '/category/content-marketing/':         '/learning-centre/',
