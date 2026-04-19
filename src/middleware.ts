@@ -20,6 +20,8 @@ const redirects: Record<string, string> = {
   '/june-july-2025-google-core-update/': '/geo-vs-seo-vs-aeo/',
   '/google-march-core-update/':          '/geo-vs-seo-vs-aeo/',
   '/seo-trends-in-2025/':                '/geo-vs-seo-vs-aeo/',
+  '/they-ask-you-answer-coaching-alternatives/': '/learning-centre/',
+  '/they-ask-you-answer-coaching-and-content/':  '/endless-customers-coaching/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
