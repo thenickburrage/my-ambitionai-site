@@ -31,6 +31,10 @@ const redirects: Record<string, string> = {
   '/power-words/':                               '/endless-customers-coaching/',
   '/subheadings/':                               '/endless-customers-coaching/',
   '/secrets-of-seo/':                            '/entity-seo-for-geo/',
+  '/before-you-engage-a-web-design-agency/':     '/website-design/',
+  '/semantic-keywords/':                         '/entity-seo-for-geo/',
+  '/inbound-marketing-creating-content/':        '/content-marketing/',
+  '/great-blog-post/':                           '/endless-customers-coaching/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
