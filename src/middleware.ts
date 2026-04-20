@@ -82,6 +82,11 @@ const redirects: Record<string, string> = {
   '/website-development/':                       '/website-design/',
   '/linkedin-for-business-growth/':              '/learning-centre/',
   '/leveraging-linkedin/':                       '/learning-centre/',
+  '/content-repurposing/':                       '/endless-customers-coaching/',
+  '/drive-website-traffic/':                     '/19-trust-signals-ai-recommends-your-business/',
+  '/website-speed/':                             '/website-design/',
+  '/make-your-website-load-faster/':             '/website-design/',
+  '/user-experience/':                           '/website-design/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
