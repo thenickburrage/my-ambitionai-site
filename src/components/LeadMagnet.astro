@@ -1,0 +1,384 @@
+---
+/**
+ * Reusable lead magnet section.
+ *
+ * Shows a headline + body + bullet list + CTA button. Clicking the button
+ * expands an inline form (first name, email, GDPR consent, Turnstile). On
+ * submit, POSTs to /api/lead-magnet which tags the contact in Systeme.io
+ * and returns the PDF download URL. On success the form is swapped for a
+ * confirmation + download button, and a browser download is triggered.
+ *
+ * Visitor never leaves the page.
+ *
+ * Usage:
+ *   import LeadMagnet from '@/components/LeadMagnet.astro';
+ *   <LeadMagnet
+ *     headline="AI is choosing who gets recommended. Make sure it's you."
+ *     tag="ai-briefing-downloaded"
+ *     pdfUrl="/downloads/19_trust_signals_briefing_v4.pdf"
+ *     variant="dark"
+ *   />
+ *
+ * Variants:
+ *   - "dark"  — full-width gradient/dark panel, used on home + landing
+ *   - "light" — lighter inline panel for embedding inside service pages
+ */
+
+import { env } from 'cloudflare:workers';
+
+interface Props {
+  headline?: string;
+  body?: string;
+  bullets?: string[];
+  buttonLabel?: string;
+  tag?: string;
+  pdfUrl?: string;
+  filename?: string;
+  variant?: 'dark' | 'light';
+  id?: string;
+}
+
+const {
+  headline = "AI is choosing who gets recommended. Make sure it's you.",
+  body = "There are 19 signals that tell AI platforms like ChatGPT and Perplexity whether to recommend your business or send customers straight to a competitor. Most business owners have no idea they exist.\n\nThis free briefing changes that.\n\nDownload it now and you'll discover:",
+  bullets = [
+    'How AI decides whether your business is safe enough to recommend',
+    "Why most businesses are invisible to AI, and what they're missing",
+    'Why transparent pricing is now the number one trust signal for AI',
+  ],
+  buttonLabel = 'Download the free briefing',
+  tag = 'ai-briefing-downloaded',
+  pdfUrl = '/downloads/19_trust_signals_briefing_v4.pdf',
+  filename = '19_trust_signals_briefing_v4.pdf',
+  variant = 'dark',
+  id,
+} = Astro.props;
+
+// Public Turnstile site key is safe in client HTML. We inject via attribute
+// so the client script can pick it up without a round trip.
+const turnstileSiteKey = (env as any)?.TURNSTILE_SITE_KEY ?? '';
+
+// Unique id per instance so multiple LeadMagnets on one page do not collide.
+const instanceId = id ?? `lm-${Math.random().toString(36).slice(2, 10)}`;
+
+const isDark = variant === 'dark';
+const wrapperClass = isDark
+  ? 'rounded-3xl bg-gradient-to-br from-gray-900 to-primary-900 p-8 text-center shadow-xl lg:p-12'
+  : 'rounded-3xl border border-primary-200 bg-primary-50 p-8 text-center dark:border-primary-800 dark:bg-primary-950/40 lg:p-12';
+
+const eyebrowClass = isDark
+  ? 'text-xs font-semibold uppercase tracking-widest text-primary-300'
+  : 'text-xs font-semibold uppercase tracking-widest text-primary-500';
+
+const headlineClass = isDark
+  ? 'mt-3 text-3xl text-white lg:text-4xl'
+  : 'mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl';
+
+const bodyClass = isDark
+  ? 'mx-auto mt-6 max-w-2xl whitespace-pre-line text-lg text-gray-200'
+  : 'mx-auto mt-6 max-w-2xl whitespace-pre-line text-lg text-gray-700 dark:text-gray-300';
+
+const bulletClass = isDark
+  ? 'text-gray-200'
+  : 'text-gray-700 dark:text-gray-300';
+
+const bulletDotClass = isDark
+  ? 'mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-300'
+  : 'mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500';
+
+const primaryButtonClass = isDark
+  ? 'inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100'
+  : 'inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600';
+
+const inputClass = isDark
+  ? 'w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-base text-white placeholder-gray-400 focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-white/30'
+  : 'w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-white';
+
+const labelClass = isDark
+  ? 'mb-1.5 block text-xs font-semibold uppercase tracking-wide text-gray-300'
+  : 'mb-1.5 block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400';
+
+const errorTextClass = isDark
+  ? 'text-sm text-red-300'
+  : 'text-sm text-red-600 dark:text-red-400';
+
+const linkClass = isDark
+  ? 'text-primary-300 underline underline-offset-4 hover:text-white'
+  : 'text-primary-600 underline underline-offset-4 hover:text-primary-700 dark:text-primary-400';
+---
+
+<section class="py-16 lg:py-20">
+  <div class="mx-auto max-w-4xl px-4 lg:px-8">
+    <div class={wrapperClass} data-lead-magnet data-instance-id={instanceId} data-pdf-url={pdfUrl} data-filename={filename} data-tag={tag} data-turnstile-site-key={turnstileSiteKey}>
+
+      <p class={eyebrowClass}>Free briefing</p>
+      <h2 class={headlineClass}>{headline}</h2>
+
+      <div class={bodyClass}>{body}</div>
+
+      {bullets && bullets.length > 0 && (
+        <ul class="mx-auto mt-6 max-w-xl space-y-3 text-left">
+          {bullets.map((bullet) => (
+            <li class={`flex gap-3 ${bulletClass}`}>
+              <span class={bulletDotClass}></span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <!-- STATE A: the default CTA button -->
+      <div class="mt-10 flex justify-center" data-lm-cta>
+        <button type="button" class={primaryButtonClass} data-lm-open>
+          {buttonLabel}
+        </button>
+      </div>
+
+      <!-- STATE B: the inline form (hidden until button clicked) -->
+      <form
+        class="mt-10 hidden mx-auto max-w-xl text-left"
+        data-lm-form
+        novalidate
+        aria-label="Download the free briefing"
+      >
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for={`${instanceId}-first-name`} class={labelClass}>First name</label>
+            <input
+              type="text"
+              id={`${instanceId}-first-name`}
+              name="first_name"
+              required
+              autocomplete="given-name"
+              maxlength="80"
+              class={inputClass}
+              aria-describedby={`${instanceId}-first-name-error`}
+            />
+            <p id={`${instanceId}-first-name-error`} class={`mt-1.5 hidden ${errorTextClass}`} data-lm-error="first_name"></p>
+          </div>
+          <div>
+            <label for={`${instanceId}-email`} class={labelClass}>Email address</label>
+            <input
+              type="email"
+              id={`${instanceId}-email`}
+              name="email"
+              required
+              autocomplete="email"
+              maxlength="200"
+              class={inputClass}
+              aria-describedby={`${instanceId}-email-error`}
+            />
+            <p id={`${instanceId}-email-error`} class={`mt-1.5 hidden ${errorTextClass}`} data-lm-error="email"></p>
+          </div>
+        </div>
+
+        <div class="mt-5 flex items-start gap-3 text-left">
+          <input
+            type="checkbox"
+            id={`${instanceId}-consent`}
+            name="consent"
+            class="mt-1 h-4 w-4 shrink-0 rounded border-gray-400 text-primary-500 focus:ring-primary-500"
+            aria-describedby={`${instanceId}-consent-error`}
+          />
+          <label for={`${instanceId}-consent`} class={isDark ? 'text-sm text-gray-200' : 'text-sm text-gray-700 dark:text-gray-300'}>
+            I'm happy for Ambitions AI to email me about AI and digital marketing. You can unsubscribe any time.
+          </label>
+        </div>
+        <p id={`${instanceId}-consent-error`} class={`mt-1.5 hidden ${errorTextClass}`} data-lm-error="consent"></p>
+
+        <!-- Cloudflare Turnstile widget -->
+        <div class="mt-5 flex justify-center" data-lm-turnstile></div>
+        <p class={`mt-1.5 hidden text-center ${errorTextClass}`} data-lm-error="turnstile"></p>
+
+        <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <button
+            type="submit"
+            class={primaryButtonClass}
+            data-lm-submit
+          >
+            <span data-lm-submit-label>{buttonLabel}</span>
+            <span class="hidden" data-lm-submit-spinner aria-hidden="true">
+              <svg class="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.25" stroke-width="3"></circle>
+                <path d="M22 12a10 10 0 0 1-10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <p class={`mt-6 hidden text-center ${errorTextClass}`} data-lm-error="global" role="alert"></p>
+
+        <p class={isDark ? 'mt-6 text-center text-xs text-gray-400' : 'mt-6 text-center text-xs text-gray-500 dark:text-gray-500'}>
+          Free. No spam. Unsubscribe any time. See our <a href="/privacy-policy/" class={linkClass}>privacy policy</a>.
+        </p>
+      </form>
+
+      <!-- STATE C: success + download -->
+      <div class="mt-10 hidden" data-lm-success role="status" aria-live="polite">
+        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-green-500/20 text-green-300">
+          <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h3 class={isDark ? 'mt-5 text-xl font-semibold text-white' : 'mt-5 text-xl font-semibold text-gray-900 dark:text-white'}>
+          Your briefing is ready.
+        </h3>
+        <p class={isDark ? 'mx-auto mt-2 max-w-md text-gray-200' : 'mx-auto mt-2 max-w-md text-gray-700 dark:text-gray-300'}>
+          The download should start automatically. If it does not, use the button below.
+        </p>
+        <div class="mt-6 flex justify-center">
+          <a
+            class={primaryButtonClass}
+            href={pdfUrl}
+            download={filename}
+            data-lm-download-button
+          >
+            Download the briefing
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Load Turnstile once per page. Safe to include on every page that has a LeadMagnet. -->
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script is:inline>
+  // Runs client-side for every LeadMagnet instance on the page.
+  (function init() {
+    var instances = document.querySelectorAll('[data-lead-magnet]');
+    if (!instances.length) return;
+
+    instances.forEach(function (root) {
+      var ctaBlock = root.querySelector('[data-lm-cta]');
+      var openBtn = root.querySelector('[data-lm-open]');
+      var form = root.querySelector('[data-lm-form]');
+      var turnstileMount = root.querySelector('[data-lm-turnstile]');
+      var submitBtn = root.querySelector('[data-lm-submit]');
+      var submitLabel = root.querySelector('[data-lm-submit-label]');
+      var submitSpinner = root.querySelector('[data-lm-submit-spinner]');
+      var successBlock = root.querySelector('[data-lm-success]');
+      var downloadLink = root.querySelector('[data-lm-download-button]');
+      var globalError = root.querySelector('[data-lm-error="global"]');
+      var siteKey = root.dataset.turnstileSiteKey || '';
+      var tag = root.dataset.tag || 'ai-briefing-downloaded';
+      var pdfUrl = root.dataset.pdfUrl || '';
+      var filename = root.dataset.filename || 'briefing.pdf';
+
+      var turnstileWidgetId = null;
+      var turnstileToken = '';
+      var rendered = false;
+
+      function clearErrors() {
+        root.querySelectorAll('[data-lm-error]').forEach(function (el) {
+          el.textContent = '';
+          el.classList.add('hidden');
+        });
+      }
+
+      function showError(field, message) {
+        var el = root.querySelector('[data-lm-error="' + field + '"]');
+        if (!el) return;
+        el.textContent = message;
+        el.classList.remove('hidden');
+      }
+
+      function renderTurnstile() {
+        if (rendered) return;
+        rendered = true;
+        var ts = window.turnstile;
+        if (!ts || !siteKey) {
+          setTimeout(renderTurnstile, 200);
+          rendered = false;
+          return;
+        }
+        turnstileWidgetId = ts.render(turnstileMount, {
+          sitekey: siteKey,
+          callback: function (token) { turnstileToken = token; },
+          'error-callback': function () { turnstileToken = ''; },
+          'expired-callback': function () { turnstileToken = ''; },
+        });
+      }
+
+      openBtn.addEventListener('click', function () {
+        ctaBlock.classList.add('hidden');
+        form.classList.remove('hidden');
+        renderTurnstile();
+        var firstField = form.querySelector('input[name="first_name"]');
+        if (firstField) firstField.focus();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearErrors();
+
+        var firstName = (form.elements.namedItem('first_name') || {}).value || '';
+        firstName = firstName.trim();
+        var email = (form.elements.namedItem('email') || {}).value || '';
+        email = email.trim();
+        var consent = !!(form.elements.namedItem('consent') || {}).checked;
+
+        var ok = true;
+        if (!firstName) { showError('first_name', 'Please enter your first name.'); ok = false; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'Please enter a valid email address.'); ok = false; }
+        if (!consent) { showError('consent', "Please tick the box to confirm you're happy to receive emails."); ok = false; }
+        if (!turnstileToken) { showError('turnstile', "Couldn't verify you're human, please try again."); ok = false; }
+        if (!ok) return;
+
+        submitBtn.disabled = true;
+        submitLabel.classList.add('hidden');
+        submitSpinner.classList.remove('hidden');
+
+        fetch('/api/lead-magnet', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            first_name: firstName,
+            email: email,
+            consent: consent,
+            tag: tag,
+            turnstile_token: turnstileToken,
+          }),
+        })
+          .then(function (res) { return res.json().then(function (json) { return { res: res, json: json }; }); })
+          .then(function (out) {
+            var res = out.res, json = out.json || {};
+            if (!res.ok || !json.success) {
+              globalError.textContent = json.error || 'Something went wrong, please try again.';
+              globalError.classList.remove('hidden');
+              if (window.turnstile && window.turnstile.reset) window.turnstile.reset(turnstileWidgetId);
+              turnstileToken = '';
+              return;
+            }
+
+            form.classList.add('hidden');
+            successBlock.classList.remove('hidden');
+            if (json.downloadUrl) downloadLink.href = json.downloadUrl;
+
+            var a = document.createElement('a');
+            a.href = json.downloadUrl || pdfUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            try {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'lead_magnet_submit', magnet: 'ai-briefing' });
+            } catch (e) { /* ignore */ }
+          })
+          .catch(function () {
+            globalError.textContent = 'Something went wrong, please try again.';
+            globalError.classList.remove('hidden');
+          })
+          .then(function () {
+            submitBtn.disabled = false;
+            submitLabel.classList.remove('hidden');
+            submitSpinner.classList.add('hidden');
+          });
+      });
+    });
+  })();
+</script>

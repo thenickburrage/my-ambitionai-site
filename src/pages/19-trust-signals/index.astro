@@ -1,0 +1,88 @@
+---
+import Base from '@/layouts/Base.astro';
+import LeadMagnet from '@/components/LeadMagnet.astro';
+
+const publishedISO = '2026-04-20';
+const updatedISO   = '2026-04-20';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/19-trust-signals/#webpage",
+      "url": "https://theambitionsagency.com/19-trust-signals/",
+      "name": "19 AI Trust Signals Briefing | Ambitions AI",
+      "description": "Download the free briefing. The 19 signals that tell AI platforms like ChatGPT and Perplexity whether to recommend your business or send customers to a competitor.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://theambitionsagency.com/#website",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com/"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",                     "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "19 AI Trust Signals",      "item": "https://theambitionsagency.com/19-trust-signals/" }
+        ]
+      }
+    }
+  ]
+};
+---
+
+<Base
+  title="19 AI Trust Signals Briefing"
+  metaTitle="19 AI Trust Signals Briefing | Ambitions AI"
+  description="Download the free briefing. The 19 signals that tell AI platforms like ChatGPT and Perplexity whether to recommend your business or send customers to a competitor."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+    <div class="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Free briefing</p>
+      <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl">
+        The 19 signals AI platforms use to decide whether to recommend your business.
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+        Old SEO tricks do not work on AI. ChatGPT, Perplexity and Google AI Overviews are using a new set of trust signals to decide who gets recommended. Most businesses are invisible to them.
+      </p>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <LeadMagnet variant="dark" />
+
+  <!-- FOLLOW-ON STRIP -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-2xl text-gray-900 dark:text-white lg:text-3xl">
+        Want the long-form version as an article?
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+        We also published the full 19 Trust Signals article in our Learning Centre. Same thinking, different format. Read it in a browser, share the link, cite it.
+      </p>
+      <div class="mt-8">
+        <a
+          href="/19-trust-signals-ai-recommends-your-business/"
+          class="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+        >
+          Read the article
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

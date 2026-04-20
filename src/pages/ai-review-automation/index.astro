@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import LeadMagnet from '@/components/LeadMagnet.astro';
 
 const publishedISO = '2026-04-13';
 const updatedISO   = '2026-04-14';
@@ -529,16 +530,9 @@ const serviceSchema = {
           <p class="mt-6 text-sm font-medium text-gray-300">One service. Everything included. No contract.</p>
         </div>
 
-        <!-- Trust Signals CTA -->
-        <div class="mt-12 rounded-2xl border-2 border-dashed border-primary-300 bg-primary-50 p-8 text-center dark:border-primary-700 dark:bg-primary-900/20" data-animate>
-          <p class="text-gray-700 dark:text-gray-300 lg:text-lg">
-            Reviews are the single most powerful of the 19 trust signals that make AI recommend your business to new customers. Find out what the other 18 are -- and make sure you are not leaving sales on the table.
-          </p>
-          <div class="mt-4">
-            <a href="#" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-700">
-              Download the Free 19 AI Trust Signals Briefing
-            </a>
-          </div>
+        <!-- Trust Signals lead magnet -->
+        <div class="mt-12" data-animate>
+          <LeadMagnet variant="light" />
         </div>
 
       </div>

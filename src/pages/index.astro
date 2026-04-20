@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import LeadMagnet from '@/components/LeadMagnet.astro';
 import 'lite-youtube-embed/src/lite-yt-embed.css';
 ---
 
@@ -571,45 +572,7 @@ import 'lite-youtube-embed/src/lite-yt-embed.css';
       </div>
 
       <div class="mt-16 border-t border-gray-800 pt-12" data-animate>
-        <p class="text-sm font-semibold uppercase tracking-widest text-gray-500">Not ready yet?</p>
-        <p class="mt-3 text-lg text-gray-300">
-          Download our free guide: <em>19 AI Trust Signals Your Business Must Show To Win Today.</em>
-        </p>
-        <form
-          method="post"
-          action="https://systeme.io/embedded/39921808/subscription"
-          class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-3"
-        >
-          <div class="flex-1">
-            <label for="first_name" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">First name</label>
-            <input
-              type="text"
-              id="first_name"
-              name="first_name"
-              required
-              placeholder="Jane"
-              class="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
-            />
-          </div>
-          <div class="flex-1">
-            <label for="dl_email" class="mb-1.5 block text-xs font-medium uppercase tracking-wide text-gray-500">Email address</label>
-            <input
-              type="email"
-              id="dl_email"
-              name="email"
-              required
-              placeholder="jane@yourcompany.com"
-              class="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
-            />
-          </div>
-          <button
-            type="submit"
-            class="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/30 sm:flex-shrink-0"
-          >
-            Send me the guide →
-          </button>
-        </form>
-        <p class="mt-3 text-xs text-gray-600">Free. No spam. Unsubscribe any time.</p>
+        <LeadMagnet variant="dark" />
       </div>
 
       <p class="mt-16 text-sm text-gray-600 italic">The last agency you'll ever need to hire.</p>

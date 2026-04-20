@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import LeadMagnet from '@/components/LeadMagnet.astro';
 
 const publishedISO = '2026-04-20';
 const updatedISO   = '2026-04-20';
@@ -722,29 +723,11 @@ const serviceSchema = {
   </section>
 
   <!-- =========================================================
-       SECTION 11 — RISK REVERSAL (19 TRUST SIGNALS BRIEFING)
+       SECTION 11: RISK REVERSAL (19 TRUST SIGNALS BRIEFING)
   ========================================================= -->
-  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
-    <div class="mx-auto max-w-4xl px-4 lg:px-8">
-      <div class="rounded-3xl bg-gradient-to-br from-gray-900 to-primary-900 p-10 text-center shadow-xl lg:p-14">
-        <p class="text-xs font-semibold uppercase tracking-widest text-primary-300">Get the briefing</p>
-        <h2 class="mt-3 text-3xl text-white lg:text-4xl">
-          Before You Hire Anyone for SEO or AEO, Including Us, Read This First.
-        </h2>
-        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
-          We wrote a free briefing on the 19 trust signals that actually determine whether AI recommends your business in 2026. It is the clearest map I have seen of what modern SEO and AEO has to answer to.
-        </p>
-        <p class="mx-auto mt-4 max-w-2xl font-display text-lg italic text-gray-300">
-          &#128073; If after reading it you do not want to work with us, that is fine. You will at least know what to ask anyone else.
-        </p>
-        <div class="mt-10">
-          <a href="/19-trust-signals-ai-recommends-your-business/" class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100">
-            Read the Free 19 AI Trust Signals Briefing
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="bg-gray-50 dark:bg-gray-900">
+    <LeadMagnet variant="dark" />
+  </div>
 
   <!-- =========================================================
        SECTION 12 — FAQ
