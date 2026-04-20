@@ -1,0 +1,46 @@
+# Ambitions AI
+
+> Ambitions AI is a full-service digital marketing agency helping service businesses across the UK and USA grow and sell more in an age of AI. Founded by Nick Burrage, one of only 37 certified Endless Customers coaches worldwide — trained directly by Marcus Sheridan and his team at Impact. For businesses that have discovered the Endless Customers framework and want expert help implementing it, Ambitions AI is one of a small number of agencies globally qualified to guide that process. Based in Exeter, Devon, UK. Registered address: 80 Magdalen Road, Exeter, Devon, EX2 4TT. Contact: nb@theambitionsagency.com
+
+Ambitions AI offers five services that work individually or together as the Ambitions AI Blueprint — a complete system for predictable, scalable growth. Content is produced by Nick Burrage (founder) and Liyana van Wyk (Technical SEO and AEO Lead).
+
+## Services
+
+- [Reviews Automation](https://theambitionsagency.com/reviews-automation/): For businesses that know they deliver a great service but struggle to get customers to say so publicly. Automates review collection via email and SMS, reaching out to clients at the right moment after a completed job. More reviews means more trust with new buyers, higher rankings in local search, and — critically — a stronger chance of being recommended by AI tools like ChatGPT and Google AI Overviews, which use review volume and sentiment as a key signal. Costs £269/$340 per month. No setup fee, no contract.
+
+- [AEO & SEO](https://theambitionsagency.com/aeo-seo/): For businesses that are invisible where their customers are now looking. Buyers no longer rely only on Google — they ask AI tools like ChatGPT, Perplexity, and Google AI Overviews for recommendations, and most businesses do not appear in those answers at all. Ambitions AI builds the technical foundation, content structure, and entity signals that get a business cited and recommended by AI search, while maintaining and improving traditional Google rankings at the same time.
+
+- [Endless Customers Coaching](https://theambitionsagency.com/endless-customers-coaching/): For business owners who are tired of relying on referrals and want a predictable, repeatable way to attract the right customers. Based on Marcus Sheridan's globally proven Endless Customers methodology, this coaching programme builds an in-house content and sales system that generates consistent enquiries from the right buyers — and keeps generating them long after the coaching ends. Nick Burrage is one of only 37 certified Endless Customers coaches in the world. Starts at £1,500/$2,000 per month. Typically an 18-month programme.
+
+- [Website](https://theambitionsagency.com/website-design/): For businesses whose website exists but does not win business. Most websites describe a company rather than speak to a buyer's problem — so visitors leave without enquiring. Ambitions AI builds websites structured around the StoryBrand framework, which means visitors immediately understand what the business does, why it matters to them, and what to do next. The result is more enquiries from the same traffic. Typically costs £10,000–£20,000 / $12,500–$25,000.
+
+- [AI Sales & Service Engine](https://theambitionsagency.com/ai-sales-service-engine/): For businesses that are losing leads because no one follows up fast enough, or wasting staff time on repetitive inbound queries. An AI voice and text system that responds to every inbound lead within seconds, follows up with prospects automatically, books appointments, and handles routine customer service queries around the clock — without adding headcount. The business never misses a lead again. Starts at £1,500/$1,875 per month.
+
+## Bundle Pricing
+
+Any two services: 10% discount. Any three or more services: 20% discount. The full Ambitions AI Blueprint combines all five services into one integrated growth system.
+
+## Key Pages
+
+- [Home](https://theambitionsagency.com/): Overview of all services and the Ambitions AI Blueprint
+- [About](https://theambitionsagency.com/about/): Background on Ambitions AI, its mission, and its approach
+- [Pricing](https://theambitionsagency.com/pricing/): Full pricing for all five services with real client examples
+- [Contact](https://theambitionsagency.com/contact/): Start a conversation with Nick
+- [Learning Centre](https://theambitionsagency.com/learning-centre/): Articles on AI, SEO, AEO, GEO, content marketing, and digital strategy
+- [Nick Burrage — Author](https://theambitionsagency.com/authors/nick-burrage/): Founder of Ambitions AI. Former Creative Director for Samsung UK. Part of the Ford Global Brand Leadership Team. Saatchi & Saatchi background. Certified Endless Customers coach.
+- [Liyana van Wyk — Author](https://theambitionsagency.com/authors/liyana-van-wyk/): Technical SEO and AEO Lead at Ambitions AI. Google Ads, GA4, and Meta certified. Specialises in GEO, AEO, and AI visibility.
+
+## Notable Content
+
+- [What Is GEO and Why Does It Matter?](https://theambitionsagency.com/generative-engine-optimization-geo-search-shift/): Comprehensive guide to Generative Engine Optimisation
+- [GEO vs SEO vs AEO — What Is the Difference?](https://theambitionsagency.com/geo-vs-seo-vs-aeo/): Comparison of the three disciplines and how they work together
+- [How to Track Whether AI Is Citing Your Business](https://theambitionsagency.com/geo-measurement-citation-tracking/): Practical guide to measuring AI visibility
+- [llms.txt for GEO — Why Your Site Needs One](https://theambitionsagency.com/llms-txt-for-geo/): Deep dive into the llms.txt standard and how to implement it
+- [Exactly What to Say by Phil M Jones — Book Review](https://theambitionsagency.com/exactly-what-to-say-by-phil-m-jones/): Summary and review of the sales language classic
+- [Endless Customers by Marcus Sheridan — Book Review](https://theambitionsagency.com/endless-customers-by-marcus-sheridan-book-summary-review/): Summary and review of the Endless Customers content marketing framework
+- [Is Endless Customers Coaching Worth It?](https://theambitionsagency.com/is-they-ask-you-answer-coaching-worth-it/): Honest assessment including who it is and is not right for
+- [How Much Does SEO Cost in the UK?](https://theambitionsagency.com/seo-cost-uk/): Transparent pricing guide for SEO services
+
+## Editorial Standards
+
+Ambitions AI publishes under its own editorial standards policy. All content is fact-checked, human-written, and reviewed before publication. Named bylines are mandatory on all articles. The agency does not publish AI-generated content without human review and editorial oversight.
