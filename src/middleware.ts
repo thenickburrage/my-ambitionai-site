@@ -99,15 +99,25 @@ const redirects: Record<string, string> = {
   '/give-great-feedback-on-logo-design/':        '/website-design/',
   '/assumptions-and-agency-relationships/':      '/learning-centre/',
   '/small-business-website/':                    '/website-design/',
+  // Legacy WordPress stragglers flagged in pre-launch audit
+  '/Contact/':                                   '/contact/',
+  '/category/digital-marketing/page/2/':         '/learning-centre/',
+  '/category/digital-marketing/page/3/':         '/learning-centre/',
+  '/generative-engine-optimization-geo-search-shift-2/': '/generative-engine-optimization-geo-search-shift/',
+  '/wp-content/uploads/2024/10/buyers-guide-for-ISSUE.pdf': '/learning-centre/',
+  '/wp-content/uploads/2024/11/Social-Media-Freebie.pdf':   '/learning-centre/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
   const url = new URL(request.url);
+  const raw = url.pathname;
 
-  // Normalise to trailing slash for lookup
-  const path = url.pathname.endsWith('/') ? url.pathname : url.pathname + '/';
-
-  const destination = redirects[path];
+  // Try the exact path first (needed for file paths like PDFs), then try
+  // the trailing-slash-normalised form (needed for pretty URLs). This
+  // lets both '/some-page' and '/file.pdf' work with their respective
+  // redirect keys.
+  const normalised = raw.endsWith('/') ? raw : raw + '/';
+  const destination = redirects[raw] ?? redirects[normalised];
   if (destination) {
     return new Response(null, {
       status: 301,

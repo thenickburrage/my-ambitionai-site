@@ -8,10 +8,23 @@ interface Props {
   title: string;
   description?: string;
   metaTitle?: string;
+  canonicalPath?: string;
 }
 
-const { title, description = site.description, metaTitle } = Astro.props;
+const { title, description = site.description, metaTitle, canonicalPath } = Astro.props;
 const pageTitle = metaTitle ?? (title === 'Home' ? `${site.name} | ${site.tagline}` : `${title} | ${site.name}`);
+
+// Canonicals always point to the production domain so search engines and
+// AI engines can reconcile the staging and production URLs correctly at
+// DNS cutover. If a page needs a custom canonical (e.g. an alternate
+// representation), it can pass `canonicalPath` explicitly.
+const PROD_ORIGIN = 'https://theambitionsagency.com';
+const pathForCanonical = (canonicalPath ?? Astro.url.pathname) || '/';
+// Normalise to a trailing slash for every path except the root.
+const normalisedPath = pathForCanonical === '/'
+  ? '/'
+  : (pathForCanonical.endsWith('/') ? pathForCanonical : pathForCanonical + '/');
+const canonicalUrl = `${PROD_ORIGIN}${normalisedPath}`;
 
 const schemaMarkup = {
   '@context': 'https://schema.org',
@@ -48,12 +61,14 @@ const schemaMarkup = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
 
     <!-- Open Graph -->
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
 
