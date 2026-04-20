@@ -84,6 +84,15 @@ const redirects: Record<string, string> = {
   '/website-speed/':                             '/website-design/',
   '/make-your-website-load-faster/':             '/website-design/',
   '/user-experience/':                           '/website-design/',
+  '/5-sales-tips-for-success-in-2023/':          '/endless-customers-coaching/',
+  '/10-core-principles-of-they-ask-you-answer/': '/endless-customers-coaching/',
+  '/marketing-trends/':                          '/endless-customers-coaching/',
+  '/5-big-problems-they-ask-you-answer/':        '/endless-customers-coaching/',
+  '/remarketing-in-digital-marketing/':          '/learning-centre/',
+  '/10-seo-tips-in-2023/':                       '/learning-centre/',
+  '/give-great-feedback-on-logo-design/':        '/website-design/',
+  '/assumptions-and-agency-relationships/':      '/learning-centre/',
+  '/small-business-website/':                    '/website-design/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
