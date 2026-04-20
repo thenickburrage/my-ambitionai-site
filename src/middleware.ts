@@ -72,6 +72,10 @@ const redirects: Record<string, string> = {
   '/social-media-marketing/':                    '/endless-customers-coaching/',
   '/digital-marketing/':                         '/',
   '/they-ask-you-answer/':                       '/endless-customers-coaching/',
+  '/find-your-ideal-website-design-agency/':     '/website-design/',
+  '/website-design-agency-understand-google/':   '/website-design/',
+  '/web-design-agency-red-flag/':                '/website-design/',
+  '/website-design-agency/':                     '/website-design/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
