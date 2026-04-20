@@ -2,6 +2,38 @@
 import Base from '@/layouts/Base.astro';
 import LeadMagnet from '@/components/LeadMagnet.astro';
 import 'lite-youtube-embed/src/lite-yt-embed.css';
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://theambitionsagency.com/#website",
+      "url": "https://theambitionsagency.com/",
+      "name": "Ambitions AI",
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://theambitionsagency.com/learning-centre/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/#webpage",
+      "url": "https://theambitionsagency.com/",
+      "name": "AI Marketing for Service Businesses | Ambitions AI",
+      "description": "Ambitions AI helps service businesses across the UK and USA get more leads, close more sales and build a reputation that does the selling for them.",
+      "isPartOf": { "@id": "https://theambitionsagency.com/#website" },
+      "about": { "@id": "https://theambitionsagency.com/#organization" },
+      "inLanguage": "en-GB"
+    }
+  ]
+};
 ---
 
 <Base
@@ -9,6 +41,9 @@ import 'lite-youtube-embed/src/lite-yt-embed.css';
   metaTitle="AI Marketing for Service Businesses | Ambitions AI"
   description="Ambitions AI helps service businesses across the UK and USA get more leads, close more sales and build a reputation that does the selling for them. Book your free Explore Call."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(homeSchema)} />
+  </Fragment>
 
   <!-- =========================================================
        HERO

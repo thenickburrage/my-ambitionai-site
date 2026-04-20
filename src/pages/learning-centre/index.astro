@@ -94,12 +94,39 @@ function formatDate(val: string | null): string {
     year: 'numeric',
   });
 }
+
+const learningCentreSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://theambitionsagency.com/learning-centre/#webpage",
+      "url": "https://theambitionsagency.com/learning-centre/",
+      "name": "Learning Centre | Ambitions AI",
+      "description": "Expert guides, strategies and insights to help service businesses grow faster with AI and proven marketing systems.",
+      "isPartOf": { "@id": "https://theambitionsagency.com/#website" },
+      "about": { "@id": "https://theambitionsagency.com/#organization" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "inLanguage": "en-GB",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",            "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Learning Centre", "item": "https://theambitionsagency.com/learning-centre/" }
+        ]
+      }
+    }
+  ]
+};
 ---
 
 <Base
   title="Learning Centre"
   description="Expert guides, strategies and insights to help service businesses grow faster with AI and proven marketing systems."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(learningCentreSchema)} />
+  </Fragment>
   <!-- Header -->
   <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
