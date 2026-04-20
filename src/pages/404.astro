@@ -1,0 +1,125 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const destinations = [
+  {
+    label: 'Pricing',
+    href: '/pricing/',
+    description: 'What every service costs, in plain numbers.',
+  },
+  {
+    label: 'Endless Customers Coaching',
+    href: '/endless-customers-coaching/',
+    description: 'The content coaching that turns your website into your best salesperson.',
+  },
+  {
+    label: 'Website Design',
+    href: '/website-design/',
+    description: 'Websites that actually deliver leads, not compliments.',
+  },
+  {
+    label: 'SEO & AEO',
+    href: '/seo-aeo/',
+    description: 'Get found by Google, ChatGPT and Perplexity in 2026.',
+  },
+  {
+    label: 'AI Automations',
+    href: '/ai-voice-agent/',
+    description: 'AI agents that handle calls, bookings, and follow-up automatically.',
+  },
+  {
+    label: 'Reviews Automation',
+    href: '/ai-review-automation/',
+    description: 'Turn happy customers into a steady flow of 5-star reviews.',
+  },
+];
+---
+
+<Base
+  title="Page not found"
+  metaTitle="Page Not Found | Ambitions AI"
+  description="We couldn't find the page you were looking for. Here are some places that might help."
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-3xl px-4 py-24 text-center lg:px-8 lg:py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+        Error 404
+      </p>
+      <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+        Oops. That page has
+        <em class="italic text-primary-500">wandered off.</em>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+        Sorry about that. The page you were trying to reach either moved, was renamed, or never existed in the first place. No drama. Here are a few good places to go instead.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600"
+        >
+          Back to home
+        </a>
+        <a
+          href="/learning-centre/"
+          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+        >
+          Browse the Learning Centre
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations grid -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-6xl px-4 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Where were you going?</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Popular destinations.
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {destinations.map(({ label, href, description }) => (
+          <a
+            href={href}
+            class="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-primary-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900 dark:hover:border-primary-700"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400">
+              {label}
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              {description}
+            </p>
+            <span class="mt-4 text-sm font-semibold text-primary-500 group-hover:text-primary-600">
+              Read more →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing line -->
+  <section class="bg-gray-50 py-12 dark:bg-gray-900">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <p class="text-lg text-gray-700 dark:text-gray-300">
+        Still can't find what you need?
+        <a href="/contact/" class="font-semibold text-primary-500 underline underline-offset-4 hover:text-primary-600">
+          Drop us a line.
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>
