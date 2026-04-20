@@ -8,11 +8,17 @@ import { defineMiddleware } from 'astro:middleware';
 const redirects: Record<string, string> = {
   '/nick-burrage/':                       '/authors/nick-burrage/',
   '/digital-marketing-company/nick-burrage/': '/authors/nick-burrage/',
+  // Legacy WordPress category URLs → Learning Centre
   '/category/they-ask-you-answer/':       '/learning-centre/',
   '/category/digital-marketing/':         '/learning-centre/',
-  '/category/content-marketing/':         '/learning-centre/',
   '/category/sales-marketing-strategy/':  '/learning-centre/',
   '/category/website-optimisation/':      '/learning-centre/',
+  // Renamed new-site categories (April 2026 tidy-up)
+  '/category/ai-visibility/':             '/category/seo-aeo/',
+  '/category/seo/':                       '/category/seo-aeo/',
+  '/category/content-marketing/':         '/category/endless-customers/',
+  '/category/social-media/':              '/learning-centre/',
+  '/category/website-design/':            '/category/websites/',
   '/2025-marketing-tools/':               '/learning-centre/',
   '/seo-isnt-dead-its-evolved/':         '/geo-vs-seo-vs-aeo/',
   '/june-july-2025-google-core-update/': '/geo-vs-seo-vs-aeo/',

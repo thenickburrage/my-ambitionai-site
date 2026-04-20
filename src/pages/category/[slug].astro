@@ -21,17 +21,22 @@ type PostRow = {
   created_at: string;
 };
 
+// Normalise to an array so merged categories (multiple taxonomy IDs) work
+// the same as single-taxonomy categories.
+const taxIds = Array.isArray(category.taxId) ? category.taxId : [category.taxId];
+const placeholders = taxIds.map(() => '?').join(',');
+
 const { results: posts } = await db
   .prepare(
-    `SELECT p.id, p.slug, p.title, p.excerpt, p.featured_image, p.post_date, p.published_at, p.created_at
+    `SELECT DISTINCT p.id, p.slug, p.title, p.excerpt, p.featured_image, p.post_date, p.published_at, p.created_at
      FROM ec_posts p
      INNER JOIN content_taxonomies ct ON ct.entry_id = p.id AND ct.collection = 'posts'
-     WHERE ct.taxonomy_id = ?
+     WHERE ct.taxonomy_id IN (${placeholders})
        AND p.status = 'published'
        AND p.deleted_at IS NULL
      ORDER BY COALESCE(p.post_date, p.published_at, p.created_at) DESC`
   )
-  .bind(category.taxId)
+  .bind(...taxIds)
   .all<PostRow>();
 
 function parseImage(raw: string | null): { src: string; alt: string } | null {
