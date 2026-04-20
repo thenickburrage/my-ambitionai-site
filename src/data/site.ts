@@ -34,7 +34,7 @@ export const nav: NavItem[] = [
     text: 'Services',
     url: '#',
     children: [
-      { text: 'SEO & AEO',        url: '#' },
+      { text: 'SEO & AEO',        url: '/seo-aeo/' },
       { text: 'Content',          url: '/endless-customers-coaching/' },
       { text: 'Website',          url: '/website-design/' },
       { text: 'AI Automations',   url: '/ai-voice-agent/' },
@@ -49,7 +49,7 @@ export const nav: NavItem[] = [
 
 // Footer services links
 export const footerServices = [
-  { text: 'SEO & AEO',       url: '#' },
+  { text: 'SEO & AEO',       url: '/seo-aeo/' },
   { text: 'Content',         url: '/endless-customers-coaching/' },
   { text: 'Website',         url: '/website-design/' },
   { text: 'AI Automations',  url: '/ai-voice-agent/' },

@@ -1,0 +1,814 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const publishedISO = '2026-04-20';
+const updatedISO   = '2026-04-20';
+
+const faqs = [
+  {
+    q: 'Do I need SEO and AEO if I already have content coaching with you?',
+    a: 'Yes, and most of our content coaching clients do both. Content coaching teaches your team to produce the work. SEO and AEO make sure the work is found, cited, and ranked properly.',
+  },
+  {
+    q: 'Do I need a new website first?',
+    a: 'Maybe, maybe not. The first thing we do is audit your existing site. If it is in reasonable shape, we work with what you have. If there are structural issues blocking everything else, we will tell you honestly and discuss whether a rebuild makes sense.',
+  },
+  {
+    q: 'How long until I see results?',
+    a: 'Typically the commercial impact shows up between months three and five. Some of the work we do in month one, like Google Business Profile rebuilds, technical unblocking, and wrong-country traffic cleanup, shows visible change within weeks. We will always be clear about what to expect and when.',
+  },
+  {
+    q: 'What about link-building?',
+    a: 'We do not do link-building schemes. Ever. They damage your domain, waste your money, and modern search engines see straight through them. Quality backlinks come from being genuinely worth linking to, and that is a content problem.',
+  },
+  {
+    q: 'Do you guarantee rankings?',
+    a: 'No. In an age of AI, ranking guarantees are meaningless anyway, and anyone who does guarantee them is either lying or out of date. What we guarantee is that the right work gets done, honestly, by people who know what they are doing, every single week.',
+  },
+  {
+    q: 'What if I need to stop?',
+    a: 'No contracts, no minimum terms beyond the month. You can stop whenever you want. If we are not earning it every month, we do not deserve to keep it.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: '£120 / $150 per hour, minimum 10 hours per month, typical engagement around £2,000 / $2,500 per month. Bundle discounts available.',
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://theambitionsagency.com/seo-aeo/#webpage",
+      "url": "https://theambitionsagency.com/seo-aeo/",
+      "name": "SEO and AEO That Actually Gets You Found in 2026 | Ambitions AI",
+      "description": "SEO and AEO work done the modern way. Technical audit, ongoing optimisation, AI visibility, and honest reporting. For service businesses in the UK and USA. From £2,000 / $2,500 per month.",
+      "datePublished": publishedISO,
+      "dateModified": updatedISO,
+      "author": { "@id": "https://theambitionsagency.com/#nick-burrage" },
+      "publisher": { "@id": "https://theambitionsagency.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",       "item": "https://theambitionsagency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "SEO & AEO",  "item": "https://theambitionsagency.com/seo-aeo/" }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theambitionsagency.com/seo-aeo/#service",
+      "name": "SEO and AEO",
+      "description": "Modern technical SEO and Answer Engine Optimisation (AEO) for service businesses in the UK and USA. Includes technical audit, Google Business Profile optimisation, schema markup, competitive analysis, location page work, AI visibility optimisation, and monthly tracking.",
+      "serviceType": "SEO and Answer Engine Optimisation",
+      "url": "https://theambitionsagency.com/seo-aeo/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://theambitionsagency.com/#organization",
+        "name": "Ambitions AI",
+        "url": "https://theambitionsagency.com"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "120",
+        "priceCurrency": "GBP",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "120",
+          "priceCurrency": "GBP",
+          "unitText": "HUR",
+          "description": "Per hour. Minimum 10 hours per month. Typical engagement around £2,000 / $2,500 per month."
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://theambitionsagency.com/pricing/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://theambitionsagency.com/seo-aeo/#faq",
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a },
+      })),
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theambitionsagency.com/#nick-burrage",
+      "name": "Nick Burrage",
+      "url": "https://theambitionsagency.com/authors/nick-burrage/",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://theambitionsagency.com/#organization" }
+    }
+  ]
+};
+---
+
+<Base
+  title="SEO & AEO"
+  metaTitle="SEO and AEO That Actually Gets You Found in 2026 | Ambitions AI"
+  description="SEO and AEO work done the modern way. Technical audit, ongoing optimisation, AI visibility, and honest reporting. For service businesses in the UK and USA. From £2,000 / $2,500 per month."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
+
+  <!-- =========================================================
+       SECTION 1 — HERO
+  ========================================================= -->
+  <section class="relative overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="absolute inset-0 opacity-30 dark:opacity-20">
+      <div class="absolute -left-8 top-0 h-96 w-96 rounded-full bg-primary-500 blur-[160px]"></div>
+      <div class="absolute -right-8 bottom-0 h-96 w-96 rounded-full bg-accent-500 blur-[160px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-4xl px-4 py-24 text-center lg:px-8 lg:py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">SEO &amp; AEO</p>
+      <h1 class="mt-4 text-4xl font-normal leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+        <span class="font-bold">SEO and AEO That Actually Work.</span>
+        <em class="mt-2 block italic text-primary-500">For the AI Age.</em>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+        Old-school SEO was built for a different internet. Today, your buyers are half-human, half-AI. We make sure both can find you, trust you, and choose you.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+        <a href="#how-it-works" class="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-white dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">
+          See How It Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author credit + date -->
+  <div class="border-b border-gray-200 bg-white py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 text-sm text-gray-400 dark:text-gray-500 lg:px-8">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        Nick Burrage
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+        </svg>
+        20 April 2026
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SECTION 2 — PROBLEM AND STAKES
+  ========================================================= -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">The problem</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        A few things I hear when I meet service business owners.
+      </h2>
+
+      <div class="mt-8 space-y-4">
+        {[
+          'We had an SEO agency for three years. I genuinely could not tell you what they did for the money.',
+          'Google sends us traffic, but none of them are the right people.',
+          'AI now answers the question before anyone even clicks. I have no idea how to get in front of that.',
+        ].map((quote) => (
+          <blockquote class="relative rounded-2xl border-l-4 border-primary-500 bg-gray-50 py-5 pl-6 pr-6 dark:bg-gray-900">
+            <p class="text-lg italic text-gray-700 dark:text-gray-300 before:content-['\u2018'] after:content-['\u2019']">{quote}</p>
+          </blockquote>
+        ))}
+      </div>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        If any of those sound familiar, you are in the right place. Most businesses have been paying for some form of SEO for years without ever really understanding what was happening behind the curtain.
+      </p>
+
+      <!-- Dominant pull-out 1 -->
+      <figure class="my-12 rounded-2xl border border-primary-200 bg-primary-50 p-8 dark:border-primary-800 dark:bg-primary-950/40">
+        <blockquote>
+          <p class="font-display text-2xl font-semibold leading-snug text-gray-900 dark:text-white lg:text-3xl">
+            &lsquo;SEO without a content flow is a bucket with no tap. You are trying to fill something that never has anything going in.&rsquo;
+          </p>
+        </blockquote>
+      </figure>
+
+      <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Here is the uncomfortable truth. SEO and AEO are not magic. They are detail work, done consistently, on top of content worth finding. If nobody has been paying attention to the detail, your rankings slowly crumble. And if nobody is producing fresh content, no amount of technical work will make the business grow.
+      </p>
+
+      <p class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">
+        So here is the question: is the detail work being done on your site, right now, every week?
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3 — THE GUIDE STEPS IN
+  ========================================================= -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">The approach</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        The Work Is Technical. The Relationship Is Not.
+      </h2>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        I am Nick Burrage, and I do not write schema markup. That work is handled by a specialist team.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        My job is different, and it is the bit most SEO agencies do badly or not at all.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        I am the link between what the technical team is doing and what is actually happening in your business. When the data says a page is ranking brilliantly for a particular query, I am the one who asks <em>you</em> whether that query is bringing you the right people. When something in the technical plan would affect the content you are producing, I make the adjustment in both directions.
+      </p>
+
+      <!-- Strong pull-out 1 -->
+      <figure class="my-10 border-l-4 border-primary-500 pl-6">
+        <blockquote>
+          <p class="font-display text-xl italic leading-snug text-gray-900 dark:text-white lg:text-2xl">
+            &lsquo;The technical people tell you which keyword to hit. They cannot tell you how to write the article so it resonates with both humans and AI. That is the link nobody else does.&rsquo;
+          </p>
+        </blockquote>
+      </figure>
+
+      <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        If you are already on our <a href="/endless-customers-coaching/" class="font-semibold text-primary-500 hover:text-primary-600">Endless Customers coaching programme</a>, that link becomes seamless. If you are not, the link still matters.
+      </p>
+
+      <p class="mt-5 text-lg font-semibold text-gray-900 dark:text-white">
+        That is the job.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4 — PROOF
+  ========================================================= -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-5xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Real work, real results</p>
+        <h2 class="mt-3 text-3xl font-semibold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Here Is What This Work Unlocks.
+        </h2>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          We do not publish dramatic ranking screenshots. Most of our SEO and AEO wins involve real client data we have agreed to keep private. What we can share are the stories of what modern technical work actually looks like in practice.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-3">
+
+        <!-- CARD 1 -->
+        <div class="flex flex-col rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM14.06 6.19l3.75 3.75M3 3l18 18" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 19l6-6 4 4 8-8" />
+            </svg>
+          </div>
+          <p class="mt-6 font-display text-4xl font-semibold text-gray-900 dark:text-white lg:text-5xl">290 &rarr; 1,200</p>
+          <p class="mt-2 text-sm font-semibold uppercase tracking-widest text-primary-500">Monthly traffic, year one</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <strong class="text-gray-900 dark:text-white">Katherine, UK. Premium curtains and blinds.</strong> Monthly organic traffic climbed from around 290 visits to over 1,200 in year one, alongside the Endless Customers content programme. Content plus SEO &amp; AEO, working together, delivered something neither would have alone.
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="flex flex-col rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+            </svg>
+          </div>
+          <p class="mt-6 font-display text-4xl font-semibold text-gray-900 dark:text-white lg:text-5xl">70%</p>
+          <p class="mt-2 text-sm font-semibold uppercase tracking-widest text-primary-500">Wrong-country traffic, eliminated</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <strong class="text-gray-900 dark:text-white">Roofing client, USA.</strong> On day one we discovered that seventy percent of the client's website traffic was coming from Singapore, China, and Pakistan. Not a single one of them a buyer. We cleaned it up first, then rebuilt the targeting toward real US buyers. Raw traffic went down. Real leads went up.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="flex flex-col rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <p class="mt-6 font-display text-4xl font-semibold text-gray-900 dark:text-white lg:text-5xl">100%</p>
+          <p class="mt-2 text-sm font-semibold uppercase tracking-widest text-primary-500">Google Business Profiles cleaned up</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            Almost every new client arrives with a Google Business Profile that is incomplete, misaligned with their website, or missing the categories and attributes that actually drive local and local-AI discovery. Every single one gets properly rebuilt in the first month.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Strong pull-out 2 -->
+      <figure class="mt-12 border-l-4 border-primary-500 pl-6">
+        <blockquote>
+          <p class="font-display text-xl italic leading-snug text-gray-900 dark:text-white lg:text-2xl">
+            &lsquo;Seventy percent of their website traffic was coming from Singapore, China, and Pakistan. None of it was people who wanted a roof.&rsquo;
+          </p>
+        </blockquote>
+      </figure>
+
+      <p class="mt-8 text-center font-display text-xl italic text-gray-700 dark:text-gray-300">
+        &rarr; The detail is where the difference is made.
+      </p>
+
+      <div class="mt-10 text-center">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5 — THE ANSWER
+  ========================================================= -->
+  <section id="how-it-works" class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">The answer</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        What Modern SEO and AEO Actually Is. And Why It Changes Your Business.
+      </h2>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Two terms, briefly, because they matter:
+      </p>
+
+      <div class="mt-6 space-y-4">
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-950">
+          <p class="text-lg text-gray-700 dark:text-gray-300">
+            <strong class="text-gray-900 dark:text-white">SEO</strong> (Search Engine Optimisation) makes sure search engines, Google, Bing, and the rest, can find your site, understand it, rank it, and send you the right kind of visitor.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-950">
+          <p class="text-lg text-gray-700 dark:text-gray-300">
+            <strong class="text-gray-900 dark:text-white">AEO</strong> (Answer Engine Optimisation) makes sure your content is structured so search systems and AI tools can extract a direct answer and cite you as the source.
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Together, they are the technical infrastructure that keeps you findable.
+      </p>
+
+      <!-- Dominant pull-out 2 -->
+      <figure class="my-12 rounded-2xl border border-primary-200 bg-primary-50 p-8 dark:border-primary-800 dark:bg-primary-950/40">
+        <blockquote>
+          <p class="font-display text-2xl font-semibold leading-snug text-gray-900 dark:text-white lg:text-3xl">
+            &lsquo;Most SEO agencies learn their trade at a certain time and get stuck in it. In April 2026 that is the single most expensive mistake you can make.&rsquo;
+          </p>
+        </blockquote>
+      </figure>
+
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">
+        The New Buyer Has Already Left Google. Their AI Is Doing the Looking.
+      </h3>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Picture your buyer six months from now. They say to their AI: <em>&lsquo;I need my garden taken care of. I have a budget of X a month. Go and find me two or three good gardening services and book them in to visit me. I will pick the winner.&rsquo;</em>
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        The AI goes off and does the work. It reads your reviews. It checks whether you work in their area. It pulls from your website, your Google Business Profile, your third-party mentions, your schema, your content. Then it hands its human a shortlist.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Your future buyer may never visit your website. But the AI that gets them to you absolutely will.
+      </p>
+
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">
+        What Does That Mean for You? You Wake Up Booked.
+      </h3>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        This is the power of doing the work properly, especially when combined with AI booking automations on your site. Monday morning looks different:
+      </p>
+
+      <ul class="mt-6 space-y-3 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <li class="flex gap-3"><span class="mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500"></span><span>You open your diary and it is already full for the week</span></li>
+        <li class="flex gap-3"><span class="mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500"></span><span>Your sales team are rushed off their feet trying to get to all the new bookings</span></li>
+        <li class="flex gap-3"><span class="mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500"></span><span>You find yourself running low on stock. Or booking an extra holiday. Or hiring the pair of hands you have been putting off</span></li>
+        <li class="flex gap-3"><span class="mt-2.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500"></span><span><strong class="text-gray-900 dark:text-white">You stop paying for Google Ads</strong>, because you no longer need them</span></li>
+      </ul>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        This is not marketing fluff. It is the direction the market is moving in, faster than most business owners realise. The businesses being cited by AI in 2026 are the ones doing this work now.
+      </p>
+
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">
+        Bonus: Your Google Ads Will Suddenly Cost Less.
+      </h3>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Here is one we find almost every time we audit a new site.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        If you are running Google Ads and they feel painfully expensive, I can almost guarantee your basic SEO has been abandoned or was never done properly in the first place. <strong class="text-gray-900 dark:text-white">Google quietly charges you up to four times as much as your better-optimised competitors.</strong> It is a silent punishment. They do not tell you about it. They just take the money.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Getting your SEO and AEO right makes every ad you run cheaper and more effective. For most clients it is the quickest measurable win we deliver.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6 — WHAT YOU ARE ACTUALLY BUYING
+  ========================================================= -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">What you are actually buying</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        This Is Not How SEO Usually Feels.
+      </h2>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Traditional SEO agencies disappear to do their work, send you a monthly report full of numbers, and invoice you. You never really know what they did. They never really tell you.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        We do the opposite. Every engagement with us is a genuine working partnership. You see the work. You learn what is happening and why. You feed back. You contribute. The pace is weekly, not quarterly. The relationship is shared, not delivered.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        Clients tell us, constantly, that this is unlike any SEO agency they have ever worked with. Here is what it actually looks like.
+      </p>
+
+      <!-- Month one -->
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">Month one</h3>
+      <ul class="mt-5 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <li><strong class="text-gray-900 dark:text-white">Full technical audit:</strong> crawl, index, Core Web Vitals, schema, broken redirects, site speed, mobile readiness</li>
+        <li><strong class="text-gray-900 dark:text-white">Content audit:</strong> which pages rank, which do not, which are bringing wrong traffic, which have genuine potential</li>
+        <li><strong class="text-gray-900 dark:text-white">Competitor analysis:</strong> what are they ranking for, where are the gaps, where are they weak</li>
+        <li><strong class="text-gray-900 dark:text-white">Google Business Profile review and rebuild</strong> (expect this one every time)</li>
+        <li><strong class="text-gray-900 dark:text-white">Initial AI visibility check:</strong> are you being cited by ChatGPT, Perplexity, Google AI Overviews? For which queries? What shape is the traffic?</li>
+      </ul>
+
+      <!-- Ongoing -->
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">Ongoing monthly work</h3>
+      <ul class="mt-5 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <li><strong class="text-gray-900 dark:text-white">Technical fixes and optimisations</strong> as they surface</li>
+        <li><strong class="text-gray-900 dark:text-white">Schema markup and structured data</strong> deployment</li>
+        <li><strong class="text-gray-900 dark:text-white">Location page optimisation</strong> if you serve multiple geographies</li>
+        <li><strong class="text-gray-900 dark:text-white">Content optimisation support:</strong> we do not write your content, but we make sure every piece published is structured to rank, be cited, and be extracted as an answer</li>
+        <li><strong class="text-gray-900 dark:text-white">AI visibility tracking:</strong> monitoring which prompts cite you, and which cite competitors</li>
+        <li><strong class="text-gray-900 dark:text-white">Honest monthly reporting:</strong> not vanity metrics. What actually changed, what it means, and what is next</li>
+      </ul>
+
+      <!-- What we do not do -->
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">What we do not do</h3>
+      <ul class="mt-5 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <li><strong class="text-gray-900 dark:text-white">Link-building schemes.</strong> Toxic for your domain, expensive for you, and ignored by modern search engines</li>
+        <li><strong class="text-gray-900 dark:text-white">Keyword stuffing.</strong> Does not work, has not worked for a decade, and actively damages readability and trust</li>
+        <li><strong class="text-gray-900 dark:text-white">Generic monthly reports.</strong> Out of date before you read them. You get real reporting in real conversations</li>
+        <li><strong class="text-gray-900 dark:text-white">Shady PBN (private blog network) work.</strong> Our ethics code rules this out entirely. Your reputation is not worth it</li>
+      </ul>
+
+      <p class="mt-10 font-display text-xl italic text-gray-700 dark:text-gray-300">
+        &rarr; If that sounds unusually clear, it is because this industry has been deliberately unclear for too long.
+      </p>
+
+      <div class="mt-8">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 7 — ONE HONEST NOTE
+  ========================================================= -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">One honest note</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        One Thing Before You Commit.
+      </h2>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        SEO and AEO make your content findable. They do not create it.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        If nothing is being published on your site, technical work alone will stall. The two go hand in hand. Most of our SEO and AEO clients are also on our <a href="/endless-customers-coaching/" class="font-semibold text-primary-500 hover:text-primary-600">Endless Customers coaching programme</a>, where we teach your team to produce content that actually works. Together, the two services unlock things neither could alone.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        If you want both, we are glad to help.
+      </p>
+
+      <div class="mt-8">
+        <a href="/endless-customers-coaching/" class="inline-flex items-center gap-2 rounded-full border-2 border-primary-500 bg-white px-8 py-4 text-base font-semibold text-primary-500 transition-all hover:bg-primary-500 hover:text-white dark:bg-gray-950">
+          Start the Conversation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 8 — THREE STEPS
+  ========================================================= -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 lg:px-8">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/70">How it works</p>
+        <h2 class="mt-3 text-3xl text-white lg:text-4xl">
+          Three Steps. From Invisible to Fully Booked.
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-3">
+        {[
+          {
+            step: '01',
+            title: 'Press Start Now.',
+            body: 'A free, honest conversation. No pitch. We look at where your site is now and whether SEO and AEO is the right move for you right now.',
+          },
+          {
+            step: '02',
+            title: 'We Audit and Plan.',
+            body: 'A deep-dive audit of your site, your competitors, and your AI visibility. We build your plan. You see it, you approve it, we start the work.',
+          },
+          {
+            step: '03',
+            title: 'The Right Buyers Start Finding You. Your Diary Fills Up.',
+            body: 'Over the following months, your ideal buyers start finding you through Google, through AI, and through channels you have never paid attention to. Leads compound. Google Ads costs drop. Your sales team is busier than they expected. The business grows without needing to pay for every click.',
+          },
+        ].map(({ step, title, body }) => (
+          <div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+            <p class="font-display text-4xl font-normal text-white/30">{step}</p>
+            <h3 class="mt-3 text-lg text-white">{title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/80">{body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 flex justify-center">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 9 — PRICING
+  ========================================================= -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Pricing</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">
+        What SEO and AEO Costs.
+      </h2>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Our rate</p>
+          <p class="mt-3 font-display text-3xl font-semibold text-gray-900 dark:text-white">£120 / $150</p>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">per hour</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Minimum</p>
+          <p class="mt-3 font-display text-3xl font-semibold text-gray-900 dark:text-white">10 hours</p>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">per month</p>
+        </div>
+        <div class="rounded-2xl border-2 border-primary-400 bg-primary-50 p-6 dark:border-primary-600 dark:bg-primary-900/20">
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Typical engagement</p>
+          <p class="mt-3 font-display text-3xl font-semibold text-gray-900 dark:text-white">£2,000 / $2,500</p>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">per month</p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        That is the floor below which meaningful work cannot be done, and we will not pretend otherwise. Most clients invest at the typical level to get genuine, compounding progress. Less and the work stretches too thin. More and we go deeper, move faster.
+      </p>
+
+      <h3 class="mt-12 text-2xl text-gray-900 dark:text-white">What drives it up or down</h3>
+      <ul class="mt-5 space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <li><strong class="text-gray-900 dark:text-white">Site size and complexity.</strong> A fifty-page site with clean structure takes less attention than a five-hundred-page site with ten years of accumulated crud</li>
+        <li><strong class="text-gray-900 dark:text-white">Competitive intensity.</strong> A legal firm in London competes against a thousand other legal firms in London. A specialist manufacturer in Devon competes against five. That changes the work we do</li>
+        <li><strong class="text-gray-900 dark:text-white">Speed of results wanted.</strong> If you need to move fast, we do more hours per month and push harder. If you are patient, we can run a steadier, lower-intensity programme</li>
+        <li><strong class="text-gray-900 dark:text-white">Bundle discounts.</strong> 10% off when you combine any two services. 20% off when you combine three or more. Full breakdown on the <a href="/pricing/" class="font-semibold text-primary-500 hover:text-primary-600">pricing page</a></li>
+      </ul>
+
+      <div class="mt-10">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MID-PAGE CTA PANEL
+  ========================================================= -->
+  <section class="bg-gray-900 py-16 lg:py-20 dark:bg-black">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">
+        Ready to Find Out What Is Actually Happening on Your Site?
+      </h2>
+      <p class="mt-6 text-lg text-gray-300">
+        A free 30-minute call with me. No pitch. No pressure. You will walk away clearer about the state of your SEO and AEO, whatever you decide next.
+      </p>
+      <div class="mt-10">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-10 py-4 text-lg font-semibold text-white shadow-lg shadow-primary-500/30 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TL;DR PANEL: SEO & AEO highlighted
+  ========================================================= -->
+  <section class="border-y border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">TL;DR</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl">
+          Five services. One goal: grow your business.
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-3xl space-y-3">
+
+        <!-- SEO & AEO: highlighted (you are here) -->
+        <div class="flex flex-col gap-1 rounded-2xl border-2 border-blue-400 bg-blue-50 px-6 py-5 sm:flex-row sm:items-center sm:gap-6 dark:border-blue-600 dark:bg-blue-900/20">
+          <span class="text-sm font-bold uppercase tracking-wide text-blue-600 sm:min-w-[10rem] dark:text-blue-400">SEO &amp; AEO</span>
+          <span class="font-medium text-gray-900 dark:text-white">
+            Brings the right prospects to you
+            <span class="ml-3 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-700 dark:bg-blue-900 dark:text-blue-300">You are here</span>
+          </span>
+        </div>
+
+        <a href="/endless-customers-coaching/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-teal-600 sm:min-w-[10rem] dark:text-teal-400">CONTENT</span>
+          <span class="text-gray-500 dark:text-gray-400">Turns those prospects into buyers</span>
+        </a>
+
+        <a href="/website-design/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-purple-600 sm:min-w-[10rem] dark:text-purple-400">WEBSITE</span>
+          <span class="text-gray-500 dark:text-gray-400">Closes the deal, 24 hours a day</span>
+        </a>
+
+        <a href="/ai-voice-agent/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-indigo-700 sm:min-w-[10rem] dark:text-indigo-400">AI AUTOMATIONS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes sure you win every sale, fast</span>
+        </a>
+
+        <a href="/ai-review-automation/" class="flex flex-col gap-1 rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:shadow-md sm:flex-row sm:items-center sm:gap-6 dark:border-gray-700 dark:bg-gray-800">
+          <span class="text-sm font-bold uppercase tracking-wide text-amber-600 sm:min-w-[10rem] dark:text-amber-400">REVIEWS</span>
+          <span class="text-gray-500 dark:text-gray-400">Makes you the obvious choice</span>
+        </a>
+
+      </div>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500 dark:text-gray-400">
+        Each service works on its own. But when they work together, something remarkable happens. Full details on our <a href="/pricing/" class="text-primary-500 hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 10 — SOCIAL PROOF
+  ========================================================= -->
+  <section class="bg-white py-20 dark:bg-gray-950 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Proof</p>
+        <h2 class="mt-3 text-3xl font-normal text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Do not just take our word for it.
+        </h2>
+      </div>
+
+      <!-- Trustindex reviews widget -->
+      <div class="mt-12">
+        <div id="trustindex-widget-container-seo"></div>
+        <script is:inline>
+          var s = document.createElement('script');
+          s.defer = true;
+          s.async = true;
+          s.src = 'https://cdn.trustindex.io/loader.js?6b6cb28694e74070f386e4f44c5';
+          document.getElementById('trustindex-widget-container-seo').appendChild(s);
+        </script>
+      </div>
+
+      <!-- Client logos -->
+      <div class="mt-16">
+        <p class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+          Trusted by service businesses across the UK &amp; USA
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          <img src="/images/Katherine.svg" alt="Katherine Brown"      width="800" height="237" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+          <img src="/images/marshall.webp" alt="Marshall and Stewart" width="300" height="200" class="h-10 w-auto grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 11 — RISK REVERSAL (19 TRUST SIGNALS BRIEFING)
+  ========================================================= -->
+  <section class="bg-gray-50 py-16 dark:bg-gray-900 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 lg:px-8">
+      <div class="rounded-3xl bg-gradient-to-br from-gray-900 to-primary-900 p-10 text-center shadow-xl lg:p-14">
+        <p class="text-xs font-semibold uppercase tracking-widest text-primary-300">Get the briefing</p>
+        <h2 class="mt-3 text-3xl text-white lg:text-4xl">
+          Before You Hire Anyone for SEO or AEO, Including Us, Read This First.
+        </h2>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
+          We wrote a free briefing on the 19 trust signals that actually determine whether AI recommends your business in 2026. It is the clearest map I have seen of what modern SEO and AEO has to answer to.
+        </p>
+        <p class="mx-auto mt-4 max-w-2xl font-display text-lg italic text-gray-300">
+          &#128073; If after reading it you do not want to work with us, that is fine. You will at least know what to ask anyone else.
+        </p>
+        <div class="mt-10">
+          <a href="/19-trust-signals-ai-recommends-your-business/" class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100">
+            Read the Free 19 AI Trust Signals Briefing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 12 — FAQ
+  ========================================================= -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-gray-950">
+    <div class="mx-auto max-w-3xl px-4 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary-500">Common questions</p>
+      <h2 class="mt-3 text-3xl text-gray-900 dark:text-white lg:text-4xl">Questions we hear a lot.</h2>
+
+      <div class="mt-8 divide-y divide-gray-100 dark:divide-gray-800">
+        {faqs.map(({ q, a }) => (
+          <div class="py-6">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{q}</h3>
+            <p class="mt-3 leading-relaxed text-gray-600 dark:text-gray-400">{a}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-8 italic text-gray-500 dark:text-gray-400">
+        Any other questions? The best thing to do is have a conversation. It costs nothing and commits you to nothing.
+      </p>
+
+      <div class="mt-6">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600">
+          Start Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 13 — FINAL STAKES
+  ========================================================= -->
+  <section class="bg-gray-950 py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <p class="font-display text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl">
+        Every month without proper SEO and AEO is a month of buyers finding someone else.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 14 — FINAL CTA
+  ========================================================= -->
+  <section class="bg-gradient-to-br from-primary-500 to-accent-500 py-16 lg:py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center lg:px-8">
+      <h2 class="text-3xl text-white lg:text-4xl">
+        From Invisible to Fully Booked.
+      </h2>
+      <p class="mt-6 text-lg text-white/90">
+        A free, honest conversation. No pitch, no pressure. Just a clear view of where your SEO and AEO stand today, and what a full diary could look like three to five months from now.
+      </p>
+      <p class="mt-4 text-lg text-white/90">
+        If we are not the right fit, I will always point you towards someone who is.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/contact/" class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg transition-all hover:bg-gray-100">
+          Start Now
+        </a>
+        <a href="/pricing/" class="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white/50 hover:bg-white/10">
+          See the Pricing Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>
