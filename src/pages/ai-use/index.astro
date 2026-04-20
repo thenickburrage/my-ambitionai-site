@@ -1,11 +1,32 @@
 ---
 import Base from '@/layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://theambitionsagency.com/ai-use/#webpage",
+  "url": "https://theambitionsagency.com/ai-use/",
+  "name": "AI Use",
+  "description": "How Ambitions AI uses artificial intelligence — the tools, the standards, and our commitment to human expertise first.",
+  "inLanguage": "en-GB",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://theambitionsagency.com/#website",
+    "name": "Ambitions AI",
+    "url": "https://theambitionsagency.com/"
+  },
+  "about": { "@id": "https://theambitionsagency.com/#organization" },
+  "publisher": { "@id": "https://theambitionsagency.com/#organization" }
+};
 ---
 
 <Base
   title="AI Use"
   description="How Ambitions AI uses artificial intelligence -- the tools, the standards, and our commitment to human expertise first."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
   <section class="bg-white py-16 dark:bg-gray-950 lg:py-20">
     <div class="mx-auto max-w-3xl px-4 lg:px-8">
 

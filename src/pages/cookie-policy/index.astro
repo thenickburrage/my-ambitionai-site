@@ -1,11 +1,32 @@
 ---
 import Base from '@/layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://theambitionsagency.com/cookie-policy/#webpage",
+  "url": "https://theambitionsagency.com/cookie-policy/",
+  "name": "Cookie Policy",
+  "description": "The cookies we use on the Ambitions AI website, why we use them, and how to manage your preferences.",
+  "inLanguage": "en-GB",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://theambitionsagency.com/#website",
+    "name": "Ambitions AI",
+    "url": "https://theambitionsagency.com/"
+  },
+  "about": { "@id": "https://theambitionsagency.com/#organization" },
+  "publisher": { "@id": "https://theambitionsagency.com/#organization" }
+};
 ---
 
 <Base
   title="Cookie Policy"
   description="The cookies we use on the Ambitions AI website, why we use them, and how to manage your preferences."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
   <section class="bg-white py-16 dark:bg-gray-950 lg:py-20">
     <div class="mx-auto max-w-3xl px-4 lg:px-8">
 

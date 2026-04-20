@@ -1,11 +1,32 @@
 ---
 import Base from '@/layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://theambitionsagency.com/terms-and-conditions/#webpage",
+  "url": "https://theambitionsagency.com/terms-and-conditions/",
+  "name": "Terms and Conditions",
+  "description": "The terms governing use of our website and the provision of services by Ambitions Web Ltd, trading as Ambitions AI and CXSolved.AI.",
+  "inLanguage": "en-GB",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://theambitionsagency.com/#website",
+    "name": "Ambitions AI",
+    "url": "https://theambitionsagency.com/"
+  },
+  "about": { "@id": "https://theambitionsagency.com/#organization" },
+  "publisher": { "@id": "https://theambitionsagency.com/#organization" }
+};
 ---
 
 <Base
   title="Terms and Conditions"
   description="The terms governing use of our website and the provision of services by Ambitions Web Ltd, trading as Ambitions AI and CXSolved.AI."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
   <section class="bg-white py-16 dark:bg-gray-950 lg:py-20">
     <div class="mx-auto max-w-3xl px-4 lg:px-8">
 

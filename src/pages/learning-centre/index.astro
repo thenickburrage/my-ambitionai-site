@@ -8,9 +8,35 @@ const page = Math.max(0, parseInt(Astro.url.searchParams.get('page') ?? '0'));
 
 const db = env.DB as D1Database;
 
+// Slugs of static policy / trust-and-transparency pages that must never
+// appear in the Learning Centre listing. These are also statically routed
+// under /src/pages/ — this list is a defensive filter against any row that
+// might exist (or get created) in ec_posts with the same slug.
+const EXCLUDED_SLUGS = [
+  'about',
+  'contact',
+  'pricing',
+  'learning-centre',
+  'ai-use',
+  'code-of-ethics',
+  'editorial-standards',
+  'security',
+  'data-protection-policy',
+  'privacy-policy',
+  'cookie-policy',
+  'terms-and-conditions',
+];
+const excludedPlaceholders = EXCLUDED_SLUGS.map(() => '?').join(',');
+
 // Get total count
 const countResult = await db
-  .prepare(`SELECT COUNT(*) as total FROM ec_posts WHERE status = 'published' AND deleted_at IS NULL`)
+  .prepare(
+    `SELECT COUNT(*) as total FROM ec_posts
+     WHERE status = 'published'
+       AND deleted_at IS NULL
+       AND slug NOT IN (${excludedPlaceholders})`
+  )
+  .bind(...EXCLUDED_SLUGS)
   .first<{ total: number }>();
 const total = countResult?.total ?? 0;
 const totalPages = Math.ceil(total / PAGE_SIZE);
@@ -33,11 +59,13 @@ const { results: posts } = await db
   .prepare(
     `SELECT id, slug, title, excerpt, featured_image, post_date, published_at, created_at
      FROM ec_posts
-     WHERE status = 'published' AND deleted_at IS NULL
+     WHERE status = 'published'
+       AND deleted_at IS NULL
+       AND slug NOT IN (${excludedPlaceholders})
      ORDER BY COALESCE(post_date, published_at, created_at) DESC
      LIMIT ? OFFSET ?`
   )
-  .bind(PAGE_SIZE, page * PAGE_SIZE)
+  .bind(...EXCLUDED_SLUGS, PAGE_SIZE, page * PAGE_SIZE)
   .all<PostRow>();
 
 function parseImage(raw: string | null): { src: string; alt: string } | null {
