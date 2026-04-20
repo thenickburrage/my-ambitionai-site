@@ -75,6 +75,15 @@ const schemaMarkup = {
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
 
+    <!-- Google Analytics (GA4) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FMVBRZX3G4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FMVBRZX3G4');
+    </script>
+
     <!-- Per-page additional head content (schema, etc.) -->
     <slot name="head" />
 

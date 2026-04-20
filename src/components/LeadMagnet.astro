@@ -365,8 +365,16 @@ const linkClass = isDark
             document.body.removeChild(a);
 
             try {
+              // Push to dataLayer for anything listening (GTM, Meta, etc.)
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({ event: 'lead_magnet_submit', magnet: 'ai-briefing' });
+              // Fire as a GA4 event so it surfaces in GA4 directly.
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'lead_magnet_submit', {
+                  magnet: 'ai-briefing',
+                  tag: tag,
+                });
+              }
             } catch (e) { /* ignore */ }
           })
           .catch(function () {
