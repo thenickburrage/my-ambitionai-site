@@ -76,6 +76,12 @@ const redirects: Record<string, string> = {
   '/website-design-agency-understand-google/':   '/website-design/',
   '/web-design-agency-red-flag/':                '/website-design/',
   '/website-design-agency/':                     '/website-design/',
+  '/they-ask-you-answer-for-hubspot-agencies/':  '/endless-customers-coaching/',
+  '/website-optimisation-guide-for-leaders/':    '/website-design/',
+  '/content-is-king/':                           '/endless-customers-coaching/',
+  '/website-development/':                       '/website-design/',
+  '/linkedin-for-business-growth/':              '/learning-centre/',
+  '/leveraging-linkedin/':                       '/learning-centre/',
 };
 
 export const onRequest = defineMiddleware(({ request }, next) => {
